@@ -1,0 +1,56 @@
+.container {
+  padding: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+}
+.buttons {
+  background: var(--nav-btn-background);
+  padding: 1vh 2vh;
+  border-radius: 20px;
+}
+.navBtn {
+  margin: 0 2vh;
+  color: white;
+  padding: 1vh;
+  cursor: pointer;
+}
+.navBtn:hover {
+  color: rgb(241, 238, 238);
+}
+.nav {
+  list-style: none;
+  margin-top: 2vh;
+}
+
+.nav li {
+  color: #c7c7c7;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2vh 0 0 0;
+}
+
+.first {
+  transform: translateX(-11vh);
+}
+.sec {
+  transform: translateX(-7vh);
+}
+.third {
+  transform: translateX(-5vh);
+}
+.fourth {
+  transform: translateX(-4vh);
+}
+.fifth {
+  transform: translateX(-3vh);
+}
+.sixth {
+  transform: translateX(-2vh);
+}
+
+.vector {
+  width: 100%;
+}
