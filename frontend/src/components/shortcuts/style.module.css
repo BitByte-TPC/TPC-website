@@ -1,0 +1,28 @@
+.container {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10vh;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.17440479609812676) 13%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+
+.logos {
+  padding-left: 1vh;
+}
+
+.logo {
+  width: 50px;
+  margin-top: 1vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.2);
+}
