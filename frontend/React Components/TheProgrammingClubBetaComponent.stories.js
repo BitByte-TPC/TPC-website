@@ -9,7 +9,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 
-import TheProgrammingClubBeta from "./TheProgrammingClubBetaComponent";
+import TheProgrammingClubFinal from "./TheProgrammingClubFinalComponent";
 
 export const myProps = {
   id: "1",
@@ -23,11 +23,11 @@ export const actions = {
   onActionTwo: action("onActionTwo")
 };
 
-storiesOf("TheProgrammingClubBeta", module)
-  .add("default", () => <TheProgrammingClubBeta {...myProps} {...actions} />)
+storiesOf("TheProgrammingClubFinal", module)
+  .add("default", () => <TheProgrammingClubFinal {...myProps} {...actions} />)
   .add("pinned", () => (
-    <TheProgrammingClubBeta {...myProps} pinned={true} {...actions} />
+    <TheProgrammingClubFinal {...myProps} pinned={true} {...actions} />
   ))
   .add("archived", () => (
-    <TheProgrammingClubBeta {...myProps} archived={true} {...actions} />
+    <TheProgrammingClubFinal {...myProps} archived={true} {...actions} />
   ));
