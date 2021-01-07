@@ -34,7 +34,7 @@ const TheProgrammingClubFinalComponent = props => (
         width={50}
         height={50}
         transform="translate(35 351)"
-        xlinkHref="ComponentTMP_0-image.png"
+        xlinkHref="ComponentTMP_0-image6.png"
       />
       <image
         width={50}
@@ -64,7 +64,7 @@ const TheProgrammingClubFinalComponent = props => (
         width={777}
         height={583}
         transform="translate(169 238)"
-        xlinkHref="ComponentTMP_0-image6.png"
+        xlinkHref="ComponentTMP_0-image.png"
       />
       <text className="c" transform="translate(139 240)">
         <tspan x={0} y={0}>
