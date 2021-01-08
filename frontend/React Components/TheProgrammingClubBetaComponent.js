@@ -30,37 +30,37 @@ const TheProgrammingClubFinalComponent = props => (
         d="M-4,0S147.906,157.909,136.474,453.721-4,1075.355-4,1075.355Z"
         transform="translate(4)"
       />
-      <image
+      <image class="story"
         width={50}
         height={50}
         transform="translate(35 351)"
         xlinkHref="ComponentTMP_0-image6.png"
       />
-      <image
+      <image class="story"
         width={50}
         height={50}
         transform="translate(35 679)"
         xlinkHref="ComponentTMP_0-image2.png"
       />
-      <image
+      <image class="story"
         width={50}
         height={50}
         transform="translate(35 597)"
         xlinkHref="ComponentTMP_0-image3.png"
       />
-      <image
+      <image class="story"
         width={50}
         height={50}
         transform="translate(35 433)"
         xlinkHref="ComponentTMP_0-image4.png"
       />
-      <image
+      <image class="story"
         width={50}
         height={50}
         transform="translate(35 515)"
         xlinkHref="ComponentTMP_0-image5.png"
       />
-      <image
+      <image 
         width={777}
         height={583}
         transform="translate(169 238)"
