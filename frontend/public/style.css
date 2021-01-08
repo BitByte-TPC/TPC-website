@@ -1,0 +1,18 @@
+.e:hover
+{
+    opacity:0.5;
+    font-weight: bold;
+}
+.i:hover,.k:hover
+{
+    opacity:0.5;
+    font-weight: bold;
+}
+.story
+{
+    opacity:0.4;
+}
+.story:hover
+{
+    opacity:1;
+}
