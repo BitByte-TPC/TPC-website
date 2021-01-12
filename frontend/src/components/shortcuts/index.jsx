@@ -2,10 +2,13 @@ import styles from './style.module.css';
 
 
 function Shortcuts() {
+  const log = ()=>{
+    console.log("ehllo");
+  }
   return (
     <div className={styles.container}>
         <div className={styles.logos}>
-        <a href="https://www.github.com"><img className={styles.logo}  src="./ComponentTMP_0-image2.png" alt="github"/></a>
+        <a onClick={log} href="https://www.github.com"><img className={styles.logo}  src="./ComponentTMP_0-image2.png" alt="github"/></a>
         <a href="https://www.facebook.com"><img className={styles.logo} src="./ComponentTMP_0-image3.png" alt="facebook"/></a>
         <a href="https://www.instagram.com"><img className={styles.logo} src="./ComponentTMP_0-image4.png" alt="instagram"/></a>
         <a href="https://www.geeksforgeeks.org"><img className={styles.logo} src="./ComponentTMP_0-image5.png" alt="gfg"/></a>

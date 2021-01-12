@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 :root {
@@ -20,18 +20,17 @@ body {
   min-height: 100vh;
   background-image: var(--background-gradient);
   display: grid;
-  grid-template-columns: 66% 33%;
+  grid-template-columns: 66fr 33fr;
   grid-template-areas: "main nav";
 }
 
-.waveSvg {
-  position: absolute;
-  right: -19vh;
-  height: 100%;
-}
-
-.waveSvg2 {
-  position: absolute;
-  right: -25vh;
-  height: 100%;
+@media only screen and (max-width: 1080px) {
+  .App {
+    grid-template-columns: auto;
+    grid-template-rows: 10% 50% 40%;
+    grid-template-areas:
+      "nav"
+      "main"
+      "footer";
+  }
 }

@@ -26,3 +26,19 @@
 .logo:hover {
   transform: scale(1.2);
 }
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    right: 0;
+    left: auto;
+    position: fixed;
+    width: 7vh;
+    background: none;
+    height: 40vh;
+    margin-top: 60vh;
+    z-index: 4;
+  }
+  .logo {
+    width: 5vh;
+  }
+}
