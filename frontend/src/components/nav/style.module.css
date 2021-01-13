@@ -25,32 +25,6 @@
   margin-top: 2vh;
 }
 
-.nav li {
-  color: #c7c7c7;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 2vh 0 0 0;
-}
-
-.first {
-  transform: translateX(-11vh);
-}
-.sec {
-  transform: translateX(-7vh);
-}
-.third {
-  transform: translateX(-5vh);
-}
-.fourth {
-  transform: translateX(-4vh);
-}
-.fifth {
-  transform: translateX(-3vh);
-}
-.sixth {
-  transform: translateX(-2vh);
-}
-
 .vector {
   width: 100%;
 }

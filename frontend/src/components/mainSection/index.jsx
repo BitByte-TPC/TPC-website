@@ -1,4 +1,5 @@
 import styles from './style.module.css';
+import SvgBackground from '../svgbackground';
 
 
 function Main() {
@@ -8,6 +9,7 @@ function Main() {
         <img src="./ComponentTMP_0-image.png" alt="The Programming Club"/>
         <span className={styles.text}>An Open Coding Community to explore and do a lot more with your friends and members.</span>
         <button className={styles.primaryBtn}>Explore Now</button>
+        <SvgBackground />
     </div>
   );
 }
