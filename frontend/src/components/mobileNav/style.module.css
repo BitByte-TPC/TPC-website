@@ -33,19 +33,10 @@
     flex-direction: column;
     clip-path: circle(66px at 0 0);
     -webkit-clip-path: circle(66px at 0 0);
-    transition: all 1s ease-out;
+    transition: all 0.5s ease-out;
   }
   .activeNav {
     clip-path: circle(200vh at 0 0);
     -webkit-clip-path: circle(200vh at 0 0);
-  }
-
-  li {
-    width: 100vw;
-    padding: 2.5vh 0;
-    text-align: center;
-  }
-  .first {
-    margin-top: 5vh;
   }
 }

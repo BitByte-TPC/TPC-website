@@ -1,5 +1,6 @@
 import styles from './style.module.css';
 import {useState} from "react";
+import NavLinks from "../navLinks";
 
 function MobileNav() {
     const [navState,setNavState] = useState(null);
@@ -19,12 +20,7 @@ function MobileNav() {
                 <rect id="Rectangle_3" data-name="Rectangle 3" width="30" height="4" rx="2" transform="translate(13 31)" fill="#42a9dc"/>
             </g>
         </svg>
-          <li className={styles.first}>Club Registrations</li>
-          <li className={styles.sec}>Leaderboard</li>
-          <li className={styles.third}>Events</li>
-          <li className={styles.fourth}>Sessions</li>
-          <li className={styles.fifth}>Domains</li>
-          <li className={styles.sixth}>Projects</li>
+          <NavLinks />
         </ul>
     </div>
   );

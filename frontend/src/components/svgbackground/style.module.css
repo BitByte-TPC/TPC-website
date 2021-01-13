@@ -1,16 +1,13 @@
 .waveSvg {
-  position: absolute;
+  position: fixed;
   right: -19vh;
   height: 100%;
 }
 
 .waveSvg2 {
-  position: absolute;
+  position: fixed;
   right: -25vh;
   height: 100%;
-}
-.waveSvg3 {
-  display: none;
 }
 
 @media only screen and (max-width: 1080px) {
@@ -19,12 +16,5 @@
   }
   .waveSvg2 {
     display: none;
-  }
-  .waveSvg3 {
-    display: none;
-    position: fixed;
-    bottom: -30%;
-    left: -50%;
-    z-index: 0;
   }
 }
