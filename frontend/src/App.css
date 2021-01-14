@@ -19,18 +19,14 @@ body {
 .App {
   min-height: 100vh;
   background-image: var(--background-gradient);
-  display: grid;
-  grid-template-columns: 66fr 33fr;
-  grid-template-areas: "main nav";
 }
 
 @media only screen and (max-width: 1080px) {
   .App {
-    grid-template-columns: auto;
-    grid-template-rows: 10% 50% 40%;
+    display: grid;
+    grid-template-rows: 10% 90%;
     grid-template-areas:
       "nav"
-      "main"
-      "footer";
+      "primary";
   }
 }
