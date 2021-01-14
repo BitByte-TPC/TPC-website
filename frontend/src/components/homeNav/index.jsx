@@ -5,8 +5,8 @@ function HomeNav() {
   return (
     <div className={styles.container}>
         <div className={styles.buttons}>
-        <span className={styles.navBtn}>About Us</span>
-        <span className={styles.navBtn}>Contact Us</span>
+          <span className={styles.navBtn}>About Us</span>
+          <span className={styles.navBtn}>Contact Us</span>
         </div>
         <ul className={styles.nav}>
           <NavLinks />
