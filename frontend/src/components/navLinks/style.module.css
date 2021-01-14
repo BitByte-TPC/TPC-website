@@ -1,0 +1,54 @@
+li {
+  color: #c7c7c7;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 2vh 0 0 0;
+}
+
+.first {
+  transform: translatex(-11vh);
+}
+.sec {
+  transform: translatex(-7vh);
+}
+.third {
+  transform: translatex(-5vh);
+}
+.fourth {
+  transform: translatex(-4vh);
+}
+.fifth {
+  transform: translatex(-3vh);
+}
+.sixth {
+  transform: translatex(-2vh);
+}
+
+@media only screen and (max-width: 1080px) {
+  li {
+    width: 100vw;
+    padding: 2.5vh 0;
+    text-align: center;
+    margin: 0;
+  }
+
+  .first {
+    transform: translatex(0);
+    margin-top: 7vh;
+  }
+  .sec {
+    transform: translatex(0);
+  }
+  .third {
+    transform: translatex(0);
+  }
+  .fourth {
+    transform: translatex(0);
+  }
+  .fifth {
+    transform: translatex(0);
+  }
+  .sixth {
+    transform: translatex(0);
+  }
+}

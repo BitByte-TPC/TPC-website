@@ -1,0 +1,43 @@
+.container {
+  padding: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 3;
+}
+.buttons {
+  background: var(--nav-btn-background);
+  padding: 1vh 2vh;
+  border-radius: 20px;
+}
+.navBtn {
+  margin: 0 2vh;
+  color: white;
+  padding: 1vh;
+  cursor: pointer;
+}
+.navBtn:hover {
+  color: rgb(241, 238, 238);
+}
+.nav {
+  list-style: none;
+  margin-top: 2vh;
+}
+
+.vector {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1080px) {
+  .buttons,
+  .nav {
+    display: none;
+  }
+  .container {
+    grid-area: footer;
+  }
+  .vector {
+    width: 80%;
+  }
+}

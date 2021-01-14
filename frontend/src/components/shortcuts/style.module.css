@@ -1,0 +1,42 @@
+.container {
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 10vh;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.17440479609812676) 13%,
+    rgba(0, 212, 255, 0) 100%
+  );
+}
+
+.logos {
+  padding-left: 1vh;
+}
+
+.logo {
+  width: 50px;
+  margin-top: 1vh;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    right: 0;
+    left: auto;
+    position: fixed;
+    width: 7vh;
+    background: none;
+    z-index: 3;
+  }
+  .logo {
+    width: 5vh;
+  }
+}
