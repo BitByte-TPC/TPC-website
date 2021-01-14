@@ -1,6 +1,7 @@
 import styles from './style.module.css';
 import SvgBackground from '../svgbackground';
 import HomeNav from "../homeNav";
+import Shortcuts from "../shortcuts";
 
 function HomePage() {
   return (
@@ -13,6 +14,7 @@ function HomePage() {
           <SvgBackground />
       </div>
       <HomeNav />
+      <Shortcuts />
     </div>
   );
 }

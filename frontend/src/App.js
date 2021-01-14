@@ -1,12 +1,10 @@
 import './App.css';
 import HomePage from "./components/homePage";
-import Shortcuts from "./components/shortcuts";
-import Nav from "./components/Nav";
+import Nav from "./components/nav";
 
 function App() {
   return (
     <div className="App">
-      <Shortcuts />
       <Nav />
       <HomePage />
 
