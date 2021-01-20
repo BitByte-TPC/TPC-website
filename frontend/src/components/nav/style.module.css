@@ -12,7 +12,7 @@
     grid-area: nav;
   }
   svg {
-    position: fixed;
+    position: absolute;
     left: 0;
     margin: 2vh;
     z-index: 4;
@@ -20,7 +20,7 @@
   }
 
   .navContainer {
-    position: fixed;
+    position: absolute;
     top: 0;
     background: #14335f;
     height: 100vh;

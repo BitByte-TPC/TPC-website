@@ -17,14 +17,14 @@ body {
 }
 
 .App {
-  min-height: 100vh;
-  background-image: var(--background-gradient);
+  background: var(--background-gradient);
 }
 
 @media only screen and (max-width: 1080px) {
   .App {
+    position: relative;
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 5% 90%;
     grid-template-areas:
       "nav"
       "primary";
