@@ -1,9 +1,20 @@
-.home {
+.fullpage {
   grid-area: primary;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    "home"
+    "about";
+}
+.home {
+  grid-area: home;
   min-height: 100vh;
+  position: relative;
   display: grid;
   grid-template-columns: 66fr 33fr;
   grid-template-areas: "main nav";
+  background-image: url("../../images/homepagebg.png");
+  background-size: cover;
 }
 .container {
   grid-area: main;
@@ -40,9 +51,9 @@
 
 @media only screen and (max-width: 1080px) {
   .home {
-    min-height: 80vh;
     grid-template-columns: auto;
     grid-template-rows: 50% 40%;
+    background-image: none;
     grid-template-areas:
       "main"
       "footer";

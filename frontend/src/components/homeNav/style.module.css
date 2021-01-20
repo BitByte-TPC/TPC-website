@@ -17,6 +17,9 @@
   padding: 1vh;
   cursor: pointer;
 }
+a {
+  text-decoration: none;
+}
 .navBtn:hover {
   color: rgb(241, 238, 238);
 }
@@ -39,5 +42,12 @@
   }
   .vector {
     width: 80%;
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .vector {
+    display: block;
   }
 }

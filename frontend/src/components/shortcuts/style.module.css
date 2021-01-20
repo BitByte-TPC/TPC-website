@@ -1,5 +1,5 @@
 .container {
-  position: fixed;
+  position: absolute;
   left: 0;
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@
   .container {
     right: 0;
     left: auto;
-    position: fixed;
+    position: absolute;
     width: 7vh;
     background: none;
     z-index: 3;
