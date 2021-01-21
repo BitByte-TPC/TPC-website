@@ -18,8 +18,8 @@
 }
 
 .logo {
-  width: 50px;
-  margin-top: 1vh;
+  width: 45px;
+  margin-top: 1.5vh;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }

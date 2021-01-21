@@ -19,6 +19,7 @@
   letter-spacing: 0px;
   color: var(--heading-color);
   z-index: 3;
+  animation: headingAnimation 1s forwards 0s ease-out;
 }
 .text {
   color: white;
@@ -36,6 +37,38 @@
   height: 5vh;
   cursor: pointer;
   font-size: 1.1rem;
+  z-index: 5;
+}
+
+.primaryBtn:focus {
+  border: none;
+  outline: none;
+}
+
+.computer{
+  animation: computerAnimation 1s forwards 0s ease-out;
+}
+
+@keyframes computerAnimation{
+  0%{
+      transform: rotate(0) scale(0.75) translateY(-20%);
+      opacity: 0;
+      }
+  100%{
+      transform: rotate(0) scale(1) translateY(0);
+      opacity: 1;
+      }
+}
+
+@keyframes headingAnimation{
+  0%{
+      transform: rotate(0) translateY(-35%);
+      opacity: 0;
+      }
+  100%{
+      transform: rotate(0) translateY(0);
+      opacity: 1;
+      }
 }
 
 @media only screen and (max-width: 1080px) {
@@ -59,6 +92,6 @@
     width: 70%;
   }
   .text {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 }
