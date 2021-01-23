@@ -39,6 +39,8 @@ li {
 
   .first {
     transform: translatex(0);
+  }
+  .firstLink {
     margin-top: 7vh;
   }
   .sec {
