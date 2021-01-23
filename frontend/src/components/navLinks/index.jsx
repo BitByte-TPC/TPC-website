@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 function NavLinks() {
   return (
     <>
-      <Link to="" style={{ textDecoration: "none" }}>
+      <Link
+        className={styles.firstLink}
+        to=""
+        style={{ textDecoration: "none" }}
+      >
         <li className={styles.first}>Club Registrations</li>
       </Link>
       <Link to="" style={{ textDecoration: "none" }}>

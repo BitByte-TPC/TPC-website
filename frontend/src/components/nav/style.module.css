@@ -38,5 +38,6 @@
   .activeNav {
     clip-path: circle(200vh at 0 0);
     -webkit-clip-path: circle(200vh at 0 0);
+    position: fixed;
   }
 }
