@@ -1,9 +1,10 @@
-import './App.css';
+import "./App.css";
+import React from "react";
 import HomePage from "./components/homePage";
 import Nav from "./components/nav";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
-function App() {
+const Routes: React.FC = () => {
   return (
     <div className="App">
       <Nav />
@@ -12,6 +13,6 @@ function App() {
       </Switch>
     </div>
   );
-}
+};
 
-export default App;
+export default Routes;
