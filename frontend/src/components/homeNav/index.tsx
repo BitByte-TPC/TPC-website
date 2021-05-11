@@ -1,7 +1,8 @@
+import React from "react";
 import styles from "./style.module.css";
 import NavLinks from "../navLinks";
 
-function HomeNav() {
+const HomeNav: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.buttons}>
@@ -16,6 +17,6 @@ function HomeNav() {
       <img className={styles.vector} src="./ComponentTMP_0-image7.png" alt="" />
     </div>
   );
-}
+};
 
 export default HomeNav;

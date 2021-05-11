@@ -1,6 +1,7 @@
+import React from "react";
 import styles from "./style.module.css";
 
-function AboutUs() {
+const AboutUs: React.FC = () => {
   return (
     <div id="about" className={styles.container}>
       <div className={styles.content}>
@@ -37,6 +38,6 @@ function AboutUs() {
       </div>
     </div>
   );
-}
+};
 
 export default AboutUs;

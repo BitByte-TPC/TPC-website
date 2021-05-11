@@ -1,7 +1,8 @@
+import React from "react";
 import styles from "./style.module.css";
 import { Link } from "react-router-dom";
 
-function NavLinks() {
+const NavLinks: React.FC = () => {
   return (
     <>
       <Link to="" className={styles.Link}>
@@ -24,6 +25,6 @@ function NavLinks() {
       </Link>
     </>
   );
-}
+};
 
 export default NavLinks;

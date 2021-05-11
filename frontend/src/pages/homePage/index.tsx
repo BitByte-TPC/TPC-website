@@ -1,9 +1,10 @@
+import React from "react";
 import styles from "./style.module.css";
-import HomeNav from "../homeNav";
-import Shortcuts from "../shortcuts";
-import AboutUs from "../aboutUs";
+import HomeNav from "../../components/homeNav";
+import Shortcuts from "../../components/shortcuts";
+import AboutUs from "../../components/aboutUs";
 
-function HomePage() {
+const HomePage: React.FC = () => {
   return (
     <div className={styles.fullpage}>
       <div className={styles.home}>
@@ -22,6 +23,6 @@ function HomePage() {
       <AboutUs />
     </div>
   );
-}
+};
 
 export default HomePage;
