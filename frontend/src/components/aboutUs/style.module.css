@@ -1,0 +1,54 @@
+.container {
+  height: 100vh;
+  grid-area: about;
+  background-image: url("../../images/about\ us\ –\ 1.png");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-areas: "content vectors";
+}
+.content {
+  grid-area: content;
+}
+
+.heading {
+  color: white;
+  margin: 4vh;
+  margin-bottom: 15vh;
+}
+
+.highlight {
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.para {
+  color: white;
+  font-weight: 400;
+  margin: 2vh;
+}
+
+.vectors {
+  padding-top: 65vh;
+  grid-area: vectors;
+}
+.svgCon {
+  display: flex;
+  justify-content: space-around;
+}
+.aboutImg {
+  height: 80px;
+  width: 80px;
+}
+
+@media only screen and (max-width: 1080px) {
+  .container {
+    display: block;
+  }
+  .vectors {
+    display: none;
+  }
+  .heading {
+    margin-bottom: 7vh;
+  }
+}

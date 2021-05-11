@@ -1,5 +1,6 @@
 li {
   color: #c7c7c7;
+  /* color: white; */
   font-size: 1.1rem;
   font-weight: 600;
   margin: 2vh 0 0 0;
@@ -38,6 +39,8 @@ li {
 
   .first {
     transform: translatex(0);
+  }
+  .firstLink {
     margin-top: 7vh;
   }
   .sec {

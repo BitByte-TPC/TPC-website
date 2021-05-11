@@ -1,11 +1,11 @@
 .waveSvg {
-  position: fixed;
+  position: absolute;
   right: -19vh;
   height: 100%;
 }
 
 .waveSvg2 {
-  position: fixed;
+  position: absolute;
   right: -25vh;
   height: 100%;
 }
