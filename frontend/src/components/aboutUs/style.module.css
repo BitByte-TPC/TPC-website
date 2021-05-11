@@ -14,6 +14,7 @@
 .heading {
   color: white;
   margin: 4vh;
+  margin-bottom: 15vh;
 }
 
 .highlight {
@@ -46,5 +47,8 @@
   }
   .vectors {
     display: none;
+  }
+  .heading {
+    margin-bottom: 7vh;
   }
 }
