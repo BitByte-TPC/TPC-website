@@ -11,7 +11,7 @@
     display: block;
     grid-area: nav;
   }
-  svg {
+  .somesvg {
     position: absolute;
     left: 0;
     margin: 2vh;

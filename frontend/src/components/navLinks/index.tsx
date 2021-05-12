@@ -17,7 +17,7 @@ const NavLinks: React.FC = () => {
       <Link to="" className={styles.Link}>
         <li className={styles.fourth}>Sessions</li>
       </Link>
-      <Link to="" className={styles.Link}>
+      <Link to="/domains" className={styles.Link}>
         <li className={styles.fifth}>Domains</li>
       </Link>
       <Link to="" className={styles.Link}>

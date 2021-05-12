@@ -13,6 +13,7 @@ const Nav: React.FC = () => {
     <div className={styles.container}>
       <ul className={`${styles.navContainer} ${navState}`}>
         <svg
+          className={styles.somesvg}
           onClick={openNav}
           xmlns="http://www.w3.org/2000/svg"
           width="33"
