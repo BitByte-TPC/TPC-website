@@ -56,30 +56,30 @@
   outline: none;
 }
 
-.computer{
+.computer {
   animation: computerAnimation 1s forwards 0s ease-out;
 }
 
-@keyframes computerAnimation{
-  0%{
-      transform: rotate(0) scale(0.75) translateY(-20%);
-      opacity: 0;
-      }
-  100%{
-      transform: rotate(0) scale(1) translateY(0);
-      opacity: 1;
-      }
+@keyframes computerAnimation {
+  0% {
+    transform: rotate(0) scale(0.75) translateY(-20%);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) scale(1) translateY(0);
+    opacity: 1;
+  }
 }
 
-@keyframes headingAnimation{
-  0%{
-      transform: rotate(0) translateY(-35%);
-      opacity: 0;
-      }
-  100%{
-      transform: rotate(0) translateY(0);
-      opacity: 1;
-      }
+@keyframes headingAnimation {
+  0% {
+    transform: rotate(0) translateY(-35%);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0) translateY(0);
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 1080px) {

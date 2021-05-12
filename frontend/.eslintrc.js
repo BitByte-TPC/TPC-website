@@ -1,10 +1,9 @@
 module.exports = {
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:jest/recommended",
     "plugin:prettier/recommended",
   ],
-  plugins: ["react", "@typescript-eslint", "jest"],
+  plugins: ["@typescript-eslint"],
   env: {
     browser: true,
     es6: true,
@@ -17,7 +16,7 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: "module",
-    project: "./tsconfig.json",
+    // project: "./tsconfig.json",
   },
   rules: {
     "prettier/prettier": [
