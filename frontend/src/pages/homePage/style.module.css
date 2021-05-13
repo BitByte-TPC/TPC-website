@@ -1,14 +1,13 @@
 .fullpage {
-  grid-area: primary;
-  display: grid;
+  /* display: grid;
   grid-template-rows: 50% 50%;
   grid-template-areas:
     "home"
-    "about";
+    "about"; */
 }
 .home {
-  grid-area: home;
   min-height: 100vh;
+  /* grid-area: home; */
   position: relative;
   display: grid;
   grid-template-columns: 66fr 33fr;
@@ -95,14 +94,17 @@
     justify-content: right;
   }
   .heading {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     text-align: center;
-    margin-top: 0vh;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
   }
   img {
-    width: 70%;
+    width: 100%;
   }
   .text {
-    font-size: 0.8rem;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    font-size: 1rem;
   }
 }

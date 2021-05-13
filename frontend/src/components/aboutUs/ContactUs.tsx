@@ -1,11 +1,16 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Container, Typography } from "@material-ui/core";
+import { Container, Link, Typography, Theme } from "@material-ui/core";
+import { Email, Facebook, GitHub, Instagram } from "@material-ui/icons";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      minHeight: "20vh",
+      paddingTop: "2vh",
+      [theme.breakpoints.down("md")]: {
+        paddingTop: 0,
+      },
+      minHeight: "10vh",
       background: "var(--svg-bg)",
     },
     flexbox: {
@@ -13,6 +18,19 @@ const useStyles = makeStyles(() =>
       display: "flex",
       justifyContent: "space-around",
       flexWrap: "wrap",
+    },
+    atag: {
+      display: "flex",
+      justifyContent: "space-around",
+      alignContent: "center",
+      margin: "1vh",
+    },
+    text: {
+      color: "#ededed",
+      marginLeft: "1vh",
+    },
+    icon: {
+      color: "#ededed",
     },
   })
 );
@@ -22,21 +40,43 @@ const ContactUs: React.FC = () => {
   return (
     <div className={classes.root}>
       <Container className={classes.flexbox}>
-        <a href="#" target="_blank">
-          <Typography>Bitbyte</Typography>
+        <a href="#" target="_blank" className={classes.atag}>
+          <GitHub className={classes.icon} fontSize="small" />
+          <Typography className={classes.text} component="span">
+            BitByte
+          </Typography>
         </a>
-        <a href="#" target="_blank">
-          <Typography>Bitbyte</Typography>
+        <a href="#" target="_blank" className={classes.atag}>
+          <Facebook className={classes.icon} fontSize="small" />
+          <Typography className={classes.text} component="span">
+            BitByte
+          </Typography>
         </a>
-        <a href="#" target="_blank">
-          <Typography>Bitbyte</Typography>
+        <a href="#" target="_blank" className={classes.atag}>
+          <Email className={classes.icon} fontSize="small" />
+          <Typography className={classes.text} component="span">
+            BitByte
+          </Typography>
         </a>
-        <a href="#" target="_blank">
-          <Typography>Bitbyte</Typography>
+        <a href="#" target="_blank" className={classes.atag}>
+          <Instagram className={classes.icon} fontSize="small" />
+          <Typography className={classes.text} component="span">
+            BitByte
+          </Typography>
         </a>
-        <a href="#" target="_blank">
-          <Typography>Bitbyte</Typography>
-        </a>
+        <span className={classes.atag}>
+          <Typography className={classes.text} component="span">
+            Contribute to the website{" "}
+            <Link
+              underline="always"
+              href="https://google.com"
+              target="_blank"
+              className={classes.icon}
+            >
+              here
+            </Link>
+          </Typography>
+        </span>
       </Container>
     </div>
   );

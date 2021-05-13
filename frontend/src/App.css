@@ -34,14 +34,3 @@ body::-webkit-scrollbar-thumb {
 .App {
   background: var(--background-gradient);
 }
-
-@media only screen and (max-width: 1080px) {
-  .App {
-    /* position: relative; */
-    display: grid;
-    grid-template-rows: 5% 90%;
-    grid-template-areas:
-      "nav"
-      "primary";
-  }
-}

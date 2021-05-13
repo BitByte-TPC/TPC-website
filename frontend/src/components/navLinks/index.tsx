@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NavLinks: React.FC = () => {
   return (
     <>
-      <Link to="" className={styles.Link}>
+      <Link to="" className={`${styles.Link} ${styles.firstLink}`}>
         <li className={styles.first}>Club Registrations</li>
       </Link>
       <Link to="" className={styles.Link}>

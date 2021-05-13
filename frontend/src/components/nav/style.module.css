@@ -9,6 +9,7 @@
 @media only screen and (max-width: 1080px) {
   .container {
     display: block;
+    /* position: absolute; */
     grid-area: nav;
   }
   .somesvg {

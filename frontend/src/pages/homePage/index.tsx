@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import HomeNav from "../../components/homeNav";
 import Shortcuts from "../../components/shortcuts";
 import AboutUs from "../../components/aboutUs";
-// import ContactUs from "src/components/aboutUs/ContactUs";
+import ContactUs from "src/components/aboutUs/ContactUs";
 import Nav from "../../components/nav";
 
 const HomePage: React.FC = () => {
@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
           <Shortcuts />
         </div>
         <AboutUs />
-        {/* <ContactUs /> */}
+        <ContactUs />
       </div>
     </>
   );
