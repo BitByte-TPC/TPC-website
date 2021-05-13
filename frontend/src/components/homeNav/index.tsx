@@ -14,7 +14,11 @@ const HomeNav: React.FC = () => {
       <ul className={styles.nav}>
         <NavLinks />
       </ul>
-      <img className={styles.vector} src="./ComponentTMP_0-image7.png" alt="" />
+      <img
+        className={styles.vector}
+        src="/images/ComponentTMP_0-image7.png"
+        alt=""
+      />
     </div>
   );
 };

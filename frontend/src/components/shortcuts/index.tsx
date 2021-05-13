@@ -12,7 +12,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="./ComponentTMP_0-image2.png"
+            src="/images/other/ComponentTMP_0-image2.png"
             alt="github"
           />
         </a>
@@ -23,14 +23,14 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="./ComponentTMP_0-image3.png"
+            src="/images/other/ComponentTMP_0-image3.png"
             alt="facebook"
           />
         </a>
         <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
           <img
             className={styles.logo}
-            src="./ComponentTMP_0-image4.png"
+            src="/images/other/ComponentTMP_0-image4.png"
             alt="instagram"
           />
         </a>
@@ -41,14 +41,14 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="./ComponentTMP_0-image5.png"
+            src="/images/other/ComponentTMP_0-image5.png"
             alt="gfg"
           />
         </a>
         <a href="https://www.codeforces.com" target="_blank" rel="noreferrer">
           <img
             className={styles.logo}
-            src="./ComponentTMP_0-image6.png"
+            src="/images/other/ComponentTMP_0-image6.png"
             alt="codeforces"
           />
         </a>

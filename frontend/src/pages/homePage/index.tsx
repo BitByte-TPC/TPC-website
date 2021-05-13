@@ -3,6 +3,7 @@ import styles from "./style.module.css";
 import HomeNav from "../../components/homeNav";
 import Shortcuts from "../../components/shortcuts";
 import AboutUs from "../../components/aboutUs";
+// import ContactUs from "src/components/aboutUs/ContactUs";
 import Nav from "../../components/nav";
 
 const HomePage: React.FC = () => {
@@ -13,7 +14,10 @@ const HomePage: React.FC = () => {
         <div className={styles.home}>
           <div className={styles.container}>
             <span className={styles.heading}>The Programming Club IIITDMJ</span>
-            <img src="./ComponentTMP_0-image.png" alt="The Programming Club" />
+            <img
+              src="/images/other/ComponentTMP_0-image.png"
+              alt="The Programming Club"
+            />
             <span className={styles.text}>
               An Open Coding Community to explore and do a lot more with your
               friends and members.
@@ -24,6 +28,7 @@ const HomePage: React.FC = () => {
           <Shortcuts />
         </div>
         <AboutUs />
+        {/* <ContactUs /> */}
       </div>
     </>
   );

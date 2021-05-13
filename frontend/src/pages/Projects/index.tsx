@@ -3,6 +3,7 @@ import NavBar from "../../components/Navbar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import ProjectCard from "src/components/Cards/ProjectCard";
+import { projectlist } from "./projectlist";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -29,8 +30,10 @@ const Projects: React.FC = () => {
   return (
     <div className={classes.root}>
       <NavBar />
-      <Container>
-        <ProjectCard />
+      <Container className={classes.flexbox}>
+        {projectlist.map((project, key) => (
+          <ProjectCard key={key} {...project} />
+        ))}
       </Container>
     </div>
   );

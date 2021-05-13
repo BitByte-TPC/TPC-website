@@ -33,7 +33,7 @@ const DomainCard: React.FC = () => {
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image="/profile/profilepic.jfif"
+        image="/images/profile/profilepic.jfif"
         title="Aksh"
       />
       <CardContent>

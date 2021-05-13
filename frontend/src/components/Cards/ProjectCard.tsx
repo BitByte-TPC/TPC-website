@@ -1,13 +1,16 @@
 import React from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Card, CardContent, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       margin: "2vh",
-      height: "20vh",
+      minHeight: "20vh",
       width: "53vh",
+      [theme.breakpoints.down("xs")]: {
+        width: "80vw",
+      },
       background: "#FFD166",
     },
     title: {
@@ -28,23 +31,37 @@ const useStyles = makeStyles(() =>
     },
   })
 );
-const ProjectCard: React.FC = () => {
+
+interface ProjectCardProps {
+  projectName: string;
+  lang: string;
+  description: string;
+  dev: string;
+  url: string;
+}
+
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  projectName,
+  lang,
+  description,
+  dev,
+  url,
+}) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title} component="span">
-          Project_Name
-        </Typography>
+        <a href={url} target="_blank">
+          <Typography className={classes.title} component="span">
+            {projectName}
+          </Typography>
+        </a>
         <Typography className={classes.lang} component="span">
-          Typescript
+          {lang}
         </Typography>
-        <Typography className={classes.body}>
-          A deployment tool written in PHP with support for popular frameworks
-          out of the box
-        </Typography>
+        <Typography className={classes.body}>{description}</Typography>
         <Typography className={classes.owner} align="right">
-          Aksh
+          {dev}
         </Typography>
       </CardContent>
     </Card>

@@ -20,7 +20,7 @@ const NavLinks: React.FC = () => {
       <Link to="/domains" className={styles.Link}>
         <li className={styles.fifth}>Domains</li>
       </Link>
-      <Link to="" className={styles.Link}>
+      <Link to="/projects" className={styles.Link}>
         <li className={styles.sixth}>Projects</li>
       </Link>
     </>
