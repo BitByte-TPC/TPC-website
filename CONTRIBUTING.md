@@ -39,10 +39,10 @@ commit messages are standardized:
 
 ### Before making PR
 
-- Run `git fetch upstream` & `git rebase upstream/main` to fetch updated codebase into your local repo.
+- Run `git fetch upstream` & `git rebase upstream/main` to fetch updated codebase into your local repository before creating any new branch.
 - Run `git checkout -b <your-branch-name>`
 
 ## License
 
-By contributing to DogeHouse, you agree that your contributions will be licensed
+By contributing to TPC-website, you agree that your contributions will be licensed
 under the [LICENSE file](LICENSE).
