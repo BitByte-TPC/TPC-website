@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import cors from "cors";
 import refreshTokenRoute from "./routes/refreshtoken";
 import userRoute from "./routes/userRoutes";
+import meetingRoute from "./routes/meetingRoutes";
+import cookieParser from "cookie-parser";
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
@@ -18,6 +20,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
 
 // DB
 mongoose.connect(
@@ -33,6 +36,7 @@ mongoose.connect(
 // ROUTES
 app.use("/api", refreshTokenRoute);
 app.use("/api/user", userRoute);
+app.use("/api/meeting", meetingRoute);
 app.get("/", (_, res) => {
   res.send("hello world");
 });

@@ -5,7 +5,8 @@ import { verify } from "jsonwebtoken";
 const Router = express.Router();
 
 Router.post("/refresh_token", async (req, res) => {
-  const token = req.cookies.jwtCookie;
+  // console.log(req);
+  const token = req.cookies.jid;
   if (!token) {
     console.log("token not found");
     res.send({ ok: false, accessToken: "" });
@@ -20,7 +21,7 @@ Router.post("/refresh_token", async (req, res) => {
       res.send({ ok: false, accessToken: "" });
     }
 
-    const user = await User.findOne({ id: payload.userId });
+    const user = await User.findOne({ _id: payload.userId });
 
     if (!user) {
       console.log("user not found");
