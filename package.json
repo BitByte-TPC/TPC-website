@@ -8,11 +8,12 @@
     "husky": "^6.0.0"
   },
   "scripts": {
-    "frontend:lint": "cd frontend && yarn lint"
+    "frontend:lint": "cd frontend && yarn lint",
+    "server:lint": "cd server && npm run lint"
   },
   "husky": {
     "hooks": {
-        "pre-commit": "npm run frontend:lint"
+      "pre-commit": "npm run frontend:lint && npm run server:lint"
     }
   },
   "repository": {
