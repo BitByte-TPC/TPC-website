@@ -12,7 +12,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import { linklist } from "./linklist";
+import { linklist } from "../linklist";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

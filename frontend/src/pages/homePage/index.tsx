@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./style.module.css";
-import HomeNav from "../../components/homeNav";
+import HomeNav from "../../components/Navs/homeNav";
 import Shortcuts from "../../components/shortcuts";
 import AboutUs from "../../components/aboutUs";
 import ContactUs from "src/components/aboutUs/ContactUs";
-import Nav from "../../components/nav";
+import Nav from "../../components/Navs/homeNavMobile";
 
 const HomePage: React.FC = () => {
   return (

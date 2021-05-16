@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/Navs/Navbar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import ProjectCardv2 from "src/components/Cards/ProjectCardv2";
