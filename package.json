@@ -1,0 +1,29 @@
+{
+  "name": "tpc-website",
+  "version": "1.0.0",
+  "description": "This is the official programming club website",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^6.0.0"
+  },
+  "scripts": {
+    "frontend:lint": "cd frontend && yarn lint",
+    "server:lint": "cd server && npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run frontend:lint && npm run server:lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aksh-Bansal-dev/TPC-website.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aksh-Bansal-dev/TPC-website/issues"
+  },
+  "homepage": "https://github.com/Aksh-Bansal-dev/TPC-website#readme"
+}

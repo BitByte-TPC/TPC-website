@@ -160,3 +160,4 @@ GitHub.sublime-settings
 # React #
 frontend/node_modules
 frontend/.eslintcache
+node_modules/

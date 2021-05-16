@@ -19,6 +19,7 @@ module.exports = {
     // project: "./tsconfig.json",
   },
   rules: {
+    "@typescript-eslint/no-non-null-assertion": "off",
     "prettier/prettier": [
       "error",
       {

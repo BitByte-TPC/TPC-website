@@ -7,9 +7,24 @@ body {
 
 :root {
   --heading-color: #0e153a;
+  --svg-bg: #132d57;
   --primary-btn-color: #3e3d55;
   --nav-btn-background: #707070;
   --background-gradient: linear-gradient(to bottom right, #3650c7, #42abdc);
+  --golden: #ffac2f;
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--heading-color); /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ededed; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
 * {
@@ -18,15 +33,4 @@ body {
 
 .App {
   background: var(--background-gradient);
-}
-
-@media only screen and (max-width: 1080px) {
-  .App {
-    position: relative;
-    display: grid;
-    grid-template-rows: 5% 90%;
-    grid-template-areas:
-      "nav"
-      "primary";
-  }
 }

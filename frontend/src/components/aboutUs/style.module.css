@@ -49,6 +49,7 @@
     display: none;
   }
   .heading {
+    padding-top: 2vh;
     margin-bottom: 7vh;
   }
 }
