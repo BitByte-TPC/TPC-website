@@ -16,7 +16,7 @@ Router.post("/login", async (req: Request, res: Response) => {
     }
 
     const correctPass = gotUser.password;
-    const isValid = await compare(password, correctPass);
+    const isValid = await compare(password, correctPass!);
 
     if (!isValid) {
       // Todo: correct this to incorrect input or something
@@ -31,13 +31,43 @@ Router.post("/login", async (req: Request, res: Response) => {
     }
   } catch (err) {
     console.log("my Error: " + err);
+    res.json({
+      done: false,
+      error: err,
+    });
+  }
+});
+
+// Login with google
+Router.get("/google-login/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+
+    const gotUser = await User.findOne({ _id: id });
+    if (!gotUser) {
+      // Todo: correct this to incorrect input or something
+      throw new Error("User not found");
+    }
+
+    const token = getAccessToken(gotUser);
+    sendRefreshToken(res, gotUser);
+    res.status(200).json({
+      done: true,
+      accessToken: token,
+    });
+  } catch (err) {
+    console.log("my Error: " + err);
+    res.json({
+      done: false,
+      error: err,
+    });
   }
 });
 
 // Register
 Router.post("/register", async (req: Request, res: Response) => {
   try {
-    const { username, email, password, clubs } = req.body;
+    const { username, email, password } = req.body;
     if (!username || !email || !password) {
       throw new Error("Invalid input");
     }
@@ -51,14 +81,13 @@ Router.post("/register", async (req: Request, res: Response) => {
       username,
       email,
       password: hashedPassword,
-      clubs,
     };
 
     User.create(newUser);
     res.status(200).json({ done: "true" });
   } catch (err) {
     console.log("my error: " + err);
-    res.json({ done: false, err: err });
+    res.json({ done: false, error: err });
   }
 });
 
@@ -69,7 +98,7 @@ Router.get("/test", async (_, res: Response) => {
     res.json({ data: allUsers });
   } catch (err) {
     console.log(err);
-    res.json({ err: err });
+    res.json({ done: false, err: err });
   }
 });
 

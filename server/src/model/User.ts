@@ -2,8 +2,9 @@ import mongoose from "mongoose";
 
 interface userInterface extends mongoose.Document {
   username: string;
+  googleId?: string;
   email: string;
-  password: string;
+  password?: string;
   tokenVersion: number;
   clubs?: string[];
   authority: "member" | "admin";
@@ -14,13 +15,15 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  googleId: {
+    type: String,
+  },
   email: {
     type: String,
     required: true,
   },
   password: {
     type: String,
-    required: true,
   },
   tokenVersion: {
     type: Number,
