@@ -91,11 +91,24 @@ Router.post("/register", async (req: Request, res: Response) => {
   }
 });
 
+// TEST ROUTES BELOW NOT FOR PRODUCTION
+
 // Test route to get all users
 Router.get("/test", async (_, res: Response) => {
   try {
     const allUsers = await User.find({});
     res.json({ data: allUsers });
+  } catch (err) {
+    console.log(err);
+    res.json({ done: false, err: err });
+  }
+});
+// Delete user
+Router.delete("/test/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    const data = await User.deleteOne({ _id: id });
+    res.json({ data });
   } catch (err) {
     console.log(err);
     res.json({ done: false, err: err });
