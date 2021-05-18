@@ -4,7 +4,7 @@ import { getAccessToken, sendRefreshToken } from "../utils/tokenstuff";
 import { verify } from "jsonwebtoken";
 const Router = express.Router();
 
-Router.post("/refresh_token", async (req, res) => {
+Router.get("/refresh_token", async (req, res) => {
   // console.log(req);
   const token = req.cookies.jid;
   if (!token) {

@@ -16,7 +16,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const Loading: React.FC = () => {
+const GoogleRedirect: React.FC = () => {
   const classes = useStyles();
   const history = useHistory();
   const { search } = useLocation();
@@ -30,7 +30,7 @@ const Loading: React.FC = () => {
         setToken(payload.accessToken);
         history.push("/events");
       } else {
-        history.push("/login");
+        history.push("/registration");
       }
     };
     googleToken();
@@ -38,4 +38,4 @@ const Loading: React.FC = () => {
   return <div className={classes.root}>Loading...</div>;
 };
 
-export default Loading;
+export default GoogleRedirect;

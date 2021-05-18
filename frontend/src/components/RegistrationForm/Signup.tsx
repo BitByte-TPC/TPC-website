@@ -5,6 +5,7 @@ import { useSignupLoginStyles } from "./signupLoginStyle";
 import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
 import { fetchRegister } from "src/utils/fetchRegister";
+import { useHistory } from "react-router";
 
 interface SignupProps {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -25,6 +26,7 @@ const validSchema = yup.object({
 });
 
 const Signup: React.FC<SignupProps> = ({ setLogin }) => {
+  const history = useHistory();
   const classes = useSignupLoginStyles();
   return (
     <div>
@@ -41,6 +43,7 @@ const Signup: React.FC<SignupProps> = ({ setLogin }) => {
           if (!res.done) {
             console.log("ERROR FROM BACKEND");
           }
+          history.push("/");
           setSubmitting(false);
           resetForm();
         }}

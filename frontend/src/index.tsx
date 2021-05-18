@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 import "./index.css";
-import Routes from "./Routes";
+import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { MuiThemeProvider } from "@material-ui/core";
 import Theme from "./theme/theme";
@@ -13,7 +13,7 @@ ReactDOM.render(
   <SWRConfig value={{ fetcher: fetcher }}>
     <MuiThemeProvider theme={Theme}>
       <BrowserRouter>
-        <Routes />
+        <App />
       </BrowserRouter>
     </MuiThemeProvider>
   </SWRConfig>,

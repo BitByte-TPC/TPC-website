@@ -2,14 +2,12 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { getToken } from "src/store/tokenStore";
 import { Redirect } from "react-router";
+import Navbar from "../../components/Navs/Navbar";
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      height: "100vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
+      minHeight: "100vh",
     },
   })
 );
@@ -17,11 +15,15 @@ const useStyles = makeStyles(() =>
 const Meeting: React.FC = () => {
   const classes = useStyles();
   const token = getToken();
-  if (!!token) {
-    return <div className={classes.root}>SEcure MeEtiNgs</div>;
-  } else {
-    return <Redirect to="/login" />;
+  if (!!!token) {
+    return <Redirect to="/registration" />;
   }
+  return (
+    <div className={classes.root}>
+      <Navbar />
+      SeCurE mEetIng
+    </div>
+  );
 };
 
 export default Meeting;

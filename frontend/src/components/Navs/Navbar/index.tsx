@@ -10,9 +10,11 @@ import {
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { linklist } from "../linklist";
+import { getToken } from "src/store/tokenStore";
+import { logout } from "../../../utils/logout";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -68,6 +70,7 @@ const HomePage: React.FC = () => {
     setdrawerOpen(!drawerOpen);
     return undefined;
   };
+  const history = useHistory();
 
   const drawerList = () => (
     <div
@@ -78,13 +81,30 @@ const HomePage: React.FC = () => {
       // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {linklist.map((e, key) => (
-          <Link to={e.url} key={key}>
-            <ListItem button>
-              <Typography className={classes.other}>{e.name}</Typography>
-            </ListItem>
-          </Link>
-        ))}
+        {linklist.map((e, key) => {
+          if (e.loginReq) {
+            const token = getToken();
+            if (!!token)
+              return (
+                <div
+                  onClick={async () => await logout(history, e.url)}
+                  key={key}
+                >
+                  <ListItem button>
+                    <Typography className={classes.other}>{e.name}</Typography>
+                  </ListItem>
+                </div>
+              );
+            else return null;
+          }
+          return (
+            <Link to={e.url} key={key}>
+              <ListItem button>
+                <Typography className={classes.other}>{e.name}</Typography>
+              </ListItem>
+            </Link>
+          );
+        })}
       </List>
     </div>
   );
@@ -108,11 +128,30 @@ const HomePage: React.FC = () => {
             </Typography>
           </Link>
           <Container className={classes.flexbox}>
-            {linklist.map((e, key) => (
-              <Link to={e.url} key={key}>
-                <Typography className={classes.other}>{e.name}</Typography>
-              </Link>
-            ))}
+            {linklist.map((e, key) => {
+              if (e.loginReq) {
+                const token = getToken();
+                if (!!token) {
+                  return (
+                    <div
+                      onClick={async () => await logout(history, e.url)}
+                      key={key}
+                    >
+                      <Typography className={classes.other}>
+                        {e.name}
+                      </Typography>
+                    </div>
+                  );
+                } else {
+                  return null;
+                }
+              }
+              return (
+                <Link to={e.url} key={key}>
+                  <Typography className={classes.other}>{e.name}</Typography>
+                </Link>
+              );
+            })}
           </Container>
         </Toolbar>
       </AppBar>

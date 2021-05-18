@@ -10,7 +10,7 @@ export const getAccessToken = (user: User): string => {
 
 export const sendRefreshToken = (res: Response, user?: User): void => {
   if (!user) {
-    res.cookie("jid", "");
+    res.cookie("jid", "logout", { httpOnly: true, path: "/api/refresh_token" });
     return;
   }
   res.cookie(
@@ -24,8 +24,8 @@ export const sendRefreshToken = (res: Response, user?: User): void => {
     ),
     {
       httpOnly: true,
-      path: "/",
-      // path: "/api/refresh_token",
+      // path: "/",
+      path: "/api/refresh_token",
     }
   );
 };
