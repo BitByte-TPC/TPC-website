@@ -21,7 +21,6 @@ export const fetchLogin = async (
   const data = await res.json();
   if (data.done) {
     setToken(data.accessToken);
-    console.log(data);
     return data;
   } else {
     return data;

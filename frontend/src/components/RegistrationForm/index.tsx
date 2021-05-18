@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const RegistrationForm: React.FC = () => {
   const classes = useStyles();
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(true);
 
   return (
     <Paper className={classes.main}>

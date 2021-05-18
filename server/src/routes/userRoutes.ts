@@ -91,6 +91,16 @@ Router.post("/register", async (req: Request, res: Response) => {
   }
 });
 
+// Logout
+Router.get("/logout", async (_req: Request, res: Response) => {
+  try {
+    await sendRefreshToken(res);
+    res.status(200).json({ ok: true });
+  } catch (err) {
+    res.json({ ok: false, err: err });
+  }
+});
+
 // TEST ROUTES BELOW NOT FOR PRODUCTION
 
 // Test route to get all users
