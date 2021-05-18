@@ -1,30 +1,30 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Button, TextField } from "@material-ui/core";
+import { Button, Link, Typography } from "@material-ui/core";
+import { useSignupLoginStyles } from "./signupLoginStyle";
+import FormikTextField from "./FormikTextField";
+import * as yup from "yup";
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-    },
-    input: {
-      marginBottom: "2vh",
-      width: "80%",
-    },
-    btn: {
-      background: "var(--golden)",
-      "&:hover": {
-        background: "var(--dark-golden)",
-      },
-    },
-  })
-);
+interface SignupProps {
+  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Signup: React.FC = () => {
-  const classes = useStyles();
+const validSchema = yup.object({
+  username: yup.string().required().min(2),
+  email: yup
+    .string()
+    .required()
+    .max(64)
+    .matches(/^[a-zA-Z0-9]+(@iiitdmj\.ac\.in)$/, "Invalid Email"),
+  password: yup
+    .string()
+    .required()
+    .min(6)
+    .matches(/[0-9]/, "Password must include atleast 1 digit"),
+});
+
+const Signup: React.FC<SignupProps> = ({ setLogin }) => {
+  const classes = useSignupLoginStyles();
   return (
     <div>
       <Formik
@@ -33,6 +33,7 @@ const Signup: React.FC = () => {
           email: "",
           password: "",
         }}
+        validationSchema={validSchema}
         onSubmit={(data, { setSubmitting, resetForm }) => {
           setSubmitting(true);
           console.log(data);
@@ -40,29 +41,20 @@ const Signup: React.FC = () => {
           resetForm();
         }}
       >
-        {({ values, handleChange, handleBlur, isSubmitting }) => (
+        {({ isSubmitting }) => (
           <Form className={classes.root} noValidate autoComplete="off">
-            <TextField
+            <FormikTextField
               name="username"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
               label="Name"
               className={classes.input}
             />
-            <TextField
+            <FormikTextField
               name="email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
               label="Email"
               className={classes.input}
             />
-            <TextField
+            <FormikTextField
               name="password"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
               type="password"
               label="Password"
               className={classes.input}
@@ -79,6 +71,12 @@ const Signup: React.FC = () => {
           </Form>
         )}
       </Formik>
+      <Typography align="center" className={classes.footer}>
+        Already have an account?
+        <Link className={classes.link} onClick={() => setLogin(true)}>
+          Login
+        </Link>
+      </Typography>
     </div>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Button, Paper, Typography } from "@material-ui/core";
+import { Paper, Theme, Typography } from "@material-ui/core";
 import Login from "./Login";
 import Signup from "./Signup";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     title: {
       margin: "4vh",
@@ -12,8 +12,10 @@ const useStyles = makeStyles(() =>
       fontSize: "1.4rem",
     },
     main: {
-      height: "75vh",
-      width: "40vw",
+      width: "30vw",
+      [theme.breakpoints.down("sm")]: {
+        width: "90vw",
+      },
     },
   })
 );
@@ -27,8 +29,7 @@ const RegistrationForm: React.FC = () => {
       <Typography className={classes.title} align="center">
         {login ? "Login" : "Sign Up"}
       </Typography>
-      {login ? <Login /> : <Signup />}
-      <Button onClick={() => setLogin(!login)}>click</Button>
+      {login ? <Login setLogin={setLogin} /> : <Signup setLogin={setLogin} />}
     </Paper>
   );
 };
