@@ -10,19 +10,6 @@ const useStyles = makeStyles(() =>
       justifyContent: "center",
       alignItems: "center",
     },
-    title: {
-      margin: "4vh",
-      color: "white",
-      fontWeight: "bold",
-      fontSize: "1.4rem",
-    },
-    main: {
-      height: "70vh",
-      width: "50vw",
-      display: "flex",
-      justifyContent: "space-around",
-      flexWrap: "wrap",
-    },
   })
 );
 
