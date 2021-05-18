@@ -4,6 +4,7 @@ import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
 import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
+import { fetchRegister } from "src/utils/fetchRegister";
 
 interface SignupProps {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -34,9 +35,12 @@ const Signup: React.FC<SignupProps> = ({ setLogin }) => {
           password: "",
         }}
         validationSchema={validSchema}
-        onSubmit={(data, { setSubmitting, resetForm }) => {
+        onSubmit={async (data, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          console.log(data);
+          const res = await fetchRegister(data);
+          if (!res.done) {
+            console.log("ERROR FROM BACKEND");
+          }
           setSubmitting(false);
           resetForm();
         }}
@@ -72,7 +76,7 @@ const Signup: React.FC<SignupProps> = ({ setLogin }) => {
         )}
       </Formik>
       <Typography align="center" className={classes.footer}>
-        Already have an account?
+        Already have an account?{" "}
         <Link className={classes.link} onClick={() => setLogin(true)}>
           Login
         </Link>

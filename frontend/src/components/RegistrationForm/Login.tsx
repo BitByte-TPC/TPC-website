@@ -4,6 +4,7 @@ import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
 import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
+import { fetchLogin } from "src/utils/fetchLogin";
 
 interface LoginProps {
   setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -33,18 +34,12 @@ const Login: React.FC<LoginProps> = ({ setLogin }) => {
           password: "",
         }}
         validationSchema={validSchema}
-        // validate={(values) => {
-        //   const errors: Record<string, string> = {};
-
-        //   if (values.password.length < 8) {
-        //     errors.password = "Password must be atleast 8 charater long";
-        //   }
-
-        //   return errors;
-        // }}
-        onSubmit={(data, { setSubmitting, resetForm }) => {
+        onSubmit={async (data, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          console.log(data);
+          const res = await fetchLogin(data);
+          if (!res.done) {
+            console.log("ERROR FROM BACKEND");
+          }
           setSubmitting(false);
           resetForm();
         }}
@@ -75,7 +70,7 @@ const Login: React.FC<LoginProps> = ({ setLogin }) => {
         )}
       </Formik>
       <Typography align="center" className={classes.footer}>
-        No Account?
+        No Account?{" "}
         <Link className={classes.link} onClick={() => setLogin(false)}>
           Create one
         </Link>
