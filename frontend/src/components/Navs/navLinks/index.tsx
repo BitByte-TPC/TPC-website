@@ -16,6 +16,13 @@ const NavLinks: React.FC = () => {
     styles.sixth,
   ];
 
+  const handleLogout = async (url: string) => {
+    const res = await logout();
+    if (res) {
+      history.push(url);
+    }
+  };
+
   return (
     <>
       {linklist.map((e, key) => {
@@ -25,7 +32,7 @@ const NavLinks: React.FC = () => {
             return (
               <div
                 key={key}
-                onClick={async () => await logout(history, e.url)}
+                onClick={async () => await handleLogout(e.url)}
                 className={
                   key === 0
                     ? `${styles.Link} ${styles.firstLink}`
