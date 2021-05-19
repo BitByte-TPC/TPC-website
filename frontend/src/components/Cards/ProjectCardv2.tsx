@@ -8,15 +8,15 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       margin: "2vh",
       height: "30vh",
-      width: "30vw",
-      [theme.breakpoints.down("md")]: {
+      width: "60vh",
+      [theme.breakpoints.down("sm")]: {
         width: "80vw",
       },
       background: "#FFD166",
     },
     info: {
-      width: "15vw",
-      [theme.breakpoints.down("md")]: {
+      width: "30vh",
+      [theme.breakpoints.down("sm")]: {
         width: "50vw",
       },
     },
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: 0.5,
     },
     media: {
-      width: "15vw",
-      [theme.breakpoints.down("md")]: {
+      width: "30vh",
+      [theme.breakpoints.down("sm")]: {
         width: "30vw",
       },
       height: "30vh",

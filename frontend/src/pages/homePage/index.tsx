@@ -10,11 +10,12 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Nav />
-      <div className={styles.fullpage}>
+      <div>
         <div className={styles.home}>
           <div className={styles.container}>
             <span className={styles.heading}>The Programming Club IIITDMJ</span>
             <img
+              className={styles.svgimg}
               src="/images/other/ComponentTMP_0-image.png"
               alt="The Programming Club"
             />

@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "100vh",
       color: "white",
     },
+    pseudolink: {
+      cursor: "pointer",
+    },
   })
 );
 const HomePage: React.FC = () => {
@@ -93,7 +96,11 @@ const HomePage: React.FC = () => {
             const token = getToken();
             if (!!token)
               return (
-                <div onClick={async () => await handleLogout(e.url)} key={key}>
+                <div
+                  className={classes.pseudolink}
+                  onClick={async () => await handleLogout(e.url)}
+                  key={key}
+                >
                   <ListItem button>
                     <Typography className={classes.other}>{e.name}</Typography>
                   </ListItem>
@@ -139,6 +146,7 @@ const HomePage: React.FC = () => {
                   return (
                     <div
                       onClick={async () => await handleLogout(e.url)}
+                      className={classes.pseudolink}
                       key={key}
                     >
                       <Typography className={classes.other}>

@@ -6,7 +6,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1180px) {
   .container {
     display: block;
     /* position: absolute; */

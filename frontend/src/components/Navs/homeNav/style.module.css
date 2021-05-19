@@ -32,7 +32,7 @@ a {
   width: 100%;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1180px) {
   .buttons,
   .nav {
     display: none;
