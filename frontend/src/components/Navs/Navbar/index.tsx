@@ -71,6 +71,13 @@ const HomePage: React.FC = () => {
   };
   const history = useHistory();
 
+  const handleLogout = async (url: string) => {
+    const res = await logout();
+    if (res) {
+      history.push(url);
+    }
+  };
+
   const drawerList = () => (
     <div
       className={classes.drawerList}
@@ -85,10 +92,7 @@ const HomePage: React.FC = () => {
             const token = getToken();
             if (!!token)
               return (
-                <div
-                  onClick={async () => await logout(history, e.url)}
-                  key={key}
-                >
+                <div onClick={async () => await handleLogout(e.url)} key={key}>
                   <ListItem button>
                     <Typography className={classes.other}>{e.name}</Typography>
                   </ListItem>
@@ -133,7 +137,7 @@ const HomePage: React.FC = () => {
                 if (!!token) {
                   return (
                     <div
-                      onClick={async () => await logout(history, e.url)}
+                      onClick={async () => await handleLogout(e.url)}
                       key={key}
                     >
                       <Typography className={classes.other}>

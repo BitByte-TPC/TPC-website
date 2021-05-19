@@ -91,6 +91,32 @@ Router.post("/register", async (req: Request, res: Response) => {
   }
 });
 
+// Reset Password
+Router.post("/reset", async (req: Request, res: Response) => {
+  try {
+    const { email, password, newPassword } = req.body;
+    const user = await User.findOne({ email: email });
+    if (!user) {
+      throw new Error("No user found");
+    }
+    const correctPassword = user.password;
+    const isValid = await compare(password, correctPassword!);
+    if (isValid) {
+      const newPasswordHash = await hash(newPassword, 12);
+      const payload = await User.updateOne(
+        { _id: user._id },
+        { password: newPasswordHash }
+      );
+      res.json(payload);
+    } else {
+      throw new Error("Incorrect Password");
+    }
+  } catch (err) {
+    console.log("My Error: " + err);
+    res.json({ ok: false, err: err });
+  }
+});
+
 // Logout
 Router.get("/logout", async (_req: Request, res: Response) => {
   try {

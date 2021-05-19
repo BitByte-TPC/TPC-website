@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
@@ -6,9 +6,12 @@ import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
 import { fetchLogin } from "src/utils/fetchLogin";
 import { useHistory } from "react-router";
+import Snackbar from "@material-ui/core/Snackbar";
+import Alert from "@material-ui/lab/Alert";
 
 interface LoginProps {
-  setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  // setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const validSchema = yup.object({
@@ -24,9 +27,17 @@ const validSchema = yup.object({
     .matches(/[0-9]/, "Password must include atleast 1 digit"),
 });
 
-const Login: React.FC<LoginProps> = ({ setLogin }) => {
+const Login: React.FC<LoginProps> = ({ setPage }) => {
   const history = useHistory();
   const classes = useSignupLoginStyles();
+  const [openError, setOpenError] = useState(false);
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenError(false);
+  };
   return (
     <>
       <Formik
@@ -40,10 +51,12 @@ const Login: React.FC<LoginProps> = ({ setLogin }) => {
           const res = await fetchLogin(data);
           if (!res.done) {
             console.log("ERROR FROM BACKEND");
+            setOpenError(true);
+          } else {
+            resetForm();
+            history.push("/");
           }
-          history.push("/");
           setSubmitting(false);
-          resetForm();
         }}
       >
         {({ isSubmitting }) => (
@@ -72,11 +85,21 @@ const Login: React.FC<LoginProps> = ({ setLogin }) => {
         )}
       </Formik>
       <Typography align="center" className={classes.footer}>
+        <Link className={classes.link} onClick={() => setPage(2)}>
+          Forgot password?
+        </Link>
+      </Typography>
+      <Typography align="center" className={classes.footer}>
         No Account?{" "}
-        <Link className={classes.link} onClick={() => setLogin(false)}>
+        <Link className={classes.link} onClick={() => setPage(1)}>
           Create one
         </Link>
       </Typography>
+      <Snackbar open={openError} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error">
+          Invalid email or password
+        </Alert>
+      </Snackbar>
     </>
   );
 };

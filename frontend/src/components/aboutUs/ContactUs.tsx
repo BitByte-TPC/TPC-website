@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const ContactUs: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div id="contact" className={classes.root}>
       <Container className={classes.flexbox}>
         <a href="#" target="_blank" className={classes.atag}>
           <GitHub className={classes.icon} fontSize="small" />

@@ -9,7 +9,9 @@ const HomeNav: React.FC = () => {
         <a href="#about">
           <span className={styles.navBtn}>About Us</span>
         </a>
-        <span className={styles.navBtn}>Contact Us</span>
+        <a href="#contact">
+          <span className={styles.navBtn}>Contact Us</span>
+        </a>
       </div>
       <ul className={styles.nav}>
         <NavLinks />

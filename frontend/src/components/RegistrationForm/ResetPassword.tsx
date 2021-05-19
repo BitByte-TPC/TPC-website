@@ -4,18 +4,16 @@ import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
 import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
-import { fetchRegister } from "src/utils/fetchRegister";
+import { resetPassword } from "src/utils/resetPassword";
 import { useHistory } from "react-router";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
 
-interface SignupProps {
-  // setLogin: React.Dispatch<React.SetStateAction<boolean>>;
+interface LoginProps {
   setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const validSchema = yup.object({
-  username: yup.string().required().min(2),
   email: yup
     .string()
     .required()
@@ -26,9 +24,14 @@ const validSchema = yup.object({
     .required()
     .min(6)
     .matches(/[0-9]/, "Password must include atleast 1 digit"),
+  newPassword: yup
+    .string()
+    .required("Password is a required field")
+    .min(6)
+    .matches(/[0-9]/, "Password must include atleast 1 digit"),
 });
 
-const Signup: React.FC<SignupProps> = ({ setPage }) => {
+const ResetPassword: React.FC<LoginProps> = ({ setPage }) => {
   const history = useHistory();
   const classes = useSignupLoginStyles();
   const [openError, setOpenError] = React.useState(false);
@@ -40,18 +43,18 @@ const Signup: React.FC<SignupProps> = ({ setPage }) => {
     setOpenError(false);
   };
   return (
-    <div>
+    <>
       <Formik
         initialValues={{
-          username: "",
           email: "",
           password: "",
+          newPassword: "",
         }}
         validationSchema={validSchema}
         onSubmit={async (data, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          const res = await fetchRegister(data);
-          if (!res.done) {
+          const res = await resetPassword(data);
+          if (!res.ok) {
             console.log("ERROR FROM BACKEND");
             setOpenError(true);
           } else {
@@ -64,19 +67,20 @@ const Signup: React.FC<SignupProps> = ({ setPage }) => {
         {({ isSubmitting }) => (
           <Form className={classes.root} noValidate autoComplete="off">
             <FormikTextField
-              name="username"
-              label="Name"
-              className={classes.input}
-            />
-            <FormikTextField
-              name="email"
               label="Email"
               className={classes.input}
+              name="email"
             />
             <FormikTextField
               name="password"
-              type="password"
               label="Password"
+              type="password"
+              className={classes.input}
+            />
+            <FormikTextField
+              name="newPassword"
+              label="New Password"
+              type="password"
               className={classes.input}
             />
             <Button
@@ -86,24 +90,23 @@ const Signup: React.FC<SignupProps> = ({ setPage }) => {
               type="submit"
               className={classes.btn}
             >
-              Sign Up
+              Submit
             </Button>
           </Form>
         )}
       </Formik>
       <Typography align="center" className={classes.footer}>
-        Already have an account?{" "}
         <Link className={classes.link} onClick={() => setPage(0)}>
-          Login
+          Back
         </Link>
       </Typography>
       <Snackbar open={openError} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
-          Email already taken
+          Invalid email or password
         </Alert>
       </Snackbar>
-    </div>
+    </>
   );
 };
 
-export default Signup;
+export default ResetPassword;
