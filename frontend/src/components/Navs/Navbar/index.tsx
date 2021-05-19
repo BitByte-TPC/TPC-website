@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     other: {
       color: "white",
+      paddingLeft: 20,
     },
     drawerList: {
       width: 300,
