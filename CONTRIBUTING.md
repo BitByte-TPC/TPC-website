@@ -30,6 +30,13 @@ commit messages are standardized:
 - Add remote upstream `git add upstream https://github.com/BitByte-TPC/TPC-website.git`
 - Run `npm i` in the root directory of the repository.
 
+### Backend setup
+
+- Start MongoDB server
+- Run `npm install` to install all dependencies
+- Make a `.env` file with all secrets
+- Run `npm run dev` to start server
+
 ### Frontend setup
 
 - Run `cd frontend`

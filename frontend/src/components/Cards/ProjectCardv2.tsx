@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: "flex",
       margin: "2vh",
-      height: "30vh",
+      minHeight: 200,
       width: "60vh",
       [theme.breakpoints.down("sm")]: {
         width: "80vw",
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down("sm")]: {
         width: "30vw",
       },
-      height: "30vh",
+      minHeight: 200,
     },
   })
 );
