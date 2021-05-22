@@ -5,16 +5,13 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "husky": "^6.0.0"
   },
   "scripts": {
-    "frontend:lint": "cd frontend && yarn lint",
+    "frontend:lint": "cd frontend && yarn eslint --init src",
     "server:lint": "cd server && npm run lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run frontend:lint && npm run server:lint"
-    }
   },
   "repository": {
     "type": "git",
