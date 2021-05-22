@@ -10,7 +10,6 @@ export const updateAccessToken = async (
   });
   const payload = await res.json();
   if (payload.ok) {
-    // console.log(payload);
     setToken(payload.accessToken);
   }
   if (setLoading) setLoading(false);

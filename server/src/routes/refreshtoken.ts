@@ -9,8 +9,6 @@ Router.get("/refresh_token", async (req, res) => {
     const token = req.cookies.jid;
     if (!token) {
       throw new Error("token not found");
-      // console.log("token not found");
-      // res.send({ ok: false, accessToken: "" });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let payload: any = null;

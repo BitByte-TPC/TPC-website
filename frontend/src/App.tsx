@@ -20,9 +20,6 @@ const App: React.FC = () => {
   React.useEffect(() => {
     updateAccessToken(setLoading);
   });
-  // if (loading) {
-  //   return <h1>Loading...</h1>;
-  // }
   return (
     <>
       <Routes />
