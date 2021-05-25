@@ -35,6 +35,7 @@ commit messages are standardized:
 - Start MongoDB server
 - Run `npm install` to install all dependencies
 - Make a `.env` file with all secrets. You also need to generate google client id and secret key. You may refer [to this](https://developers.google.com/identity/protocols/oauth2https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret) for the steps.
+  > Note: Put `<server_url>/api/auth/google/redirect` in redirect url when generating google client id and secret.
 - Run `npm run dev` to start server
 
 ### Frontend setup
