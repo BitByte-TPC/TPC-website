@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const RegistrationForm: React.FC = () => {
   const classes = useStyles();
-  // const [login, setLogin] = useState(true);
   const [page, setPage] = useState(0);
   const heading = ["Login", "Sign Up", "Reset Password"];
   const component = [
@@ -39,14 +38,12 @@ const RegistrationForm: React.FC = () => {
   return (
     <Paper className={classes.main}>
       <Typography className={classes.title} align="center">
-        {/* {login ? "Login" : "Sign Up"} */}
         {heading[page]}
       </Typography>
       <GoogleButton />
       <Typography className={classes.or} align="center">
         OR
       </Typography>
-      {/* {login ? <Login setLogin={setLogin} /> : <Signup setLogin={setLogin} />} */}
       {component[page]}
     </Paper>
   );

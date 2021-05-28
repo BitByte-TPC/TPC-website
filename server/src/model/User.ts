@@ -11,7 +11,6 @@ interface userInterface extends mongoose.Document {
   password?: string;
   tokenVersion: number;
   clubs?: clubObj[];
-  // authority: "member" | "admin";
 }
 
 const userSchema: mongoose.Schema = new mongoose.Schema({
@@ -41,14 +40,10 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
       },
       authority: {
         type: String,
+        default: "member",
       },
     },
   ],
-  // authority: {
-  //   type: String,
-  //   required: true,
-  //   default: "member",
-  // },
 });
 
 const User: mongoose.Model<userInterface> = mongoose.model("User", userSchema);

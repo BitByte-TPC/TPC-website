@@ -33,12 +33,12 @@ export const projectlist = [
     image: "/images/projects/comrade.png",
   },
   {
-    projectName: "Path Finding Algorithm Visualizer",
-    lang: "Python",
+    projectName: "Collab Draw",
+    lang: "Typescript",
     description:
-      "Visualization of some of popular path finding algorithms using python",
+      "It's a drawing app that syncs with other browsers using web sockets.",
     dev: "Aksh Bansal",
-    url: "https://github.com/Aksh-Bansal-dev/PathfindingAlgo-Visualization",
-    image: "/images/projects/pathfinding.png",
+    url: "https://github.com/Aksh-Bansal-dev/collab-draw",
+    image: "/images/projects/collabdraw.png",
   },
 ];

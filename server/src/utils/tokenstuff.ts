@@ -24,7 +24,6 @@ export const sendRefreshToken = (res: Response, user?: User): void => {
     ),
     {
       httpOnly: true,
-      // path: "/",
       path: "/api/refresh_token",
     }
   );

@@ -1,6 +1,5 @@
 .home {
   min-height: 100vh;
-  /* grid-area: home; */
   position: relative;
   display: grid;
   grid-template-columns: 66fr 33fr;

@@ -4,6 +4,8 @@ const Router = express.Router();
 import { compare, hash } from "bcryptjs";
 import { getAccessToken, sendRefreshToken } from "../utils/tokenstuff";
 
+const validEmailRegex = /^[a-zA-Z0-9]+(@iiitdmj\.ac\.in)$/;
+
 // Login
 Router.post("/login", async (req: Request, res: Response) => {
   try {
@@ -16,6 +18,10 @@ Router.post("/login", async (req: Request, res: Response) => {
     }
 
     const correctPass = gotUser.password;
+    if (!correctPass) {
+      res.json({ done: false, err: "Please login using google" });
+      return;
+    }
     const isValid = await compare(password, correctPass!);
 
     if (!isValid) {
@@ -69,8 +75,15 @@ Router.post("/register", async (req: Request, res: Response) => {
   try {
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
-      throw new Error("Invalid input");
+      res.json({ done: false, err: "Invalid Input" });
+      return;
     }
+
+    if (!validEmailRegex.test(email)) {
+      res.json({ done: false, err: "Invalid Email" });
+      return;
+    }
+
     const existingUser = await User.findOne({ email: email }).exec();
     if (existingUser) {
       throw new Error("Email already exist");

@@ -7,7 +7,6 @@ Router.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     session: false,
-    // scope: ["https://www.googleapis.com/auth/plus.login"],
   })
 );
 
