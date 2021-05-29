@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import refreshTokenRoute from "./routes/refreshtoken";
 import userRoute from "./routes/userRoutes";
+import googleAuthRoutes from "./routes/googleAuthRoutes";
 import meetingRoute from "./routes/meetingRoutes";
 import cookieParser from "cookie-parser";
+import passport from "passport";
+require("./config/google-oauth");
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
@@ -15,12 +18,12 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    // origin: process.env.CLIENT_URL,
-    origin: "*",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
 app.use(cookieParser());
+app.use(passport.initialize());
 
 // DB
 mongoose.connect(
@@ -36,6 +39,7 @@ mongoose.connect(
 // ROUTES
 app.use("/api", refreshTokenRoute);
 app.use("/api/user", userRoute);
+app.use("/api/auth/google", googleAuthRoutes);
 app.use("/api/meeting", meetingRoute);
 app.get("/", (_, res) => {
   res.send("hello world");

@@ -6,7 +6,7 @@ const Theme = createMuiTheme({
       xs: 0,
       sm: 600,
       md: 960,
-      lg: 1160,
+      lg: 1180,
       xl: 1920,
     },
   },

@@ -8,6 +8,7 @@ li {
 
 .Link {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .first {
@@ -29,7 +30,7 @@ li {
   transform: translatex(-2vh);
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1180px) {
   li {
     width: 100vw;
     padding: 2.5vh 0;

@@ -27,7 +27,7 @@
   transform: scale(1.2);
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1180px) {
   .container {
     right: 0;
     left: auto;

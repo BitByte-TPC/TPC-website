@@ -1,12 +1,16 @@
 import mongoose from "mongoose";
 
+interface clubObj {
+  name: string;
+  authority: "member" | "moderator";
+}
 interface userInterface extends mongoose.Document {
   username: string;
+  googleId?: string;
   email: string;
-  password: string;
+  password?: string;
   tokenVersion: number;
-  clubs?: string[];
-  authority: "member" | "admin";
+  clubs?: clubObj[];
 }
 
 const userSchema: mongoose.Schema = new mongoose.Schema({
@@ -14,28 +18,32 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  googleId: {
+    type: String,
+  },
   email: {
     type: String,
     required: true,
   },
   password: {
     type: String,
-    required: true,
   },
   tokenVersion: {
     type: Number,
     required: true,
     default: 0,
   },
-  clubs: {
-    type: [String],
-    required: false,
-  },
-  authority: {
-    type: String,
-    required: true,
-    default: "member",
-  },
+  clubs: [
+    {
+      name: {
+        type: String,
+      },
+      authority: {
+        type: String,
+        default: "member",
+      },
+    },
+  ],
 });
 
 const User: mongoose.Model<userInterface> = mongoose.model("User", userSchema);

@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 91vh;
   grid-area: about;
   background-image: url("../../images/about\ us\ –\ 1.png");
   background-size: cover;
@@ -41,7 +41,7 @@
   width: 80px;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1180px) {
   .container {
     display: block;
   }

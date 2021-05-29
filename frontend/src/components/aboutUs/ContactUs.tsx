@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down("md")]: {
         paddingTop: 0,
       },
-      minHeight: "10vh",
+      minHeight: "9vh",
       background: "var(--svg-bg)",
     },
     flexbox: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const ContactUs: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div id="contact" className={classes.root}>
       <Container className={classes.flexbox}>
         <a href="#" target="_blank" className={classes.atag}>
           <GitHub className={classes.icon} fontSize="small" />
@@ -69,7 +69,7 @@ const ContactUs: React.FC = () => {
             Contribute to the website{" "}
             <Link
               underline="always"
-              href="https://google.com"
+              href="https://github.com/BitByte-TPC/TPC-website"
               target="_blank"
               className={classes.icon}
             >

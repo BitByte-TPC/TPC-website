@@ -10,9 +10,11 @@ import {
 } from "@material-ui/core";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { linklist } from "../linklist";
+import { getToken } from "src/store/tokenStore";
+import { logout } from "../../../utils/logout";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -58,6 +60,9 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "100vh",
       color: "white",
     },
+    pseudolink: {
+      cursor: "pointer",
+    },
   })
 );
 const HomePage: React.FC = () => {
@@ -67,6 +72,14 @@ const HomePage: React.FC = () => {
   const toggleDrawer = () => {
     setdrawerOpen(!drawerOpen);
     return undefined;
+  };
+  const history = useHistory();
+
+  const handleLogout = async (url: string) => {
+    const res = await logout();
+    if (res) {
+      history.push(url);
+    }
   };
 
   const drawerList = () => (
@@ -78,13 +91,31 @@ const HomePage: React.FC = () => {
       // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {linklist.map((e, key) => (
-          <Link to={e.url} key={key}>
-            <ListItem button>
-              <Typography className={classes.other}>{e.name}</Typography>
-            </ListItem>
-          </Link>
-        ))}
+        {linklist.map((e, key) => {
+          if (e.loginReq) {
+            const token = getToken();
+            if (!!token)
+              return (
+                <div
+                  className={classes.pseudolink}
+                  onClick={async () => await handleLogout(e.url)}
+                  key={key}
+                >
+                  <ListItem button>
+                    <Typography className={classes.other}>{e.name}</Typography>
+                  </ListItem>
+                </div>
+              );
+            else return null;
+          }
+          return (
+            <Link to={e.url} key={key}>
+              <ListItem button>
+                <Typography className={classes.other}>{e.name}</Typography>
+              </ListItem>
+            </Link>
+          );
+        })}
       </List>
     </div>
   );
@@ -108,11 +139,31 @@ const HomePage: React.FC = () => {
             </Typography>
           </Link>
           <Container className={classes.flexbox}>
-            {linklist.map((e, key) => (
-              <Link to={e.url} key={key}>
-                <Typography className={classes.other}>{e.name}</Typography>
-              </Link>
-            ))}
+            {linklist.map((e, key) => {
+              if (e.loginReq) {
+                const token = getToken();
+                if (!!token) {
+                  return (
+                    <div
+                      onClick={async () => await handleLogout(e.url)}
+                      className={classes.pseudolink}
+                      key={key}
+                    >
+                      <Typography className={classes.other}>
+                        {e.name}
+                      </Typography>
+                    </div>
+                  );
+                } else {
+                  return null;
+                }
+              }
+              return (
+                <Link to={e.url} key={key}>
+                  <Typography className={classes.other}>{e.name}</Typography>
+                </Link>
+              );
+            })}
           </Container>
         </Toolbar>
       </AppBar>
