@@ -13,6 +13,7 @@ export const sendRefreshToken = (res: Response, user?: User): void => {
     res.cookie("jid", "logout", { httpOnly: true, path: "/api/refresh_token" });
     return;
   }
+  console.log("happy send");
   res.cookie(
     "jid",
     sign(

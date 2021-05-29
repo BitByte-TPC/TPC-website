@@ -1,7 +1,8 @@
 import { server } from "../store/global";
-import { setToken } from "../store/tokenStore";
 
-export const logout = async (): Promise<boolean> => {
+export const logout = async (
+  setToken: (newToken: string) => void
+): Promise<boolean> => {
   setToken("");
   const res = await fetch(server + "/api/user/logout");
   const payload = await res.json();

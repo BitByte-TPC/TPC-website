@@ -8,6 +8,7 @@ import { fetchRegister } from "src/utils/fetchRegister";
 import { useHistory } from "react-router";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";
+import useTokenStore from "src/store/tokenStore";
 
 interface SignupProps {
   // setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -31,6 +32,7 @@ const validSchema = yup.object({
 const Signup: React.FC<SignupProps> = ({ setPage }) => {
   const history = useHistory();
   const classes = useSignupLoginStyles();
+  const setToken = useTokenStore((state) => state.setToken);
   const [openError, setOpenError] = React.useState(false);
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") {
@@ -50,7 +52,7 @@ const Signup: React.FC<SignupProps> = ({ setPage }) => {
         validationSchema={validSchema}
         onSubmit={async (data, { setSubmitting, resetForm }) => {
           setSubmitting(true);
-          const res = await fetchRegister(data);
+          const res = await fetchRegister(data, setToken);
           if (!res.done) {
             console.log("ERROR FROM BACKEND");
             setOpenError(true);

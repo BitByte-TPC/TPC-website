@@ -8,16 +8,17 @@ import Registration from "./pages/Registration";
 import GoogleRedirect from "./pages/GoogleRedirect";
 import Meeting from "./pages/Meeting";
 import { updateAccessToken } from "./utils/updateAccessToken";
-import { getToken } from "./store/tokenStore";
+import useTokenStore from "./store/tokenStore";
 
+const REFRESH_TIME_MS = 60 * 60 * 1000;
 const Routes: React.FC = () => {
-  const REFRESH_TIME_MS = 60 * 60 * 1000;
+  const accessToken = useTokenStore((state) => state.token);
+  const setToken = useTokenStore((state) => state.setToken);
   React.useEffect(() => {
     const interval = setInterval(() => {
-      const accessToken = getToken();
       if (!!accessToken) {
         console.log("Refreshing token...");
-        updateAccessToken();
+        updateAccessToken(setToken);
       }
     }, REFRESH_TIME_MS);
 

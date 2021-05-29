@@ -7,7 +7,8 @@ interface bodyTypes {
   password: string;
 }
 export const fetchRegister = async (
-  body: bodyTypes
+  body: bodyTypes,
+  setToken: (newState: string) => void
 ): Promise<{ done: boolean }> => {
   const res = await fetch(server + "/api/user/register", {
     method: "POST",
@@ -20,7 +21,7 @@ export const fetchRegister = async (
 
   const data = await res.json();
   if (data.done) {
-    await fetchLogin(body);
+    await fetchLogin(body, setToken);
     return data;
   } else {
     return data;

@@ -55,11 +55,13 @@ Router.get("/google-login/:token", async (req: Request, res: Response) => {
 
     if (!payload) {
       res.json({ done: false, err: "Invalid id" });
+      return;
     }
 
     const gotUser = await User.findOne({ googleId: payload.id });
     if (!gotUser) {
-      throw new Error("User not found");
+      res.json({ done: false, err: "User not found" });
+      return;
     }
 
     const token = getAccessToken(gotUser);
@@ -72,7 +74,7 @@ Router.get("/google-login/:token", async (req: Request, res: Response) => {
     console.log("my Error: " + err);
     res.json({
       done: false,
-      error: err,
+      error: "Something went wrong",
     });
   }
 });

@@ -3,9 +3,10 @@ import styles from "./style.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { linklist } from "../linklist";
 import { logout } from "src/utils/logout";
-import { getToken } from "src/store/tokenStore";
+import useTokenStore from "src/store/tokenStore";
 
 const NavLinks: React.FC = () => {
+  const setToken = useTokenStore((state) => state.setToken);
   const history = useHistory();
   const styling = [
     styles.first,
@@ -17,17 +18,17 @@ const NavLinks: React.FC = () => {
   ];
 
   const handleLogout = async (url: string) => {
-    const res = await logout();
+    const res = await logout(setToken);
     if (res) {
       history.push(url);
     }
   };
+  const token = useTokenStore((state) => state.token);
 
   return (
     <>
       {linklist.map((e, key) => {
         if (e.loginReq) {
-          const token = getToken();
           if (!!token) {
             return (
               <div
