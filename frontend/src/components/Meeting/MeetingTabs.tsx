@@ -1,11 +1,12 @@
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
-import { makeStyles, Theme, useTheme } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
 import MeetingCard from "./MeetingCard";
+import "./MeetingTabs.css";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -16,9 +17,11 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
+  const classes = useStyles();
 
   return (
     <div
+      className={classes.cardContainer}
       role="tabpanel"
       hidden={value !== index}
       id={`full-width-tabpanel-${index}`}
@@ -37,12 +40,19 @@ function a11yProps(index: number) {
   };
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     width: "100vw",
   },
   tabbar: {
-    backgroundColor: theme.palette.background.paper,
+    color: "white",
+    background: "rgba(0, 0, 0, 0.5)",
+  },
+  cardContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    overflow: "hidden",
   },
 }));
 
@@ -62,15 +72,13 @@ const MeetingTabs: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar className={classes.tabbar} position="static" color="default">
         <Tabs
-          className={classes.tabbar}
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
+          indicatorColor="secondary"
+          textColor="inherit"
           variant="fullWidth"
-          aria-label="full width tabs example"
         >
           <Tab label="Meetings" {...a11yProps(0)} />
           <Tab label="Polls" {...a11yProps(1)} />

@@ -13,6 +13,7 @@ body {
   --background-gradient: linear-gradient(to bottom right, #3650c7, #42abdc);
   --golden: #ffac2f;
   --dark-golden: #ff9c08;
+  --light-golden: #ffd166;
 }
 
 body::-webkit-scrollbar {

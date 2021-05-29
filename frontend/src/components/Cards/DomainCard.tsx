@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
       margin: "1vh",
       height: "38vh",
       width: "30vh",
-      background: "#FFD166",
+      background: "#ffd166",
     },
     title: {
       fontSize: "1.2rem",
