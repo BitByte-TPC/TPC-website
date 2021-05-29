@@ -3,6 +3,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { getToken } from "src/store/tokenStore";
 import { Redirect } from "react-router";
 import Navbar from "../../components/Navs/Navbar";
+import MeetingTabs from "src/components/Meeting/MeetingTabs";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -21,7 +22,7 @@ const Meeting: React.FC = () => {
   return (
     <div className={classes.root}>
       <Navbar />
-      SeCurE mEetIng
+      <MeetingTabs />
     </div>
   );
 };

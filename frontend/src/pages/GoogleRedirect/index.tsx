@@ -21,7 +21,7 @@ const GoogleRedirect: React.FC = () => {
   const history = useHistory();
   const { search } = useLocation();
   const queries = queryString.parse(search);
-  const id = queries.user_id;
+  const id = queries.token;
   React.useEffect(() => {
     const googleToken = async () => {
       const res = await fetch(server + "/api/user/google-login/" + id);

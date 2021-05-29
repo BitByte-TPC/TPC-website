@@ -3,6 +3,7 @@ import { User } from "../model/User";
 const Router = express.Router();
 import { compare, hash } from "bcryptjs";
 import { getAccessToken, sendRefreshToken } from "../utils/tokenstuff";
+import { verify } from "jsonwebtoken";
 
 const validEmailRegex = /^[a-zA-Z0-9]+(@iiitdmj\.ac\.in)$/;
 
@@ -45,13 +46,19 @@ Router.post("/login", async (req: Request, res: Response) => {
 });
 
 // Login with google
-Router.get("/google-login/:id", async (req: Request, res: Response) => {
+Router.get("/google-login/:token", async (req: Request, res: Response) => {
   try {
-    const id = req.params.id;
+    const tempToken = req.params.token;
 
-    const gotUser = await User.findOne({ _id: id });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const payload: any = verify(tempToken, process.env.JWT_SECRET!);
+
+    if (!payload) {
+      res.json({ done: false, err: "Invalid id" });
+    }
+
+    const gotUser = await User.findOne({ googleId: payload.id });
     if (!gotUser) {
-      // Todo: correct this to incorrect input or something
       throw new Error("User not found");
     }
 
@@ -86,7 +93,8 @@ Router.post("/register", async (req: Request, res: Response) => {
 
     const existingUser = await User.findOne({ email: email }).exec();
     if (existingUser) {
-      throw new Error("Email already exist");
+      res.json({ done: false, err: "Email already exists" });
+      return;
     }
     const hashedPassword = await hash(password, 12);
 
@@ -161,6 +169,41 @@ Router.delete("/test/:id", async (req: Request, res: Response) => {
   } catch (err) {
     console.log(err);
     res.json({ done: false, err: err });
+  }
+});
+// Create Admins
+Router.post("/register-admin", async (req: Request, res: Response) => {
+  try {
+    const { username, email, password, clubs } = req.body;
+    if (!username || !email || !password || !clubs) {
+      res.json({ done: false, err: "Invalid Input" });
+      return;
+    }
+
+    if (!validEmailRegex.test(email)) {
+      res.json({ done: false, err: "Invalid Email" });
+      return;
+    }
+
+    const existingUser = await User.findOne({ email: email }).exec();
+    if (existingUser) {
+      res.json({ done: false, err: "Email already exists" });
+      return;
+    }
+    const hashedPassword = await hash(password, 12);
+
+    const newUser = {
+      username,
+      email,
+      password: hashedPassword,
+      clubs,
+    };
+
+    User.create(newUser);
+    res.status(200).json({ done: "true" });
+  } catch (err) {
+    console.log("my error: " + err);
+    res.json({ done: false, error: "Something went wrong" });
   }
 });
 

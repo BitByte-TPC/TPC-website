@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 interface clubObj {
   name: string;
-  authority: "member" | "moderator";
+  authority: "member" | "admin";
 }
 interface userInterface extends mongoose.Document {
   username: string;
@@ -40,6 +40,7 @@ const userSchema: mongoose.Schema = new mongoose.Schema({
       },
       authority: {
         type: String,
+        enum: ["member", "admin"],
         default: "member",
       },
     },

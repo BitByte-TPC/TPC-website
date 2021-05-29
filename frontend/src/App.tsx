@@ -4,6 +4,7 @@ import { updateAccessToken } from "./utils/updateAccessToken";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { getToken } from "./store/tokenStore";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,7 +19,12 @@ const App: React.FC = () => {
   const classes = useStyles();
   const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
-    updateAccessToken(setLoading);
+    const accessToken = getToken();
+    if (!!accessToken) {
+      updateAccessToken(setLoading);
+    } else {
+      setLoading(false);
+    }
   });
   return (
     <>

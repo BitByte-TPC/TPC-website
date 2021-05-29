@@ -1,8 +1,8 @@
 import express, { Request, Response } from "express";
-import { Meeting } from "../model/Meeting";
+import { Poll } from "../model/Poll";
 import authValidation from "../middleware/authValidation";
 import adminAuthValidation from "../middleware/adminAuthValidation";
-import { User } from "../model/User";
+import { verify } from "jsonwebtoken";
 const Router = express.Router();
 
 // Create
@@ -11,17 +11,16 @@ Router.post(
   adminAuthValidation,
   async (req: Request, res: Response) => {
     try {
-      const { title, description, datetime, club } = req.body;
-      if (!title || !description || !datetime || !club) {
+      const { question, club, options } = req.body;
+      if (!question || !club || !options) {
         return res.json({ done: false, err: "Incomplete data" });
       }
-      const nextMeeting = {
-        title,
-        description,
-        datetime,
+      const newPoll = {
+        question,
+        options,
         club,
       };
-      await Meeting.create(nextMeeting);
+      await Poll.create(newPoll);
       return res.json({ done: true });
     } catch (err) {
       console.log("my error: " + err);
@@ -36,17 +35,17 @@ Router.get("/get_all", authValidation, async (req: Request, res: Response) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const query: any = req.query.year;
     if (!query) {
-      const meetings = await Meeting.find({});
-      return res.json({ data: meetings });
+      const polls = await Poll.find({});
+      return res.json({ data: polls });
     }
     const year = parseInt(query.substring(0, 4));
-    const meetings = await Meeting.find({
-      datetime: {
+    const polls = await Poll.find({
+      createdAt: {
         $gte: new Date(year, 0, 1),
         $lt: new Date(year + 1, 0, 1),
       },
     });
-    return res.json({ data: meetings });
+    return res.json({ data: polls });
   } catch (err) {
     console.log("my error: " + err);
     return res.json({ done: false, err: "Something went wrong" });
@@ -59,11 +58,8 @@ Router.patch(
   adminAuthValidation,
   async (req: Request, res: Response) => {
     try {
-      const { title, description, datetime, club } = req.body;
-      const ret = await Meeting.updateOne(
-        { _id: req.params.id },
-        { title, description, datetime, club }
-      );
+      const { question } = req.body;
+      const ret = await Poll.updateOne({ _id: req.params.id }, { question });
       return res.json({ done: true, data: ret });
     } catch (err) {
       console.log("my error: " + err);
@@ -72,35 +68,48 @@ Router.patch(
   }
 );
 
-// Register
+// Vote
 Router.patch(
-  "/register/:id",
+  "/vote/:id",
   authValidation,
   async (req: Request, res: Response) => {
     try {
-      const meetingId = req.params.id;
-      // TODO: Take memberid from jwt token
-      const { memberId } = req.body;
-      const meeting = await Meeting.findById(meetingId);
-      if (!meeting) {
-        return res.json({ done: false, err: "Meeting does not exists" });
+      const pollId = req.params.id;
+      const { optionId } = req.body;
+      const accessToken = req.headers.authorization?.split(" ")[1];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const payload: any = verify(accessToken!, process.env.JWT_SECRET!);
+      const userId = payload.userId;
+      if (!optionId) {
+        console.log(optionId);
+        return res.json({ done: false, err: "Invalid option" });
       }
-      const registers = meeting?.registered;
-      if (!registers) {
-        return res.json({ done: false, err: "Invalid meeting" });
+      const poll = await Poll.findById(pollId);
+      if (!poll) {
+        return res.json({ done: false, err: "Poll does not exists" });
       }
-      const user = await User.findById(memberId);
-      if (!user) {
-        return res.json({ done: false, err: "Invalid user" });
+      const options = poll?.options;
+      const voters = poll.voters;
+      if (!options) {
+        return res.json({ done: false, err: "Invalid poll" });
       }
-      const ret = await Meeting.updateOne(
-        { _id: meetingId },
+      const hasVotedBefore = poll.voters.find((e) => e === userId);
+      if (hasVotedBefore) {
+        return res.json({ done: false, err: "You cannot vote again" });
+      }
+
+      const updatedOptions = options.map((e) => {
+        if (e._id == optionId) {
+          e.votes++;
+        }
+        return e;
+      });
+
+      const ret = await Poll.updateOne(
+        { _id: pollId },
         {
-          registered: [
-            ...registers,
-            // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-            { userId: memberId, name: user?.username!, email: user?.email! },
-          ],
+          voters: [...voters, userId],
+          options: updatedOptions,
         }
       );
       return res.json({ done: true, data: ret });
@@ -117,8 +126,8 @@ Router.delete(
   adminAuthValidation,
   async (req: Request, res: Response) => {
     try {
-      const ret = await Meeting.deleteOne({ _id: req.params.id });
-      return res.status(200).json({ data: ret });
+      const ret = await Poll.deleteOne({ _id: req.params.id });
+      return res.status(200).json({ done: true, data: ret });
     } catch (err) {
       console.log("my error: " + err);
       return res.json({ done: false, err: "Something went wrong" });
