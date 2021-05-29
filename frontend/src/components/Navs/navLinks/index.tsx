@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.css";
 import { Link, useHistory } from "react-router-dom";
 import { linklist } from "../linklist";
-import { logout } from "src/utils/logout";
+import { logout } from "src/utils/auth/logout";
 import useTokenStore from "src/store/tokenStore";
 
 const NavLinks: React.FC = () => {

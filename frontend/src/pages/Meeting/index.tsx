@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import useTokenStore from "src/store/tokenStore";
 import Navbar from "../../components/Navs/Navbar";
 import MeetingTabs from "../../components/Meeting/MeetingTabs";
-import { useHistory } from "react-router-dom";
+import AuthDialog from "src/components/RegistrationForm/AuthDialog";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -15,20 +15,20 @@ const useStyles = makeStyles(() =>
 
 const Meeting: React.FC = () => {
   const classes = useStyles();
-  const history = useHistory();
   const token = useTokenStore((state) => state.token);
+  const [authOpen, setAuthOpen] = useState(false);
   React.useEffect(() => {
-    setTimeout(() => {
-      console.log(token);
-      if (token && token === "") {
-        history.push("/registration");
-      }
-    }, 2000);
+    if (token === "") {
+      setAuthOpen(true);
+    } else {
+      setAuthOpen(false);
+    }
   }, [token]);
   return (
     <div className={classes.root}>
       <Navbar />
       <MeetingTabs />
+      <AuthDialog isOpen={authOpen} />
     </div>
   );
 };

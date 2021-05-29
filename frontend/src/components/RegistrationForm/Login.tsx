@@ -4,7 +4,7 @@ import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
 import FormikTextField from "./FormikTextField";
 import * as yup from "yup";
-import { fetchLogin } from "src/utils/fetchLogin";
+import { fetchLogin } from "../../utils/auth/fetchLogin";
 import { useHistory } from "react-router";
 import Snackbar from "@material-ui/core/Snackbar";
 import Alert from "@material-ui/lab/Alert";

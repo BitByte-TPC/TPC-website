@@ -14,7 +14,7 @@ import { Link, useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { linklist } from "../linklist";
 import useTokenStore from "../../../store/tokenStore";
-import { logout } from "../../../utils/logout";
+import { logout } from "../../../utils/auth/logout";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

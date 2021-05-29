@@ -5,6 +5,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
+import MeetingCard from "./MeetingCard";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -81,10 +82,10 @@ const MeetingTabs: React.FC = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          SecrET meETiNg
+          <MeetingCard />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Pollllllling
+          Polllllling
         </TabPanel>
       </SwipeableViews>
     </div>

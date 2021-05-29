@@ -143,8 +143,9 @@ Router.post("/reset", async (req: Request, res: Response) => {
 // Logout
 Router.get("/logout", async (_req: Request, res: Response) => {
   try {
-    await sendRefreshToken(res);
-    res.status(200).json({ ok: true });
+    // sendRefreshToken(res);
+    res.cookie("jid", "", { httpOnly: true, path: "/api/refresh_token" });
+    res.status(200).json({ done: true });
   } catch (err) {
     res.json({ ok: false, err: err });
   }

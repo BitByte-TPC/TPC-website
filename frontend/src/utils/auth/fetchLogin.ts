@@ -1,4 +1,4 @@
-import { server } from "../store/global";
+import { server } from "../../store/global";
 
 interface bodyTypes {
   email: string;

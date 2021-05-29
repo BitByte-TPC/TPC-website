@@ -25,7 +25,9 @@ const GoogleRedirect: React.FC = () => {
   const setToken = useTokenStore((state) => state.setToken);
   React.useEffect(() => {
     const googleToken = async () => {
-      const res = await fetch(server + "/api/user/google-login/" + id);
+      const res = await fetch(server + "/api/user/google-login/" + id, {
+        credentials: "include",
+      });
       const payload = await res.json();
       if (payload.done) {
         setToken(payload.accessToken);
@@ -34,7 +36,6 @@ const GoogleRedirect: React.FC = () => {
         history.push("/registration");
       }
     };
-    console.log("google redirect" + id);
     googleToken();
   }, []);
   return <div className={classes.root}>Loading...</div>;
