@@ -5,8 +5,10 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Box from "@material-ui/core/Box";
-import MeetingCard from "./MeetingCard";
+import MeetingCard from "./meetingStuff/MeetingCard";
 import "./MeetingTabs.css";
+import PollCard from "./pollStuff/PollCard";
+import CreateButton from "./CreateButton";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -80,7 +82,7 @@ const MeetingTabs: React.FC = () => {
           textColor="inherit"
           variant="fullWidth"
         >
-          <Tab label="Meetings" {...a11yProps(0)} />
+          <Tab label="Events" {...a11yProps(0)} />
           <Tab label="Polls" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
@@ -91,11 +93,17 @@ const MeetingTabs: React.FC = () => {
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
           <MeetingCard />
+          <MeetingCard />
+          <MeetingCard />
+          <MeetingCard />
+          <MeetingCard />
+          <MeetingCard />
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Polllllling
+          <PollCard />
         </TabPanel>
       </SwipeableViews>
+      <CreateButton formType={value} />
     </div>
   );
 };

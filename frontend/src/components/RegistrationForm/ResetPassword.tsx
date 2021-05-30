@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Button, Link, Typography } from "@material-ui/core";
 import { useSignupLoginStyles } from "./signupLoginStyle";
-import FormikTextField from "./FormikTextField";
+import FormikTextField from "../FormikTextField";
 import * as yup from "yup";
 import { resetPassword } from "../../utils/auth/resetPassword";
 import { useHistory } from "react-router";

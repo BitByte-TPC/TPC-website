@@ -2,7 +2,7 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import RegisterButton from "./RegisterButton";
-import MoreOptions from "../Buttons/MoreOptions";
+import MoreOptionsButton from "../../Buttons/MoreOptionsButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       [theme.breakpoints.down("xs")]: {
         alignItems: "flex-start",
-        // flexDirection: "row",
       },
     },
     more: {
@@ -52,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MeetingCard: React.FC = ({}) => {
   const classes = useStyles();
+  // const [registerState, setRegisterState] = useState(0);
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -71,11 +71,11 @@ const MeetingCard: React.FC = ({}) => {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} className={classes.alignRight}>
-            <RegisterButton />
+            <RegisterButton btnState={1} />
             <Typography className={classes.minorText}>25 registers</Typography>
           </Grid>
         </Grid>
-        <MoreOptions className={classes.more} />
+        <MoreOptionsButton formType={0} className={classes.more} />
       </CardContent>
     </Card>
   );
