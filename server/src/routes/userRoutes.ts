@@ -151,6 +151,25 @@ Router.get("/logout", async (_req: Request, res: Response) => {
   }
 });
 
+// Get User
+Router.get("/get/:id", async (req: Request, res: Response) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return res.status(404).json({ done: false, err: "UserId not found" });
+    }
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ done: false, err: "User not found" });
+    }
+
+    return res.json({ done: true, data: user });
+  } catch (err) {
+    console.log("My error: " + err);
+    return res.json({ done: false, err: "Something went wrong" });
+  }
+});
+
 // TEST ROUTES BELOW NOT FOR PRODUCTION
 
 // Test route to get all users

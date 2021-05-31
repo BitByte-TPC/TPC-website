@@ -2,7 +2,8 @@ import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import RegisterButton from "./RegisterButton";
-import MoreOptionsButton from "../../Buttons/MoreOptionsButton";
+import MoreOptionsButton from "../MoreOptionsButton";
+import { meetingType } from "../MeetingTabs";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -47,9 +48,12 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-// interface MeetingCardProps {}
+interface MeetingCardProps {
+  meetingData: meetingType;
+  isAdmin: boolean;
+}
 
-const MeetingCard: React.FC = ({}) => {
+const MeetingCard: React.FC<MeetingCardProps> = ({ meetingData, isAdmin }) => {
   const classes = useStyles();
   // const [registerState, setRegisterState] = useState(0);
   return (
@@ -59,23 +63,29 @@ const MeetingCard: React.FC = ({}) => {
           <Grid item xs={12} sm={6}>
             <div>
               <Typography className={classes.title} component="span">
-                EventName
+                {meetingData.title}
               </Typography>
               <Typography className={classes.lang} component="span">
-                Bitbyte
+                {meetingData.club}
               </Typography>
             </div>
-            <Typography className={classes.lang}>12:00AM 30.2.2022</Typography>
+            <Typography className={classes.lang}>
+              {meetingData.datetime}
+            </Typography>
             <Typography className={classes.body}>
-              coding coding coding coding coding coding coding{" "}
+              {meetingData.description}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} className={classes.alignRight}>
             <RegisterButton btnState={1} />
-            <Typography className={classes.minorText}>25 registers</Typography>
+            <Typography className={classes.minorText}>
+              {meetingData.registered.length} registers
+            </Typography>
           </Grid>
         </Grid>
-        <MoreOptionsButton formType={0} className={classes.more} />
+        {isAdmin ? (
+          <MoreOptionsButton formType={0} className={classes.more} />
+        ) : null}
       </CardContent>
     </Card>
   );

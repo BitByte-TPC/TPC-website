@@ -1,7 +1,7 @@
 import { IconButton, IconButtonProps } from "@material-ui/core";
 import { MoreHoriz } from "@material-ui/icons";
 import React from "react";
-import MenuOptions from "../Meeting/MenuOptions";
+import MenuOptions from "./MenuOptions";
 
 type MoreOptionsInterface = {
   formType: number;

@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import React, { useEffect, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,6 +10,9 @@ import MeetingCard from "./meetingStuff/MeetingCard";
 import "./MeetingTabs.css";
 import PollCard from "./pollStuff/PollCard";
 import CreateButton from "./CreateButton";
+import useUser from "src/customHooks/useUser";
+import useMeetingData from "src/customHooks/useMeetingData";
+import usePollData from "src/customHooks/usePollData";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -58,10 +62,64 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+type clubType = { authority: "admin" | "member"; _id: string; name: string };
+export type pollType = {
+  voter: string[];
+  _id: string;
+  question: string;
+  club: string;
+  createdAt: string;
+  updatedAt: string;
+  options: {
+    votes: number;
+    _id: string;
+    name: string;
+  }[];
+};
+export type meetingType = {
+  _id: string;
+  title: string;
+  club: string;
+  datetime: string;
+  description: string;
+  registered: {
+    userId: number;
+    _id: string;
+    name: string;
+    email: string;
+  }[];
+};
+
+// Returns an array of all clubs in which he is admin
+const getAdminClubs = (arr: clubType[]) => {
+  const res = [];
+  for (let i = 0; i < arr.length; i++) {
+    const e = arr[i];
+    if (e.authority === "admin") {
+      res.push(e.name);
+    }
+  }
+  return res;
+};
+
 const MeetingTabs: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const { userData } = useUser();
+  const { meetingData } = useMeetingData();
+  const { pollData } = usePollData();
+  const [meetings, setMeetings] = useState<meetingType[] | undefined>();
+  const [polls, setPolls] = useState<pollType[] | undefined>();
+
+  const [adminOfClubs, setAdminsOfClubs] = React.useState<string[]>([]);
+
+  useEffect(() => {
+    if (userData && userData.done)
+      setAdminsOfClubs(getAdminClubs(userData.data.clubs));
+    if (meetingData) setMeetings(meetingData.data);
+    if (pollData) setPolls(pollData.data);
+  }, [userData, meetingData, pollData]);
 
   // eslint-disable-next-line @typescript-eslint/ban-types
   const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
@@ -71,6 +129,10 @@ const MeetingTabs: React.FC = () => {
   const handleChangeIndex = (index: number) => {
     setValue(index);
   };
+
+  if (!adminOfClubs || !meetings || !polls) {
+    return <div>Loading..</div>;
+  }
 
   return (
     <div className={classes.root}>
@@ -92,18 +154,25 @@ const MeetingTabs: React.FC = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <MeetingCard />
-          <MeetingCard />
-          <MeetingCard />
-          <MeetingCard />
-          <MeetingCard />
-          <MeetingCard />
+          {meetings!.map((e, key) => (
+            <MeetingCard
+              key={key}
+              meetingData={e}
+              isAdmin={adminOfClubs.includes(e.club)}
+            />
+          ))}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          <PollCard />
+          {polls!.map((e, key) => (
+            <PollCard
+              key={key}
+              pollData={e}
+              isAdmin={adminOfClubs.includes(e.club)}
+            />
+          ))}
         </TabPanel>
       </SwipeableViews>
-      <CreateButton formType={value} />
+      {adminOfClubs.length > 0 ? <CreateButton formType={value} /> : null}
     </div>
   );
 };

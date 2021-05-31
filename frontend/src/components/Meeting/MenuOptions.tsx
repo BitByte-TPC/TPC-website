@@ -37,6 +37,9 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
       >
         <MenuItem onClick={() => setFormOpen(true)}>Edit</MenuItem>
         <MenuItem onClick={handleClick}>Delete</MenuItem>
+        {type === 0 ? (
+          <MenuItem onClick={handleClick}>Registers</MenuItem>
+        ) : null}
       </Menu>
       {forms[type]}
     </div>

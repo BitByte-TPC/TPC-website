@@ -5,7 +5,8 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import MoreOptionsButton from "../../Buttons/MoreOptionsButton";
+import MoreOptionsButton from "../MoreOptionsButton";
+import { pollType } from "../MeetingTabs";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -37,11 +38,13 @@ const useStyles = makeStyles(() =>
   })
 );
 
-// interface MeetingCardProps {}
+interface PollCardProps {
+  pollData: pollType;
+  isAdmin: boolean;
+}
 
-const PollCard: React.FC = ({}) => {
+const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin }) => {
   const classes = useStyles();
-  // const [registerState, setRegisterState] = useState(0);
   const [option, setOption] = React.useState<string | null>(null);
   const [polled, setPolled] = React.useState<boolean>(false);
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,41 +54,31 @@ const PollCard: React.FC = ({}) => {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography className={classes.title}>BitByte</Typography>
+        <Typography className={classes.title}>{pollData.club}</Typography>
         <FormControl component="fieldset">
-          <Typography className={classes.body}>
-            What do you guys want next?
-          </Typography>
+          <Typography className={classes.body}>{pollData.question}</Typography>
           <RadioGroup
-            aria-label="gender"
-            name="gender1"
+            aria-label="pollOptions"
+            name="pollOptions"
             value={option}
             onChange={handleChange}
           >
-            <FormControlLabel
-              disabled={polled}
-              value="female"
-              color="inherit"
-              control={<Radio />}
-              label="Girlfriend"
-            />
-            <FormControlLabel
-              disabled={polled}
-              color="default"
-              value="webdev"
-              control={<Radio />}
-              label="Coding"
-            />
-            <FormControlLabel
-              disabled={polled}
-              value="ml"
-              control={<Radio />}
-              label="10 CPI"
-            />
+            {pollData.options.map((e, key) => (
+              <FormControlLabel
+                key={key}
+                disabled={polled}
+                value={e.name}
+                color="inherit"
+                control={<Radio />}
+                label={e.name}
+              />
+            ))}
           </RadioGroup>
         </FormControl>
 
-        <MoreOptionsButton formType={1} className={classes.more} />
+        {isAdmin ? (
+          <MoreOptionsButton formType={1} className={classes.more} />
+        ) : null}
       </CardContent>
     </Card>
   );

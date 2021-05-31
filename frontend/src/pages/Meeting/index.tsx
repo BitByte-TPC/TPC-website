@@ -27,7 +27,8 @@ const Meeting: React.FC = () => {
   return (
     <div className={classes.root}>
       <Navbar />
-      <MeetingTabs />
+      {token === "" ? null : <MeetingTabs />}
+
       <AuthDialog isOpen={authOpen} />
     </div>
   );
