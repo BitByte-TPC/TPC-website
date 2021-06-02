@@ -3,8 +3,11 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MeetingForm from "./meetingStuff/MeetingForm";
 import PollForm from "./pollStuff/PollForm";
+import { meetingType, pollType } from "./MeetingTabs";
 
 interface MenuOptionsProps {
+  meetingData?: meetingType;
+  pollData?: pollType;
   open: boolean;
   type: number;
   close: () => void;
@@ -12,6 +15,8 @@ interface MenuOptionsProps {
 }
 const MenuOptions: React.FC<MenuOptionsProps> = ({
   type,
+  meetingData,
+  pollData,
   open,
   close,
   parent,
@@ -22,8 +27,16 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
   const [formOpen, setFormOpen] = React.useState(false);
 
   const forms = [
-    <MeetingForm open={formOpen} close={() => setFormOpen(false)} />,
-    <PollForm open={formOpen} close={() => setFormOpen(false)} />,
+    <MeetingForm
+      initialVal={meetingData}
+      open={formOpen}
+      close={() => setFormOpen(false)}
+    />,
+    <PollForm
+      initialVal={pollData}
+      open={formOpen}
+      close={() => setFormOpen(false)}
+    />,
   ];
 
   return (

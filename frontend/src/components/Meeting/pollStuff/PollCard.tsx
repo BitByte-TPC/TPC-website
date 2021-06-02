@@ -41,6 +41,7 @@ const useStyles = makeStyles(() =>
 interface PollCardProps {
   pollData: pollType;
   isAdmin: boolean;
+  userId: string;
 }
 
 const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin }) => {
@@ -77,7 +78,11 @@ const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin }) => {
         </FormControl>
 
         {isAdmin ? (
-          <MoreOptionsButton formType={1} className={classes.more} />
+          <MoreOptionsButton
+            pollData={pollData}
+            formType={1}
+            className={classes.more}
+          />
         ) : null}
       </CardContent>
     </Card>

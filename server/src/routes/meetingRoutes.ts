@@ -15,6 +15,11 @@ Router.post(
       if (!title || !description || !datetime || !club) {
         return res.json({ done: false, err: "Incomplete data" });
       }
+      const givenDate = new Date(datetime);
+      const nowDate = new Date(Date.now());
+      if (givenDate.toISOString() < nowDate.toISOString()) {
+        return res.json({ done: false, err: "Invalid Date" });
+      }
       const nextMeeting = {
         title,
         description,
@@ -45,7 +50,7 @@ Router.get("/get_all", authValidation, async (req: Request, res: Response) => {
         $gte: new Date(year, 0, 1),
         $lt: new Date(year + 1, 0, 1),
       },
-    });
+    }).sort({ createdAt: "desc" });
     return res.json({ data: meetings });
   } catch (err) {
     console.log("my error: " + err);
@@ -80,7 +85,7 @@ Router.patch(
     try {
       const meetingId = req.params.id;
       // TODO: Take memberid from jwt token
-      const { memberId } = req.body;
+      const { userId } = req.body;
       const meeting = await Meeting.findById(meetingId);
       if (!meeting) {
         return res.json({ done: false, err: "Meeting does not exists" });
@@ -89,7 +94,12 @@ Router.patch(
       if (!registers) {
         return res.json({ done: false, err: "Invalid meeting" });
       }
-      const user = await User.findById(memberId);
+      for (let i = 0; i < registers.length; i++) {
+        if (registers[i].userId === userId) {
+          return res.json({ done: false, err: "You are already registered" });
+        }
+      }
+      const user = await User.findById(userId);
       if (!user) {
         return res.json({ done: false, err: "Invalid user" });
       }
@@ -99,7 +109,7 @@ Router.patch(
           registered: [
             ...registers,
             // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
-            { userId: memberId, name: user?.username!, email: user?.email! },
+            { userId: userId, name: user?.username!, email: user?.email! },
           ],
         }
       );

@@ -4,6 +4,7 @@ import { Card, CardContent, Grid, Typography } from "@material-ui/core";
 import RegisterButton from "./RegisterButton";
 import MoreOptionsButton from "../MoreOptionsButton";
 import { meetingType } from "../MeetingTabs";
+import { format } from "date-fns";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -12,6 +13,13 @@ const useStyles = makeStyles((theme: Theme) =>
       minHeight: "20vh",
       width: "90vw",
       background: "#ffd166",
+      position: "relative",
+    },
+    disabledRoot: {
+      margin: "2vh",
+      minHeight: "20vh",
+      width: "90vw",
+      background: "#D7B566",
       position: "relative",
     },
     title: {
@@ -51,13 +59,32 @@ const useStyles = makeStyles((theme: Theme) =>
 interface MeetingCardProps {
   meetingData: meetingType;
   isAdmin: boolean;
+  userId: string;
 }
 
-const MeetingCard: React.FC<MeetingCardProps> = ({ meetingData, isAdmin }) => {
+const MeetingCard: React.FC<MeetingCardProps> = ({
+  meetingData,
+  isAdmin,
+  userId,
+}) => {
   const classes = useStyles();
-  // const [registerState, setRegisterState] = useState(0);
+  const [cardState, setCardState] = React.useState(0);
+  React.useEffect(() => {
+    const givenDate = new Date(meetingData.datetime);
+    const nowDate = new Date(Date.now());
+    if (givenDate.toISOString() < nowDate.toISOString()) {
+      setCardState(2);
+    } else {
+      const registers = meetingData.registered;
+      for (let i = 0; i < registers.length; i++) {
+        if (registers[0].userId === userId) {
+          setCardState(1);
+        }
+      }
+    }
+  }, [meetingData]);
   return (
-    <Card className={classes.root}>
+    <Card className={cardState === 2 ? classes.disabledRoot : classes.root}>
       <CardContent>
         <Grid container>
           <Grid item xs={12} sm={6}>
@@ -70,21 +97,29 @@ const MeetingCard: React.FC<MeetingCardProps> = ({ meetingData, isAdmin }) => {
               </Typography>
             </div>
             <Typography className={classes.lang}>
-              {meetingData.datetime}
+              {format(new Date(meetingData.datetime), "PPpp")}
             </Typography>
             <Typography className={classes.body}>
               {meetingData.description}
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6} className={classes.alignRight}>
-            <RegisterButton btnState={1} />
+            <RegisterButton
+              meetingId={meetingData._id}
+              userId={userId}
+              btnState={cardState}
+            />
             <Typography className={classes.minorText}>
               {meetingData.registered.length} registers
             </Typography>
           </Grid>
         </Grid>
         {isAdmin ? (
-          <MoreOptionsButton formType={0} className={classes.more} />
+          <MoreOptionsButton
+            meetingData={meetingData}
+            formType={0}
+            className={classes.more}
+          />
         ) : null}
       </CardContent>
     </Card>

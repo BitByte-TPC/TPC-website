@@ -1,6 +1,10 @@
 import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
 import Button, { ButtonProps } from "@material-ui/core/Button";
+import useTokenStore from "src/store/tokenStore";
+import { registerMeeting } from "src/utils/meetingCalls";
+import { mutate } from "swr";
+import { server } from "src/store/global";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,14 +30,19 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type RegisterButtonProps = {
+  userId: string;
   btnState: number;
+  meetingId: string;
 } & ButtonProps;
 
 const RegisterButton: React.FC<RegisterButtonProps> = ({
+  userId,
+  meetingId,
   btnState,
   ...props
 }) => {
   const classes = useStyles();
+  const accessToken = useTokenStore((state) => state.token);
   const states = [
     {
       content: "Register",
@@ -51,9 +60,18 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({
       rootClass: classes.root,
     },
   ];
+  const handleClick = async () => {
+    const res = await registerMeeting(userId, accessToken, meetingId);
+    if (!res.done) {
+      console.log(res.err);
+    } else {
+      mutate([`${server}/api/meeting/get_all`, accessToken]);
+    }
+  };
   return (
     <Button
       variant="outlined"
+      onClick={handleClick}
       disabled={states[btnState].disabled}
       classes={{
         root: states[btnState].rootClass,

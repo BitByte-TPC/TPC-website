@@ -83,7 +83,7 @@ export type meetingType = {
   datetime: string;
   description: string;
   registered: {
-    userId: number;
+    userId: string;
     _id: string;
     name: string;
     email: string;
@@ -113,10 +113,13 @@ const MeetingTabs: React.FC = () => {
   const [polls, setPolls] = useState<pollType[] | undefined>();
 
   const [adminOfClubs, setAdminsOfClubs] = React.useState<string[]>([]);
+  const [userId, setUserId] = React.useState<string>("");
 
   useEffect(() => {
-    if (userData && userData.done)
+    if (userData && userData.done) {
+      setUserId(userData.data._id);
       setAdminsOfClubs(getAdminClubs(userData.data.clubs));
+    }
     if (meetingData) setMeetings(meetingData.data);
     if (pollData) setPolls(pollData.data);
   }, [userData, meetingData, pollData]);
@@ -156,6 +159,7 @@ const MeetingTabs: React.FC = () => {
         <TabPanel value={value} index={0} dir={theme.direction}>
           {meetings!.map((e, key) => (
             <MeetingCard
+              userId={userId}
               key={key}
               meetingData={e}
               isAdmin={adminOfClubs.includes(e.club)}
@@ -165,6 +169,7 @@ const MeetingTabs: React.FC = () => {
         <TabPanel value={value} index={1} dir={theme.direction}>
           {polls!.map((e, key) => (
             <PollCard
+              userId={userId}
               key={key}
               pollData={e}
               isAdmin={adminOfClubs.includes(e.club)}

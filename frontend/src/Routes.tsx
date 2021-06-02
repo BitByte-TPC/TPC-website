@@ -10,7 +10,7 @@ import Meeting from "./pages/Meeting";
 import { updateAccessToken } from "./utils/updateAccessToken";
 import useTokenStore from "./store/tokenStore";
 
-const REFRESH_TIME_MS = 60 * 60 * 1000;
+const REFRESH_TIME_MS = 50 * 60 * 1000;
 const Routes: React.FC = () => {
   const accessToken = useTokenStore((state) => state.token);
   const setToken = useTokenStore((state) => state.setToken);
