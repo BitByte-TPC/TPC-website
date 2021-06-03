@@ -9,7 +9,7 @@ type optionType = {
 interface PollInterface extends mongoose.Document {
   question: string;
   club: string;
-  voters: string[];
+  voters: { userId: string; optionId: string }[];
   options: optionType[];
 }
 
@@ -23,7 +23,12 @@ const pollSchema: mongoose.Schema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    voters: [String],
+    voters: [
+      {
+        userId: String,
+        optionId: String,
+      },
+    ],
     options: [
       {
         name: {

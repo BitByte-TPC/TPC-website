@@ -1,10 +1,21 @@
-import { Button, Dialog, DialogContent, Theme } from "@material-ui/core";
+import {
+  Button,
+  Dialog,
+  DialogContent,
+  Snackbar,
+  Theme,
+} from "@material-ui/core";
 import { Formik, Form, FieldArray } from "formik";
 import React from "react";
 import FormikTextField from "../../FormikTextField";
 import * as yup from "yup";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { pollType } from "../MeetingTabs";
+import { Alert } from "@material-ui/lab";
+import { createPoll, updatePoll } from "src/utils/pollCalls";
+import useTokenStore from "src/store/tokenStore";
+import { mutate } from "swr";
+import { server } from "src/store/global";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -53,13 +64,17 @@ export const useStyles = makeStyles((theme: Theme) =>
 );
 
 const validSchema = yup.object({
-  question: yup.string().required().min(3).max(64),
-  options: yup
-    .array()
-    .of(yup.string().required().min(2).max(64))
-    .required()
-    .min(2, "Atleast two options required")
-    .max(10),
+  club: yup.string().required("Club name is required").min(3).max(32),
+  question: yup.string().required("Question cannot be empty").min(3).max(64),
+  options: yup.array().of(
+    yup.object().shape({
+      name: yup
+        .string()
+        .required("Option cannot be empty")
+        .min(3, "Option cannot be empty")
+        .max(32),
+    })
+  ),
 });
 
 interface PollFormProps {
@@ -70,24 +85,64 @@ interface PollFormProps {
 
 const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
   const classes = useStyles();
+  const accessToken = useTokenStore((state) => state.token);
+  const [openError, setOpenError] = React.useState(false);
+  const [errorText, setErrorText] = React.useState("Permission Denied");
+
+  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenError(false);
+  };
 
   return (
     <Dialog aria-labelledby="poll-dialog" open={open}>
       <DialogContent>
         <Formik
           initialValues={{
+            club: initialVal ? initialVal.club : "",
             question: initialVal ? initialVal.question : "",
-            options: initialVal ? initialVal.options : [""],
+            options: initialVal ? initialVal.options : [{ name: "" }],
           }}
           validationSchema={validSchema}
           onSubmit={async (data, { setSubmitting }) => {
             setSubmitting(true);
-            console.log(data);
+            if (data.options.length < 2 || data.options.length > 5) {
+              setErrorText("Poll must have 2-5 options");
+              setOpenError(true);
+            } else {
+              if (initialVal) {
+                const res = await updatePoll(data, initialVal._id, accessToken);
+                if (!res.done) {
+                  setErrorText("Permission Denied");
+                  setOpenError(true);
+                } else {
+                  mutate([`${server}/api/poll/get_all`, accessToken]);
+                  close();
+                }
+              } else {
+                const res = await createPoll(data, accessToken);
+                if (!res.done) {
+                  setErrorText("Permission Denied");
+                  setOpenError(true);
+                } else {
+                  mutate([`${server}/api/poll/get_all`, accessToken]);
+                  close();
+                }
+              }
+            }
             setSubmitting(false);
           }}
         >
           {({ isSubmitting, values }) => (
             <Form className={classes.root} noValidate autoComplete="off">
+              <FormikTextField
+                label="Club Name"
+                className={classes.input}
+                name="club"
+              />
               <FormikTextField
                 label="Question"
                 className={classes.input}
@@ -103,7 +158,7 @@ const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
                           <FormikTextField
                             label={`Option ${key + 1}`}
                             className={classes.optInput}
-                            name={`options.${key}`}
+                            name={`options.${key}.name`}
                           />
                           <Button
                             className={classes.optBtn}
@@ -114,7 +169,10 @@ const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
                           </Button>
                         </div>
                       ))}
-                      <Button onClick={() => arr.push("")} variant="outlined">
+                      <Button
+                        onClick={() => arr.push({ name: "" })}
+                        variant="outlined"
+                      >
                         Add
                       </Button>
                     </div>
@@ -145,6 +203,11 @@ const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
           )}
         </Formik>
       </DialogContent>
+      <Snackbar open={openError} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error">
+          {errorText}
+        </Alert>
+      </Snackbar>
     </Dialog>
   );
 };

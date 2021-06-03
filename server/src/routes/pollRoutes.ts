@@ -93,7 +93,7 @@ Router.patch(
       if (!options) {
         return res.json({ done: false, err: "Invalid poll" });
       }
-      const hasVotedBefore = poll.voters.find((e) => e === userId);
+      const hasVotedBefore = poll.voters.find((e) => e.userId === userId);
       if (hasVotedBefore) {
         return res.json({ done: false, err: "You cannot vote again" });
       }
@@ -108,7 +108,7 @@ Router.patch(
       const ret = await Poll.updateOne(
         { _id: pollId },
         {
-          voters: [...voters, userId],
+          voters: [...voters, { userId, optionId }],
           options: updatedOptions,
         }
       );

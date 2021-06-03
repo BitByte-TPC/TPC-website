@@ -64,7 +64,7 @@ const useStyles = makeStyles(() => ({
 
 type clubType = { authority: "admin" | "member"; _id: string; name: string };
 export type pollType = {
-  voter: string[];
+  voters: { userId: string; optionId: string }[];
   _id: string;
   question: string;
   club: string;

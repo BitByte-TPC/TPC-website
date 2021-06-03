@@ -7,6 +7,10 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import MoreOptionsButton from "../MoreOptionsButton";
 import { pollType } from "../MeetingTabs";
+import { votePoll } from "src/utils/pollCalls";
+import useTokenStore from "src/store/tokenStore";
+import { server } from "src/store/global";
+import { mutate } from "swr";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -44,14 +48,33 @@ interface PollCardProps {
   userId: string;
 }
 
-const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin }) => {
+const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin, userId }) => {
   const classes = useStyles();
+  const accessToken = useTokenStore((state) => state.token);
   const [option, setOption] = React.useState<string | null>(null);
   const [polled, setPolled] = React.useState<boolean>(false);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setOption((event.target as HTMLInputElement).value);
-    setPolled(true);
+  const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const res = await votePoll(
+      (event.target as HTMLInputElement).value,
+      accessToken,
+      pollData._id
+    );
+    if (res.done) {
+      setOption((event.target as HTMLInputElement).value);
+      setPolled(true);
+      mutate([`${server}/api/poll/get_all`, accessToken]);
+    } else {
+      console.log(res.err);
+    }
   };
+  React.useEffect(() => {
+    for (let i = 0; i < pollData.voters.length; i++) {
+      if (pollData.voters[i].userId === userId) {
+        setOption(pollData.voters[i].optionId);
+        setPolled(true);
+      }
+    }
+  }, [pollData]);
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -68,10 +91,10 @@ const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin }) => {
               <FormControlLabel
                 key={key}
                 disabled={polled}
-                value={e.name}
+                value={e._id}
                 color="inherit"
                 control={<Radio />}
-                label={e.name}
+                label={`${e.name} (${e.votes} votes)`}
               />
             ))}
           </RadioGroup>
