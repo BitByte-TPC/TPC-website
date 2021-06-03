@@ -17,6 +17,7 @@ import { createMeeting, updateMeeting } from "src/utils/meetingCalls";
 import { mutate } from "swr";
 import { server } from "src/store/global";
 import { Alert } from "@material-ui/lab";
+import useYearStore from "src/store/yearStore";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -71,6 +72,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
 }) => {
   const classes = useStyles();
   const accessToken = useTokenStore((state) => state.token);
+  const year = useYearStore((state) => state.year);
   const [openError, setOpenError] = React.useState(false);
 
   const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
@@ -102,7 +104,10 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
                 accessToken
               );
               if (res.done) {
-                mutate([`${server}/api/meeting/get_all`, accessToken]);
+                mutate([
+                  `${server}/api/meeting/get_all?year=${year}`,
+                  accessToken,
+                ]);
                 close();
               } else {
                 console.log(res.err);
@@ -111,7 +116,10 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
             } else {
               const res = await createMeeting(data, accessToken);
               if (res.done) {
-                mutate([`${server}/api/meeting/get_all`, accessToken]);
+                mutate([
+                  `${server}/api/meeting/get_all?year=${year}`,
+                  accessToken,
+                ]);
                 close();
               } else {
                 console.log(res.err);

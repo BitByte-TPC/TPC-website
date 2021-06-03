@@ -13,6 +13,7 @@ import CreateButton from "./CreateButton";
 import useUser from "src/customHooks/useUser";
 import useMeetingData from "src/customHooks/useMeetingData";
 import usePollData from "src/customHooks/usePollData";
+import PaginationBtn from "./PaginationBtn";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -58,7 +59,6 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    overflow: "hidden",
   },
 }));
 
@@ -157,24 +157,30 @@ const MeetingTabs: React.FC = () => {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          {meetings!.map((e, key) => (
-            <MeetingCard
-              userId={userId}
-              key={key}
-              meetingData={e}
-              isAdmin={adminOfClubs.includes(e.club)}
-            />
-          ))}
+          <div className={classes.cardContainer}>
+            {meetings!.map((e, key) => (
+              <MeetingCard
+                userId={userId}
+                key={key}
+                meetingData={e}
+                isAdmin={adminOfClubs.includes(e.club)}
+              />
+            ))}
+            <PaginationBtn />
+          </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          {polls!.map((e, key) => (
-            <PollCard
-              userId={userId}
-              key={key}
-              pollData={e}
-              isAdmin={adminOfClubs.includes(e.club)}
-            />
-          ))}
+          <div className={classes.cardContainer}>
+            {polls!.map((e, key) => (
+              <PollCard
+                userId={userId}
+                key={key}
+                pollData={e}
+                isAdmin={adminOfClubs.includes(e.club)}
+              />
+            ))}
+            <PaginationBtn />
+          </div>
         </TabPanel>
       </SwipeableViews>
       {adminOfClubs.length > 0 ? <CreateButton formType={value} /> : null}

@@ -55,3 +55,20 @@ export const updatePoll = async (
   const data = res.json();
   return data;
 };
+
+export const deletePoll = async (
+  pollId: string,
+  club: string,
+  token: string
+): Promise<{ done: boolean; err?: string }> => {
+  const res = await fetch(server + "/api/poll/delete/" + pollId, {
+    method: "DELETE",
+    headers: {
+      Authorization: "bearer " + token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ club }),
+  });
+  const data = res.json();
+  return data;
+};

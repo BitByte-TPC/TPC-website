@@ -1,9 +1,15 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MeetingForm from "./meetingStuff/MeetingForm";
 import PollForm from "./pollStuff/PollForm";
 import { meetingType, pollType } from "./MeetingTabs";
+import { deletePoll } from "src/utils/pollCalls";
+import useTokenStore from "src/store/tokenStore";
+import { mutate } from "swr";
+import { server } from "src/store/global";
+import useYearStore from "src/store/yearStore";
 
 interface MenuOptionsProps {
   meetingData?: meetingType;
@@ -25,6 +31,8 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
     close();
   };
   const [formOpen, setFormOpen] = React.useState(false);
+  const accessToken = useTokenStore((state) => state.token);
+  const year = useYearStore((state) => state.year);
 
   const forms = [
     <MeetingForm
@@ -39,6 +47,17 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
     />,
   ];
 
+  const handleDelete = async () => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const res = await deletePoll(pollData?._id!, pollData?.club!, accessToken);
+    if (res.done) {
+      mutate([`${server}/api/poll/get_all?year=${year}`, accessToken]);
+      close();
+    } else {
+      console.log(res.err);
+    }
+  };
+
   return (
     <div>
       <Menu
@@ -49,10 +68,12 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
         onClose={close}
       >
         <MenuItem onClick={() => setFormOpen(true)}>Edit</MenuItem>
-        <MenuItem onClick={handleClick}>Delete</MenuItem>
+
         {type === 0 ? (
           <MenuItem onClick={handleClick}>Registers</MenuItem>
-        ) : null}
+        ) : (
+          <MenuItem onClick={handleDelete}>Delete</MenuItem>
+        )}
       </Menu>
       {forms[type]}
     </div>

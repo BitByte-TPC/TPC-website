@@ -11,6 +11,7 @@ import { votePoll } from "src/utils/pollCalls";
 import useTokenStore from "src/store/tokenStore";
 import { server } from "src/store/global";
 import { mutate } from "swr";
+import useYearStore from "src/store/yearStore";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -51,6 +52,7 @@ interface PollCardProps {
 const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin, userId }) => {
   const classes = useStyles();
   const accessToken = useTokenStore((state) => state.token);
+  const year = useYearStore((state) => state.year);
   const [option, setOption] = React.useState<string | null>(null);
   const [polled, setPolled] = React.useState<boolean>(false);
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +64,7 @@ const PollCard: React.FC<PollCardProps> = ({ pollData, isAdmin, userId }) => {
     if (res.done) {
       setOption((event.target as HTMLInputElement).value);
       setPolled(true);
-      mutate([`${server}/api/poll/get_all`, accessToken]);
+      mutate([`${server}/api/poll/get_all?year=${year}`, accessToken]);
     } else {
       console.log(res.err);
     }

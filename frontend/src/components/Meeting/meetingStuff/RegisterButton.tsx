@@ -5,6 +5,7 @@ import useTokenStore from "src/store/tokenStore";
 import { registerMeeting } from "src/utils/meetingCalls";
 import { mutate } from "swr";
 import { server } from "src/store/global";
+import useYearStore from "src/store/yearStore";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -42,6 +43,7 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({
   ...props
 }) => {
   const classes = useStyles();
+  const year = useYearStore((state) => state.year);
   const accessToken = useTokenStore((state) => state.token);
   const states = [
     {
@@ -65,7 +67,7 @@ const RegisterButton: React.FC<RegisterButtonProps> = ({
     if (!res.done) {
       console.log(res.err);
     } else {
-      mutate([`${server}/api/meeting/get_all`, accessToken]);
+      mutate([`${server}/api/meeting/get_all?year=${year}`, accessToken]);
     }
   };
   return (

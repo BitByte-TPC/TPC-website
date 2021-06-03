@@ -16,6 +16,7 @@ import { createPoll, updatePoll } from "src/utils/pollCalls";
 import useTokenStore from "src/store/tokenStore";
 import { mutate } from "swr";
 import { server } from "src/store/global";
+import useYearStore from "src/store/yearStore";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -86,6 +87,7 @@ interface PollFormProps {
 const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
   const classes = useStyles();
   const accessToken = useTokenStore((state) => state.token);
+  const year = useYearStore((state) => state.year);
   const [openError, setOpenError] = React.useState(false);
   const [errorText, setErrorText] = React.useState("Permission Denied");
 
@@ -119,7 +121,10 @@ const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
                   setErrorText("Permission Denied");
                   setOpenError(true);
                 } else {
-                  mutate([`${server}/api/poll/get_all`, accessToken]);
+                  mutate([
+                    `${server}/api/poll/get_all?year=${year}`,
+                    accessToken,
+                  ]);
                   close();
                 }
               } else {
@@ -128,7 +133,10 @@ const PollForm: React.FC<PollFormProps> = ({ close, open, initialVal }) => {
                   setErrorText("Permission Denied");
                   setOpenError(true);
                 } else {
-                  mutate([`${server}/api/poll/get_all`, accessToken]);
+                  mutate([
+                    `${server}/api/poll/get_all?year=${year}`,
+                    accessToken,
+                  ]);
                   close();
                 }
               }
