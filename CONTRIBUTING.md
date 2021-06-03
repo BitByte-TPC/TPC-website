@@ -36,6 +36,7 @@ commit messages are standardized:
 - Run `npm install` to install all dependencies
 - Make a `.env` file with all secrets. You also need to generate google client id and secret key. You may refer [to this](https://developers.google.com/identity/protocols/oauth2https://developers.google.com/adwords/api/docs/guides/authentication#create_a_client_id_and_client_secret) for the steps.
   > Note: Put `<server_url>/api/auth/google/redirect` in redirect url when generating google client id and secret.
+- You also need to generate access token and refresh token for sending emails. Follow [this guide](https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/) to generate you own.
 - Run `npm run dev` to start server
 
 ### Frontend setup
