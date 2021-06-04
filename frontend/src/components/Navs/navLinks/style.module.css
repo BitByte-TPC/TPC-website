@@ -1,4 +1,4 @@
-li {
+.Link li {
   color: #c7c7c7;
   /* color: white; */
   font-size: 1.1rem;
@@ -31,7 +31,7 @@ li {
 }
 
 @media only screen and (max-width: 1180px) {
-  li {
+  .Link li {
     width: 100vw;
     padding: 2.5vh 0;
     text-align: center;
