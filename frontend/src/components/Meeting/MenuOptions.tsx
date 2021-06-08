@@ -10,6 +10,7 @@ import useTokenStore from "src/store/tokenStore";
 import { mutate } from "swr";
 import { server } from "src/store/global";
 import useYearStore from "src/store/yearStore";
+import RegistersDialog from "./meetingStuff/Registers";
 
 interface MenuOptionsProps {
   meetingData?: meetingType;
@@ -27,10 +28,8 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
   close,
   parent,
 }) => {
-  const handleClick = () => {
-    close();
-  };
   const [formOpen, setFormOpen] = React.useState(false);
+  const [registersOpen, setRegistersOpen] = React.useState(false);
   const accessToken = useTokenStore((state) => state.token);
   const year = useYearStore((state) => state.year);
 
@@ -58,6 +57,10 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
     }
   };
 
+  const handleClick = () => {
+    setRegistersOpen(true);
+  };
+
   return (
     <div>
       <Menu
@@ -76,6 +79,11 @@ const MenuOptions: React.FC<MenuOptionsProps> = ({
         )}
       </Menu>
       {forms[type]}
+      <RegistersDialog
+        meetingData={meetingData}
+        open={registersOpen}
+        close={() => setRegistersOpen(false)}
+      />
     </div>
   );
 };
