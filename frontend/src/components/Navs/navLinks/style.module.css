@@ -1,6 +1,5 @@
 .Link li {
   color: #c7c7c7;
-  /* color: white; */
   font-size: 1.1rem;
   font-weight: 600;
   margin: 2vh 0 0 0;
@@ -12,22 +11,22 @@
 }
 
 .first {
-  transform: translatex(-11vh);
+  transform: translatex(2vh);
 }
 .sec {
-  transform: translatex(-7vh);
+  transform: translatex(4vh);
 }
 .third {
-  transform: translatex(-5vh);
+  transform: translatex(5vh);
 }
 .fourth {
-  transform: translatex(-4vh);
+  transform: translatex(6vh);
 }
 .fifth {
-  transform: translatex(-3vh);
+  transform: translatex(8vh);
 }
 .sixth {
-  transform: translatex(-2vh);
+  transform: translatex(9vh);
 }
 
 @media only screen and (max-width: 1180px) {
