@@ -1,15 +1,16 @@
-import { server } from "../store/global";
-import { setToken } from "../store/tokenStore";
+import { server } from "../../store/global";
+import { fetchLogin } from "./fetchLogin";
 
 interface bodyTypes {
   email: string;
-  username?: string;
+  username: string;
   password: string;
 }
-export const fetchLogin = async (
-  body: bodyTypes
+export const fetchRegister = async (
+  body: bodyTypes,
+  setToken: (newState: string) => void
 ): Promise<{ done: boolean }> => {
-  const res = await fetch(server + "/api/user/login", {
+  const res = await fetch(server + "/api/user/register", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -20,7 +21,7 @@ export const fetchLogin = async (
 
   const data = await res.json();
   if (data.done) {
-    setToken(data.accessToken);
+    await fetchLogin(body, setToken);
     return data;
   } else {
     return data;

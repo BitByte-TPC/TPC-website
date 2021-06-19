@@ -1,6 +1,6 @@
 import express from "express";
 import { User } from "../model/User";
-import { getAccessToken, sendRefreshToken } from "../utils/tokenstuff";
+import { getAccessToken } from "../utils/tokenstuff";
 import { verify } from "jsonwebtoken";
 const Router = express.Router();
 
@@ -29,8 +29,6 @@ Router.get("/refresh_token", async (req, res) => {
     if (user?.tokenVersion !== payload.tokenVersion) {
       throw new Error("invalid token version");
     }
-
-    sendRefreshToken(res, user!);
 
     res.send({ ok: true, accessToken: jwt });
   } catch (err) {

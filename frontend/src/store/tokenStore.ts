@@ -17,11 +17,3 @@ const useTokenStore = create(
 );
 
 export default useTokenStore;
-
-let token = "";
-export const setToken = (newToken: string): void => {
-  token = newToken;
-};
-export const getToken = (): string => {
-  return token;
-};

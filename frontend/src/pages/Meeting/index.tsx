@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { getToken } from "src/store/tokenStore";
-import { Redirect } from "react-router";
+import useTokenStore from "src/store/tokenStore";
 import Navbar from "../../components/Navs/Navbar";
+import MeetingTabs from "../../components/Meeting/MeetingTabs";
+import AuthDialog from "src/components/RegistrationForm/AuthDialog";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -14,14 +15,21 @@ const useStyles = makeStyles(() =>
 
 const Meeting: React.FC = () => {
   const classes = useStyles();
-  const token = getToken();
-  if (!!!token) {
-    return <Redirect to="/registration" />;
-  }
+  const token = useTokenStore((state) => state.token);
+  const [authOpen, setAuthOpen] = useState(false);
+  React.useEffect(() => {
+    if (token === "") {
+      setAuthOpen(true);
+    } else {
+      setAuthOpen(false);
+    }
+  }, [token]);
   return (
     <div className={classes.root}>
       <Navbar />
-      SeCurE mEetIng
+      {token === "" ? null : <MeetingTabs />}
+
+      <AuthDialog isOpen={authOpen} />
     </div>
   );
 };

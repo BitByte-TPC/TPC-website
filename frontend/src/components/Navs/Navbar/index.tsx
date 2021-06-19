@@ -13,8 +13,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { Link, useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { linklist } from "../linklist";
-import { getToken } from "src/store/tokenStore";
-import { logout } from "../../../utils/logout";
+import useTokenStore from "../../../store/tokenStore";
+import { logout } from "../../../utils/auth/logout";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -66,6 +66,8 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 const HomePage: React.FC = () => {
+  const token = useTokenStore((state) => state.token);
+  const setToken = useTokenStore((state) => state.setToken);
   const classes = useStyles();
   const [drawerOpen, setdrawerOpen] = React.useState(false);
 
@@ -76,7 +78,7 @@ const HomePage: React.FC = () => {
   const history = useHistory();
 
   const handleLogout = async (url: string) => {
-    const res = await logout();
+    const res = await logout(setToken);
     if (res) {
       history.push(url);
     }
@@ -93,7 +95,6 @@ const HomePage: React.FC = () => {
       <List>
         {linklist.map((e, key) => {
           if (e.loginReq) {
-            const token = getToken();
             if (!!token)
               return (
                 <div
@@ -141,7 +142,6 @@ const HomePage: React.FC = () => {
           <Container className={classes.flexbox}>
             {linklist.map((e, key) => {
               if (e.loginReq) {
-                const token = getToken();
                 if (!!token) {
                   return (
                     <div

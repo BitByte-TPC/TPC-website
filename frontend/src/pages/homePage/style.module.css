@@ -4,8 +4,9 @@
   display: grid;
   grid-template-columns: 66fr 33fr;
   grid-template-areas: "main nav";
-  background-image: url("../../images/homepagebg.png");
-  background-size: cover;
+  background-image: url("../../images/homepagebgv2.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .container {
   grid-area: main;

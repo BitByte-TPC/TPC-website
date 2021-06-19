@@ -5,13 +5,19 @@ import Login from "./Login";
 import Signup from "./Signup";
 import GoogleButton from "../Buttons/GoogleButton";
 import ResetPassword from "./ResetPassword";
+import BackButton from "../Buttons/BackButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     title: {
-      margin: "4vh",
+      margin: "3vh",
       fontWeight: "bold",
       fontSize: "1.4rem",
+    },
+    flexbox: {
+      paddingLeft: "2vh",
+      display: "flex",
+      alignItems: "center",
     },
     main: {
       width: "30vw",
@@ -37,9 +43,12 @@ const RegistrationForm: React.FC = () => {
 
   return (
     <Paper className={classes.main}>
-      <Typography className={classes.title} align="center">
-        {heading[page]}
-      </Typography>
+      <div className={classes.flexbox}>
+        <BackButton />
+        <Typography className={classes.title} align="center">
+          {heading[page]}
+        </Typography>
+      </div>
       <GoogleButton />
       <Typography className={classes.or} align="center">
         OR

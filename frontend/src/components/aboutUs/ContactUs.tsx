@@ -40,7 +40,11 @@ const ContactUs: React.FC = () => {
   return (
     <div id="contact" className={classes.root}>
       <Container className={classes.flexbox}>
-        <a href="#" target="_blank" className={classes.atag}>
+        <a
+          href="https://github.com/BitByte-TPC"
+          target="_blank"
+          className={classes.atag}
+        >
           <GitHub className={classes.icon} fontSize="small" />
           <Typography className={classes.text} component="span">
             BitByte
@@ -52,7 +56,11 @@ const ContactUs: React.FC = () => {
             BitByte
           </Typography>
         </a>
-        <a href="#" target="_blank" className={classes.atag}>
+        <a
+          href="mailto:theprogclub@iiitdmj.ac.in"
+          target="_blank"
+          className={classes.atag}
+        >
           <Email className={classes.icon} fontSize="small" />
           <Typography className={classes.text} component="span">
             BitByte

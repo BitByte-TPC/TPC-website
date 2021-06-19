@@ -8,13 +8,18 @@ import Registration from "./pages/Registration";
 import GoogleRedirect from "./pages/GoogleRedirect";
 import Meeting from "./pages/Meeting";
 import { updateAccessToken } from "./utils/updateAccessToken";
+import useTokenStore from "./store/tokenStore";
 
+const REFRESH_TIME_MS = 50 * 60 * 1000;
 const Routes: React.FC = () => {
-  const REFRESH_TIME_MS = 60 * 60 * 1000;
+  const accessToken = useTokenStore((state) => state.token);
+  const setToken = useTokenStore((state) => state.setToken);
   React.useEffect(() => {
     const interval = setInterval(() => {
-      console.log("Refreshing token...");
-      updateAccessToken();
+      if (!!accessToken) {
+        console.log("Refreshing token...");
+        updateAccessToken(setToken);
+      }
     }, REFRESH_TIME_MS);
 
     // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.

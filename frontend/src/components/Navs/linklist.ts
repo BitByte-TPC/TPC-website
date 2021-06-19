@@ -26,7 +26,7 @@ export const linklist = [
   },
   {
     name: "Logout",
-    url: "/registration",
+    url: "/",
     loginReq: true,
   },
 ];

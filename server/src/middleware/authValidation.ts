@@ -6,17 +6,18 @@ const authValidation = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): Promise<Response<any, Record<string, any>> | void> => {
   try {
-    const accessToken = req.headers.authorization;
+    const accessToken = req.headers.authorization?.split(" ")[1];
     if (!accessToken) {
-      throw new Error("No Token");
+      return res.json({ done: false, err: "No token" });
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const payload: any = verify(accessToken, process.env.JWT_SECRET!);
 
     if (!payload) {
-      throw new Error("No Payload");
+      return res.json({ done: false, err: "Bad token" });
     }
 
     const user = await User.findOne({ _id: payload.userId });
@@ -24,10 +25,11 @@ const authValidation = async (
     if (user) {
       next();
     } else {
-      res.json({ err: "NO TOKEn" });
+      return res.json({ done: false, err: "No token" });
     }
   } catch (err) {
     console.log("my error: " + err);
+    return res.json({ done: false, err: "Something went wrong" });
   }
 };
 
