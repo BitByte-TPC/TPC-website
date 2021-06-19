@@ -7,7 +7,13 @@ import Theme from "./theme/theme";
 
 ReactDOM.render(
   <MuiThemeProvider theme={Theme}>
-    <BrowserRouter>
+    <BrowserRouter
+      basename={
+        window.location.hostname === "iiitdmj.ac.in"
+          ? "/webix.iiitdmj.ac.in"
+          : ""
+      }
+    >
       <App />
     </BrowserRouter>
   </MuiThemeProvider>,
