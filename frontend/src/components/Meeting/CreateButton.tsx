@@ -1,5 +1,5 @@
 import { IconButton, IconButtonProps } from "@material-ui/core";
-import { Create } from "@material-ui/icons";
+import { Add } from "@material-ui/icons";
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import MeetingForm from "./meetingStuff/MeetingForm";
@@ -35,7 +35,7 @@ const CreateButton: React.FC<CreateButtonProps> = ({ formType, ...props }) => {
         onClick={() => setFormOpen(true)}
         {...props}
       >
-        <Create />
+        <Add />
       </IconButton>
       {forms[formType]}
     </>

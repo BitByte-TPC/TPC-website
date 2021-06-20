@@ -20,13 +20,13 @@
   transform: translatex(5vh);
 }
 .fourth {
-  transform: translatex(6vh);
+  transform: translatex(3vh);
 }
 .fifth {
-  transform: translatex(8vh);
+  transform: translatex(2vh);
 }
 .sixth {
-  transform: translatex(9vh);
+  transform: translatex(1vh);
 }
 
 @media only screen and (max-width: 1180px) {

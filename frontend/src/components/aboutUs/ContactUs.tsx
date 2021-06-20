@@ -50,7 +50,11 @@ const ContactUs: React.FC = () => {
             BitByte
           </Typography>
         </a>
-        <a href="#" target="_blank" className={classes.atag}>
+        <a
+          href="https://www.facebook.com/geeks.IIITJ/"
+          target="_blank"
+          className={classes.atag}
+        >
           <Facebook className={classes.icon} fontSize="small" />
           <Typography className={classes.text} component="span">
             BitByte

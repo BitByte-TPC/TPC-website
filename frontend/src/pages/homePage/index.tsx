@@ -23,7 +23,9 @@ const HomePage: React.FC = () => {
               An Open Coding Community to explore and do a lot more with your
               friends and members.
             </span>
-            <button className={styles.primaryBtn}>Explore Now</button>
+            <a href="#about">
+              <button className={styles.primaryBtn}>Explore Now</button>
+            </a>
           </div>
           <HomeNav />
           <Shortcuts />
