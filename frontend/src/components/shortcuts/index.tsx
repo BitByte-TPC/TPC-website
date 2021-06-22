@@ -35,17 +35,21 @@ const Shortcuts: React.FC = () => {
           />
         </a>
         <a
-          href="https://www.geeksforgeeks.org"
+          href="https://www.codechef.com/ratings/all?filterBy=Institution%3DIndian%20Institute%20of%20Information%20Technology%2C%20Design%20and%20Manufacturing%2C%20Jabalpur&order=asc&sortBy=global_rank"
           target="_blank"
           rel="noreferrer"
         >
           <img
             className={styles.logo}
-            src="/images/other/ComponentTMP_0-image5.png"
+            src="/images/other/codechef.png"
             alt="gfg"
           />
         </a>
-        <a href="https://www.codeforces.com" target="_blank" rel="noreferrer">
+        <a
+          href="https://codeforces.com/ratings/organization/2582"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             className={styles.logo}
             src="/images/other/ComponentTMP_0-image6.png"

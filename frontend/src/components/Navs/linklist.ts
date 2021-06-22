@@ -15,11 +15,6 @@ export const linklist = [
     loginReq: false,
   },
   {
-    name: "Leaderboard",
-    url: "/leaderboard",
-    loginReq: false,
-  },
-  {
     name: "Registration",
     url: "/registration",
     loginReq: false,
