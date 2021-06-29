@@ -9,18 +9,22 @@ def findReplace(directory, find, replace, filePattern):
             with open(filepath, "w") as f:
                 f.write(s)
 
+
+loc = os.path.join(os.getcwd(), "..", "src")
 findReplace(
-  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  loc,
   "src=\"/images", "src=\"/webix.iiitdmj.ac.in/images"
   ,"*.tsx"
 )
 findReplace(
-  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  loc,
   "\"/images", "\"/webix.iiitdmj.ac.in/images"
   ,"*.ts"
 )
 findReplace(
-  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  loc,
   "image=\"/images", "image=\"/webix.iiitdmj.ac.in/images"
   ,"*.tsx"
 )
+print("Done!")
+
