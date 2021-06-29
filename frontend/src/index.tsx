@@ -9,7 +9,8 @@ ReactDOM.render(
   <MuiThemeProvider theme={Theme}>
     <BrowserRouter
       basename={
-        window.location.hostname === "iiitdmj.ac.in"
+        window.location.hostname === "iiitdmj.ac.in" ||
+        window.location.hostname === "www.iiitdmj.ac.in"
           ? "/webix.iiitdmj.ac.in"
           : ""
       }
