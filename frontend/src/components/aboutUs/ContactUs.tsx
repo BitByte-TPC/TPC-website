@@ -1,7 +1,13 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Container, Link, Typography, Theme } from "@material-ui/core";
-import { Email, Facebook, GitHub, Instagram } from "@material-ui/icons";
+import {
+  Email,
+  Facebook,
+  GitHub,
+  Instagram,
+  LinkedIn,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -70,8 +76,22 @@ const ContactUs: React.FC = () => {
             BitByte
           </Typography>
         </a>
-        <a href="#" target="_blank" className={classes.atag}>
+        <a
+          href="https://www.instagram.com/bitbyte.tpc/"
+          target="_blank"
+          className={classes.atag}
+        >
           <Instagram className={classes.icon} fontSize="small" />
+          <Typography className={classes.text} component="span">
+            BitByte
+          </Typography>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/bitbyte-tpc/about/"
+          target="_blank"
+          className={classes.atag}
+        >
+          <LinkedIn className={classes.icon} fontSize="small" />
           <Typography className={classes.text} component="span">
             BitByte
           </Typography>

@@ -9,15 +9,18 @@ def findReplace(directory, find, replace, filePattern):
             with open(filepath, "w") as f:
                 f.write(s)
 
-findReplace("/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
-"src=\"/images", "src=\"/webix.iiitdmj.ac.in/images"
-,"*.tsx"
+findReplace(
+  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  "src=\"/images", "src=\"/webix.iiitdmj.ac.in/images"
+  ,"*.tsx"
 )
-findReplace("/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
-"\"/images", "\"/webix.iiitdmj.ac.in/images"
-,"*.ts"
+findReplace(
+  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  "\"/images", "\"/webix.iiitdmj.ac.in/images"
+  ,"*.ts"
 )
-findReplace("/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
-"image=\"/images", "image=\"/webix.iiitdmj.ac.in/images"
-,"*.tsx"
+findReplace(
+  "/home/akshbansal/d/code/web/github/TPC-website/frontend/src",
+  "image=\"/images", "image=\"/webix.iiitdmj.ac.in/images"
+  ,"*.tsx"
 )

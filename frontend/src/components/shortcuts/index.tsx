@@ -27,7 +27,11 @@ const Shortcuts: React.FC = () => {
             alt="facebook"
           />
         </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/bitbyte.tpc/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <img
             className={styles.logo}
             src="/images/other/ComponentTMP_0-image4.png"

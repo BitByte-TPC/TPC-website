@@ -10,7 +10,7 @@ const HomeNav: React.FC = () => {
           <span className={styles.navBtn}>About Us</span>
         </a>
         <a href="#contact">
-          <span className={styles.navBtn}>Contact Us</span>
+          <span className={styles.navBtn}>Meet the Team</span>
         </a>
       </div>
       <ul className={styles.nav}>
