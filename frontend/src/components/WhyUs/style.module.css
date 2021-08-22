@@ -1,13 +1,13 @@
 .container {
-  height: 90vh;
-  grid-area: about;
+  height: 91vh;
   background-color: var(--background-gradient);
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-areas: "vectors content";
+  grid-template-areas: "content vectors";
 }
 .content {
   grid-area: content;
+  padding-left: 5vw;
 }
 
 .heading {
@@ -39,11 +39,6 @@
   width: 80%;
   line-height: 20px;
 }
-.hide {
-  text-decoration: none;
-  cursor: text;
-  color: white;
-}
 
 .vectors {
   grid-area: vectors;
@@ -54,8 +49,7 @@
   height: 80%;
 }
 .vectors > img {
-  width: 27vw;
-  height: 16vh;
+  width: 40vw;
 }
 
 .break {
@@ -64,8 +58,7 @@
 
 @media only screen and (max-width: 1180px) {
   .container {
-    height: 110vh;
-    grid-template-columns: 0% 100%;
+    grid-template-columns: 100% 00%;
     justify-content: center;
     align-items: flex-start;
   }
@@ -79,6 +72,6 @@
   }
   .para {
     margin: 1vh auto;
-    width: 80%;
+    width: 90%;
   }
 }

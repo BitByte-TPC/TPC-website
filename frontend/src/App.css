@@ -12,10 +12,11 @@ body {
   --svg-bg: #132d57;
   --primary-btn-color: #3e3d55;
   --nav-btn-background: #707070;
-  --background-gradient: linear-gradient(to bottom right, #3650c7, #42abdc);
+  --background-gradient: #00050b;
   --golden: #ffac2f;
   --dark-golden: #ff9c08;
   --light-golden: #ffd166;
+  --heading-font: "Montserrat", sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -23,7 +24,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--heading-color); /* color of the tracking area */
+  background: var(--background-gradient); /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
