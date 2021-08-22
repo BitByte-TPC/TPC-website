@@ -10,16 +10,37 @@ export const useSignupLoginStyles = makeStyles(() =>
     input: {
       marginBottom: "2vh",
       width: "80%",
+      background: "transparent",
+    },
+    cssLabel: {
+      color: "#ededed",
+    },
+
+    cssOutlinedInput: {
+      "&$cssFocused $notchedOutline": {
+        borderColor: `#ededed !important`,
+      },
+      color: "#ededed",
+    },
+
+    cssFocused: {
+      color: "#ededed",
+    },
+
+    notchedOutline: {
+      borderWidth: "1px",
+      borderColor: "#ededed !important",
     },
     btn: {
-      background: "var(--golden)",
+      background: "var(--my-cyan)",
       margin: "2vh",
       "&:hover": {
-        background: "var(--dark-golden)",
+        background: "var(--my-dcyan)",
       },
     },
     link: {
       cursor: "pointer",
+      color: "#00a6ed",
     },
     footer: {
       marginBottom: "2vh",

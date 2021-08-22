@@ -9,6 +9,14 @@ import BackButton from "../Buttons/BackButton";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    main: {
+      width: "30vw",
+      background: "#1c1c1c",
+      [theme.breakpoints.down("sm")]: {
+        width: "90vw",
+      },
+      color: "#ededed",
+    },
     title: {
       margin: "3vh",
       fontWeight: "bold",
@@ -19,14 +27,11 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       alignItems: "center",
     },
-    main: {
-      width: "30vw",
-      [theme.breakpoints.down("sm")]: {
-        width: "90vw",
-      },
-    },
     or: {
       margin: "2vh",
+    },
+    icon: {
+      color: "#10ABC2",
     },
   })
 );
@@ -44,7 +49,7 @@ const RegistrationForm: React.FC = () => {
   return (
     <Paper className={classes.main}>
       <div className={classes.flexbox}>
-        <BackButton />
+        <BackButton className={classes.icon} />
         <Typography className={classes.title} align="center">
           {heading[page]}
         </Typography>

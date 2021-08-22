@@ -20,11 +20,7 @@ const validSchema = yup.object({
     .required()
     .max(64)
     .matches(/^[a-zA-Z0-9]+(@iiitdmj\.ac\.in)$/, "Invalid Email"),
-  password: yup
-    .string()
-    .required()
-    .min(6)
-    .matches(/[0-9]/, "Password must include atleast 1 digit"),
+  password: yup.string().required().min(6),
 });
 
 const Login: React.FC<LoginProps> = ({ setPage }) => {

@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core";
+import blue from "@material-ui/core/colors/blue";
 
 const Theme = createMuiTheme({
   breakpoints: {
@@ -9,6 +10,9 @@ const Theme = createMuiTheme({
       lg: 1180,
       xl: 1920,
     },
+  },
+  palette: {
+    primary: blue,
   },
 });
 
