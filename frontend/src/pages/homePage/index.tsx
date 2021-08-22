@@ -23,13 +23,13 @@ const HomePage: React.FC = () => {
           </span>
           <img
             className={styles.learnQ}
-            src="/images/home/ifyouwanttolearn.png"
+            src="/webix.iiitdmj.ac.in/images/home/ifyouwanttolearn.png"
             alt="learn"
           />
         </div>
         <img
           className={styles.brackets}
-          src="/images/home/brackets.png"
+          src="/webix.iiitdmj.ac.in/images/home/brackets.png"
           alt="{}"
         />
       </div>

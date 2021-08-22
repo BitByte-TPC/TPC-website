@@ -30,22 +30,22 @@ const AboutUs: React.FC = () => {
       <div className={styles.vectors}>
         <img
           className={styles.aboutImg}
-          src="/images/about/btn_7.png"
+          src="/webix.iiitdmj.ac.in/images/about/btn_7.png"
           alt="code"
         />
         <img
           className={styles.aboutImg}
-          src="/images/about/btn_8.png"
+          src="/webix.iiitdmj.ac.in/images/about/btn_8.png"
           alt="android"
         />
         <img
           className={styles.aboutImg}
-          src="/images/about/btn_9.png"
+          src="/webix.iiitdmj.ac.in/images/about/btn_9.png"
           alt="gsoc"
         />
         <img
           className={styles.aboutImg}
-          src="/images/about/btn_10.png"
+          src="/webix.iiitdmj.ac.in/images/about/btn_10.png"
           alt="ai-ml"
         />
       </div>

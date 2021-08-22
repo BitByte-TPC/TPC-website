@@ -26,7 +26,7 @@ const WhyUs: React.FC = () => {
       <div className={styles.vectors}>
         <img
           className={styles.aboutImg}
-          src="/images/other/why_us.png"
+          src="/webix.iiitdmj.ac.in/images/other/why_us.png"
           alt="tech"
         />
       </div>

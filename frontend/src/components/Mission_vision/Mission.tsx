@@ -15,7 +15,7 @@ const Mission: React.FC = () => {
       <div className={styles.vectors}>
         <img
           className={styles.aboutImg}
-          src="/images/home/mission.png"
+          src="/webix.iiitdmj.ac.in/images/home/mission.png"
           alt="code"
         />
       </div>

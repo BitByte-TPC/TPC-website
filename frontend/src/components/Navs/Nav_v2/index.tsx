@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     drawerList: {
       width: 300,
-      background: "#262626",
+      background: "#171717",
       height: "100vh",
       color: "white",
     },
@@ -108,7 +108,11 @@ const Nav2: React.FC = () => {
       <AppBar className={classes.bg} position="static">
         <Toolbar className={classes.wrapper} variant="regular">
           <Link to="/">
-            <img className={classes.logo} src="/tpclogo.png" alt="TPC" />
+            <img
+              className={classes.logo}
+              src="/webix.iiitdmj.ac.in/tpclogo.png"
+              alt="TPC"
+            />
           </Link>
           <IconButton
             edge="start"

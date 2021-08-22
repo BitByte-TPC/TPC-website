@@ -1,23 +1,40 @@
 import React from "react";
-import NavBar from "../../components/Navs/Navbar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Container, Typography } from "@material-ui/core";
-import DomainCard from "src/components/Cards/DomainCard";
+import { Typography } from "@material-ui/core";
+import Nav2 from "src/components/Navs/Nav_v2";
+import DomainCard2 from "src/components/Cards/DomainCard_v2";
 import { teamlist } from "./teamlist";
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
       minHeight: "100vh",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    heading: {
+      fontFamily: "var(--heading-font)",
+      fontSize: "4rem",
+      textTransform: "uppercase",
+      color: "rgba(255, 255, 255, 0.9)",
+      textShadow: "-4px 4px 4px #10ABC2",
+    },
+    subHeading: {
+      color: "rgba(255, 255, 255, 0.75)",
+      fontFamily: "monospace",
     },
     title: {
-      margin: "4vh",
-      color: "white",
-      fontWeight: "bold",
-      fontSize: "1.7rem",
+      marginBottom: "5vh",
+      marginTop: "8vh",
+      fontFamily: "var(--heading-font)",
+      fontSize: "2.5rem",
+      textTransform: "uppercase",
+      color: "rgba(255, 255, 255, 0.9)",
+      textShadow: "-4px 4px 4px #10ABC2",
     },
     flexbox: {
-      flexGrow: 1,
+      width: "90vw",
       display: "flex",
       justifyContent: "space-around",
       flexWrap: "wrap",
@@ -27,61 +44,69 @@ const useStyles = makeStyles(() =>
 const Domains: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <NavBar />
-
-      <Container>
-        <Typography className={classes.title} align="center">
-          Coordinator
+    <div>
+      <Nav2 />
+      <div className={classes.root}>
+        <Typography className={classes.heading} align="center">
+          We are everywhere
         </Typography>
-        <Container className={classes.flexbox}>
+        <Typography className={classes.subHeading} align="center">
+          {"<p>From web to app, AI to ML, Blockchain to DevOps</p>"}
+        </Typography>
+        <Typography className={classes.title} align="center">
+          COORDINATOR
+        </Typography>
+        <div className={classes.flexbox}>
           {teamlist.map((e, i) => {
             if (e.team === "coordinator") {
-              return <DomainCard key={i} {...e} />;
+              return <DomainCard2 key={i} {...{ ...e, team: "Coordinator" }} />;
+            } else {
+              return <></>;
             }
-            return null;
           })}
-        </Container>
-      </Container>
-      <Container>
+        </div>
         <Typography className={classes.title} align="center">
-          Co-Coordinator
+          CO-COORDINATOR
         </Typography>
-        <Container className={classes.flexbox}>
+        <div className={classes.flexbox}>
           {teamlist.map((e, i) => {
             if (e.team === "coco") {
-              return <DomainCard key={i} {...e} />;
+              return <DomainCard2 key={i} {...{ ...e, team: "Coco" }} />;
+            } else {
+              return <></>;
             }
-            return null;
           })}
-        </Container>
-      </Container>
-      <Container>
+        </div>
         <Typography className={classes.title} align="center">
-          Developers
+          DEVELOPERS
         </Typography>
-        <Container className={classes.flexbox}>
+        <div className={classes.flexbox}>
           {teamlist.map((e, i) => {
             if (e.team === "dev") {
-              return <DomainCard key={i} {...e} />;
+              return <DomainCard2 key={i} {...{ ...e, team: "Developer" }} />;
+            } else {
+              return <></>;
             }
-            return null;
           })}
-        </Container>
-      </Container>
-      <Container>
+        </div>
         <Typography className={classes.title} align="center">
-          Competitive Programmers
+          COMPETITIVE PROGRAMMERS
         </Typography>
-        <Container className={classes.flexbox}>
+        <div className={classes.flexbox}>
           {teamlist.map((e, i) => {
             if (e.team === "cp") {
-              return <DomainCard key={i} {...e} />;
+              return (
+                <DomainCard2
+                  key={i}
+                  {...{ ...e, team: "Competitive Programmer" }}
+                />
+              );
+            } else {
+              return <></>;
             }
-            return null;
           })}
-        </Container>
-      </Container>
+        </div>
+      </div>
     </div>
   );
 };
