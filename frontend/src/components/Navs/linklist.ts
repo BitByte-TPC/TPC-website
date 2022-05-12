@@ -1,23 +1,23 @@
 export const linklist = [
   {
+    name: "Team",
+    url: "/team",
+    loginReq: false,
+  },
+  {
     name: "Projects",
     url: "/projects",
     loginReq: false,
   },
   {
-    name: "Domains",
-    url: "/domains",
-    loginReq: false,
-  },
-  {
     name: "Events",
     url: "/events",
-    loginReq: false,
+    loginReq: true,
   },
   {
     name: "Registration",
     url: "/registration",
-    loginReq: false,
+    loginReq: true,
   },
   {
     name: "Logout",

@@ -29,7 +29,7 @@ const Routes: React.FC = () => {
     <div className="App">
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/domains" component={Domains} />
+        <Route exact path="/team" component={Domains} />
         <Route exact path="/projects" component={Projects} />
         <Route exact path="/registration" component={Registration} />
         <Route path="/auth/google" component={GoogleRedirect} />

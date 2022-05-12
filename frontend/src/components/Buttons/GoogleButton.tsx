@@ -32,7 +32,7 @@ const GoogleButton: React.FC = () => {
       >
         <img
           className={classes.icon}
-          src="/images/other/search.svg"
+          src="/webix.iiitdmj.ac.in/images/other/search.svg"
           alt="google"
         />
         Sign in with Google

@@ -16,7 +16,7 @@ const HomePage: React.FC = () => {
             <span className={styles.heading}>The Programming Club IIITDMJ</span>
             <img
               className={styles.svgimg}
-              src="/images/other/ComponentTMP_0-image.png"
+              src="/webix.iiitdmj.ac.in/images/other/ComponentTMP_0-image.png"
               alt="The Programming Club"
             />
             <span className={styles.text}>

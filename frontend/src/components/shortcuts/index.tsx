@@ -12,7 +12,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="/images/other/ComponentTMP_0-image2.png"
+            src="/webix.iiitdmj.ac.in/images/other/ComponentTMP_0-image2.png"
             alt="github"
           />
         </a>
@@ -23,7 +23,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="/images/other/ComponentTMP_0-image3.png"
+            src="/webix.iiitdmj.ac.in/images/other/ComponentTMP_0-image3.png"
             alt="facebook"
           />
         </a>
@@ -34,7 +34,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="/images/other/ComponentTMP_0-image4.png"
+            src="/webix.iiitdmj.ac.in/images/other/ComponentTMP_0-image4.png"
             alt="instagram"
           />
         </a>
@@ -45,7 +45,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="/images/other/codechef.png"
+            src="/webix.iiitdmj.ac.in/images/other/codechef.png"
             alt="gfg"
           />
         </a>
@@ -56,7 +56,7 @@ const Shortcuts: React.FC = () => {
         >
           <img
             className={styles.logo}
-            src="/images/other/ComponentTMP_0-image6.png"
+            src="/webix.iiitdmj.ac.in/images/other/ComponentTMP_0-image6.png"
             alt="codeforces"
           />
         </a>

@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const App: React.FC = () => {
   const classes = useStyles();
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   const setToken = useTokenStore((state) => state.setToken);
   React.useEffect(() => {
     updateAccessToken(setToken, setLoading);

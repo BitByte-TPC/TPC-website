@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "space-around",
     },
     menuButton: {
-      // display: "block",
       [theme.breakpoints.up("lg")]: {
         display: "none",
       },
@@ -48,6 +47,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
       fontWeight: "bold",
       fontSize: "1.4rem",
+      width: "30vw",
       color: "white",
     },
     other: {
@@ -88,9 +88,7 @@ const HomePage: React.FC = () => {
     <div
       className={classes.drawerList}
       role="presentation"
-      // onClick={toggleDrawer(anchor, false)}
       onClick={toggleDrawer}
-      // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
         {linklist.map((e, key) => {
@@ -135,8 +133,8 @@ const HomePage: React.FC = () => {
             <MenuIcon />
           </IconButton>
           <Link to="/">
-            <Typography className={classes.title} align="center">
-              BitByte
+            <Typography className={classes.title}>
+              The Programming Club
             </Typography>
           </Link>
           <Container className={classes.flexbox}>

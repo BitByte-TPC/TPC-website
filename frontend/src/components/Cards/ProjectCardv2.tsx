@@ -74,11 +74,7 @@ const ProjectCardv2: React.FC<ProjectCardv2Props> = ({
         <Typography className={classes.body}>{description}</Typography>
         <Typography className={classes.owner}>{dev}</Typography>
       </CardContent>
-      <CardMedia
-        image={image}
-        title="project_image"
-        className={classes.media}
-      />
+      <CardMedia image={image} className={classes.media} />
     </Card>
   );
 };
