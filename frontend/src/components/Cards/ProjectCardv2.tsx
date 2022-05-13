@@ -43,6 +43,18 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       minHeight: 200,
     },
+    fullImg: {
+      position: "absolute",
+      zIndex: 2,
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundSize: "contain",
+      backgroundRepeat: "no-repeat no-repeat",
+      backgroundPosition: "center center",
+      backgroundColor: "black",
+    },
   })
 );
 
@@ -64,6 +76,15 @@ const ProjectCardv2: React.FC<ProjectCardv2Props> = ({
   image,
 }) => {
   const classes = useStyles();
+  const [display, setDisplay] = React.useState<string>("none");
+  const toggleImg = () => {
+    setDisplay((e: string) => {
+      if (e === "none") {
+        return "block";
+      }
+      return "none";
+    });
+  };
   return (
     <Card className={classes.root}>
       <CardContent className={classes.info}>
@@ -74,7 +95,13 @@ const ProjectCardv2: React.FC<ProjectCardv2Props> = ({
         <Typography className={classes.body}>{description}</Typography>
         <Typography className={classes.owner}>{dev}</Typography>
       </CardContent>
-      <CardMedia image={image} className={classes.media} />
+      <CardMedia image={image} onClick={toggleImg} className={classes.media} />
+      <img
+        src={image}
+        onClick={toggleImg}
+        style={{ display }}
+        className={classes.fullImg}
+      />
     </Card>
   );
 };
