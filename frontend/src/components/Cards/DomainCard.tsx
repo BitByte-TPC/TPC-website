@@ -22,6 +22,11 @@ const useStyles = makeStyles(() =>
       opacity: 0.8,
       fontWeight: "bold",
     },
+    title2: {
+      fontSize: "1rem",
+      opacity: 0.8,
+      fontWeight: "bold",
+    },
     media: {
       height: "25vh",
     },
@@ -50,7 +55,11 @@ const DomainCard: React.FC<DomainCardProps> = ({
         title={name}
       />
       <CardContent>
-        <Typography className={classes.title}>{name}</Typography>
+        {name.length > 16 ? (
+          <Typography className={classes.title2}>{name}</Typography>
+        ) : (
+          <Typography className={classes.title}>{name}</Typography>
+        )}
         <a href={linkedIn} target="_blank">
           <IconButton>
             <LinkedIn />

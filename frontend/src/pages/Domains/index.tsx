@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
       margin: "4vh",
       color: "white",
       fontWeight: "bold",
-      fontSize: "1.4rem",
+      fontSize: "1.7rem",
     },
     flexbox: {
       flexGrow: 1,
