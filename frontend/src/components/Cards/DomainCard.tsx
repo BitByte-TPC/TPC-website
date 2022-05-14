@@ -7,7 +7,7 @@ import {
   IconButton,
   Typography,
 } from "@material-ui/core";
-import { Email, GitHub } from "@material-ui/icons";
+import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,28 +22,57 @@ const useStyles = makeStyles(() =>
       opacity: 0.8,
       fontWeight: "bold",
     },
+    title2: {
+      fontSize: "1rem",
+      opacity: 0.8,
+      fontWeight: "bold",
+    },
     media: {
       height: "25vh",
     },
   })
 );
-const DomainCard: React.FC = () => {
+interface DomainCardProps {
+  name: string;
+  profileImg: string;
+  email: string;
+  linkedIn?: string;
+  github?: string;
+}
+const DomainCard: React.FC<DomainCardProps> = ({
+  name,
+  email,
+  profileImg,
+  linkedIn,
+  github,
+}) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardMedia
         className={classes.media}
-        image="/images/profile/profilepic.jfif"
-        title="Aksh"
+        image={`/webix.iiitdmj.ac.in/images/profile/${profileImg}`}
+        title={name}
       />
       <CardContent>
-        <Typography className={classes.title}>Aksh Bansal</Typography>
-        <a href="https://github.com/Aksh-Bansal-dev" target="_blank">
+        {name.length > 16 ? (
+          <Typography className={classes.title2}>{name}</Typography>
+        ) : (
+          <Typography className={classes.title}>{name}</Typography>
+        )}
+        <a href={linkedIn} target="_blank">
           <IconButton>
-            <GitHub />
+            <LinkedIn />
           </IconButton>
         </a>
-        <a href="mailto:20bcs021@iiitdmj.ac.in" target="_blank">
+        {github ? (
+          <a href={github} target="_blank">
+            <IconButton>
+              <GitHub />
+            </IconButton>
+          </a>
+        ) : null}
+        <a href={`mailto:${email}`} target="_blank">
           <IconButton>
             <Email />
           </IconButton>

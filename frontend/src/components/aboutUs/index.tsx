@@ -33,27 +33,27 @@ const AboutUs: React.FC = () => {
           <div className={styles.svgCon}>
             <img
               className={styles.aboutImg}
-              src="/images/other/code2.png"
+              src="/webix.iiitdmj.ac.in/images/other/code2.png"
               alt="code"
             />
             <img
               className={styles.aboutImg}
-              src="/images/other/android.png"
+              src="/webix.iiitdmj.ac.in/images/other/android.png"
               alt="android"
             />
             <img
               className={styles.aboutImg}
-              src="/images/other/gsoc.png"
+              src="/webix.iiitdmj.ac.in/images/other/gsoc.png"
               alt="gsoc"
             />
             <img
               className={styles.aboutImg}
-              src="/images/other/ai-ml.png"
+              src="/webix.iiitdmj.ac.in/images/other/ai-ml.png"
               alt="ai-ml"
             />
             <img
               className={styles.aboutImg}
-              src="/images/other/hacker.png"
+              src="/webix.iiitdmj.ac.in/images/other/hacker.png"
               alt="hacker"
             />
           </div>

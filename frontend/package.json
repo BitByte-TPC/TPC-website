@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "http://localhost:3000/webix.iiitdmj.ac.in/",
   "dependencies": {
     "@date-io/date-fns": "1.x",
     "@material-ui/core": "^4.11.4",

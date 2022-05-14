@@ -4,6 +4,9 @@
   font-weight: 600;
   margin: 2vh 0 0 0;
 }
+.Link li:hover {
+  color: #ffffff;
+}
 
 .Link {
   text-decoration: none;

@@ -2,10 +2,11 @@ export const projectlist = [
   {
     projectName: "BitBot",
     lang: "Typescript",
-    description: "A small lazy bot to inspire the development-bug inside me",
+    description:
+      "A small lazy discord bot to inspire the development-bug inside me",
     dev: "BitByte",
     url: "https://github.com/BitByte-TPC/BitBot",
-    image: "/images/projects/bitbot.png",
+    image: "/webix.iiitdmj.ac.in/images/projects/bitbot.png",
   },
   {
     projectName: "Jagrati",
@@ -13,32 +14,23 @@ export const projectlist = [
     description: "Official AndroidApp of Jagrati - An Initiative of IIITians",
     dev: "BitByte",
     url: "https://github.com/BitByte-TPC/Jagrati",
-    image: "/images/projects/no-image.jpg",
+    image: "/webix.iiitdmj.ac.in/images/projects/jagriti.jpg",
   },
   {
-    projectName: "Technical-Fest",
-    lang: "Java",
-    description: "Android Application for Technical Fest",
-    dev: "BitByte",
-    url: "https://github.com/BitByte-TPC/Technical-Fest",
-    image: "/images/projects/no-image.jpg",
-  },
-  {
-    projectName: "Comrade",
+    projectName: "Visual Web Code",
     lang: "Typescript",
     description:
-      "An app where you can share and view ideas, thoughts, or events",
+      "Feature-rich code editor in your browser. Just upload your file or an image of code and start coding.",
     dev: "Aksh Bansal",
-    url: "https://github.com/Aksh-Bansal-dev/Comrade",
-    image: "/images/projects/comrade.png",
+    url: "https://visualwebcode.netlify.app/",
+    image: "/webix.iiitdmj.ac.in/images/projects/visual-web-code.png",
   },
   {
-    projectName: "Collab Draw",
+    projectName: "MICP Leaderboard",
     lang: "Typescript",
-    description:
-      "It's a drawing app that syncs with other browsers using web sockets.",
+    description: "Most Improved Competitive Programmers Leaderboard",
     dev: "Aksh Bansal",
-    url: "https://github.com/Aksh-Bansal-dev/collab-draw",
-    image: "/images/projects/collabdraw.png",
+    url: "https://micp-leaderboard.vercel.app/",
+    image: "/webix.iiitdmj.ac.in/images/projects/micp.png",
   },
 ];
