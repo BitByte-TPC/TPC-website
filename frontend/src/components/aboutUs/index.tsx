@@ -15,17 +15,16 @@ const AboutUs: React.FC = () => {
             </span>
             aim to help students and as a community we want to grow as much as
             possible in many domains of coding and development, be it
-            Competitive Programming, Android, Web, Open Source, AI/ML, Ethical
-            Hacking.
+            Competitive Programming, Android, Web, Open Source
+            <Link className={styles.hide} to="/bangbang">
+              ,
+            </Link>{" "}
+            AI/ML, Ethical Hacking .
           </p>
           <p className={styles.para}>
             We try to help each other learn new programming skills organize
             sessions and competitions let everyone know of ongoing activities in
-            coding community and how they can use them for their{" "}
-            <Link className={styles.hide} to="/bangbang">
-              benefits
-            </Link>
-            .
+            coding community and how they can use them for their benefits.
           </p>
           <p className={styles.para}>
             Be it getting an internship in a startup company, cracking open
