@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 
 const AboutUs: React.FC = () => {
@@ -20,7 +21,11 @@ const AboutUs: React.FC = () => {
           <p className={styles.para}>
             We try to help each other learn new programming skills organize
             sessions and competitions let everyone know of ongoing activities in
-            coding community and how they can use them for their benefits.
+            coding community and how they can use them for their{" "}
+            <Link className={styles.hide} to="/bangbang">
+              benefits
+            </Link>
+            .
           </p>
           <p className={styles.para}>
             Be it getting an internship in a startup company, cracking open
