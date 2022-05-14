@@ -8,11 +8,6 @@ const HomeNav: React.FC = () => {
       <ul className={styles.nav}>
         <NavLinks />
       </ul>
-      <img
-        className={styles.vector}
-        src="/webix.iiitdmj.ac.in/images/ComponentTMP_0-image7.png"
-        alt=""
-      />
     </div>
   );
 };

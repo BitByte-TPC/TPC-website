@@ -25,10 +25,10 @@ const useStyles = makeStyles(() =>
 const NotFound: React.FC = () => {
   const classes = useStyles();
   const location = useLocation();
-  console.log(location.pathname);
   if (location.pathname === "/bangbang") {
     return (
       <div className={classes.root}>
+        <input type="hidden" value="You got me!" />
         <img
           src="https://i.giphy.com/media/gU25raLP4pUu4/giphy.webp"
           className={classes.fullScreen}

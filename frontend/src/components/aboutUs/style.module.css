@@ -27,6 +27,11 @@
   font-weight: 400;
   margin: 2vh;
 }
+.hide {
+  text-decoration: none;
+  cursor: text;
+  color: white;
+}
 
 .vectors {
   padding-top: 65vh;
