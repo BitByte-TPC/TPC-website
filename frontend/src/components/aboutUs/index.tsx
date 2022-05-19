@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 
 const AboutUs: React.FC = () => {
@@ -15,11 +14,8 @@ const AboutUs: React.FC = () => {
             </span>
             aim to help students and as a community we want to grow as much as
             possible in many domains of coding and development, be it
-            Competitive Programming, Android, Web, Open Source
-            <Link className={styles.hide} to="/bangbang">
-              ,
-            </Link>{" "}
-            AI/ML, Ethical Hacking .
+            Competitive Programming, Android, Web, Open Source , AI/ML, Ethical
+            Hacking .
           </p>
           <p className={styles.para}>
             We try to help each other learn new programming skills organize

@@ -23,7 +23,10 @@ const HomePage: React.FC = () => {
               An Open Coding Community to explore and do a lot more with your
               friends and members.
             </span>
-            <a href="#about">
+            <a
+              href="#"
+              onClick={() => window.scrollTo(0, document.body.scrollHeight)}
+            >
               <button className={styles.primaryBtn}>Explore Now</button>
             </a>
           </div>
