@@ -9,7 +9,7 @@ export const projectlist = [
     image: "/webix.iiitdmj.ac.in/images/projects/bitbot.png",
   },
   {
-    projectName: "Jagrati",
+    projectName: "Jagrati Android App",
     lang: "Java",
     description: "Official AndroidApp of Jagrati - An Initiative of IIITians",
     dev: "BitByte",
@@ -32,5 +32,21 @@ export const projectlist = [
     dev: "Aksh Bansal",
     url: "https://micp-leaderboard.vercel.app/",
     image: "/webix.iiitdmj.ac.in/images/projects/micp.png",
+  },
+  {
+    projectName: "Jagrati Wep App",
+    lang: "Python",
+    description: "Official WebApp of Jagrati - An Initiative of IIITians",
+    dev: "Priyansh Garg",
+    url: "https://jagrati.iiitdmj.ac.in/",
+    image: "/webix.iiitdmj.ac.in/images/projects/jagratiweb.jpeg",
+  },
+  {
+    projectName: "Alumini Connect",
+    lang: "Python",
+    description: "Alumni Portal for IIITDM Jabalpur",
+    dev: "BitByte",
+    url: "https://alumni.iiitdmj.ac.in/",
+    image: "/webix.iiitdmj.ac.in/images/projects/alumini.jpeg",
   },
 ];
