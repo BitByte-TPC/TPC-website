@@ -5,6 +5,7 @@ import Nav2 from "../../components/Navs/Nav_v2";
 import WhyUs from "src/components/WhyUs";
 import Mission from "src/components/Mission_vision/Mission";
 import Vision from "src/components/Mission_vision/Vision";
+import HomeFooter from "src/components/HomeFooter";
 
 const HomePage: React.FC = () => {
   return (
@@ -37,6 +38,7 @@ const HomePage: React.FC = () => {
       <WhyUs />
       <Mission />
       <Vision />
+      <HomeFooter />
     </div>
   );
 };
