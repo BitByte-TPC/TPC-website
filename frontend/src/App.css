@@ -12,7 +12,7 @@ body {
   --svg-bg: #132d57;
   --primary-btn-color: #3e3d55;
   --nav-btn-background: #707070;
-  --background-gradient: #00050b;
+  --primary-bg: #00050b;
   --golden: #ffac2f;
   --dark-golden: #ff9c08;
   --light-golden: #ffd166;
@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--background-gradient); /* color of the tracking area */
+  background: var(--primary-bg); /* color of the tracking area */
 }
 
 body::-webkit-scrollbar-thumb {
@@ -39,5 +39,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 .App {
-  background: var(--background-gradient);
+  background: var(--primary-bg);
 }

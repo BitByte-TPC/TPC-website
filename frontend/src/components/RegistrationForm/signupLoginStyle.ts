@@ -12,25 +12,6 @@ export const useSignupLoginStyles = makeStyles(() =>
       width: "80%",
       background: "transparent",
     },
-    cssLabel: {
-      color: "#ededed",
-    },
-
-    cssOutlinedInput: {
-      "&$cssFocused $notchedOutline": {
-        borderColor: `#ededed !important`,
-      },
-      color: "#ededed",
-    },
-
-    cssFocused: {
-      color: "#ededed",
-    },
-
-    notchedOutline: {
-      borderWidth: "1px",
-      borderColor: "#ededed !important",
-    },
     btn: {
       background: "var(--my-cyan)",
       margin: "2vh",

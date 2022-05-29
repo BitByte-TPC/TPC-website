@@ -53,11 +53,10 @@ const Nav2: React.FC = () => {
   const token = useTokenStore((state) => state.token);
   const setToken = useTokenStore((state) => state.setToken);
   const classes = useStyles();
-  const [drawerOpen, setdrawerOpen] = React.useState(false);
+  const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   const toggleDrawer = () => {
-    setdrawerOpen(!drawerOpen);
-    return undefined;
+    setDrawerOpen(!drawerOpen);
   };
   const history = useHistory();
 
@@ -68,33 +67,35 @@ const Nav2: React.FC = () => {
     }
   };
 
-  const drawerList = () => (
+  const drawerList = (
     <div
       className={classes.drawerList}
       role="presentation"
       onClick={toggleDrawer}
     >
       <List>
-        {linklist.map((e, key) => {
-          if (e.loginReq) {
-            if (!!token)
-              return (
-                <div
-                  className={classes.pseudolink}
-                  onClick={async () => await handleLogout(e.url)}
-                  key={key}
-                >
-                  <ListItem button>
-                    <Typography className={classes.other}>{e.name}</Typography>
-                  </ListItem>
-                </div>
-              );
-            else return null;
+        {linklist.map((linkData, key) => {
+          if (linkData.loginReq) {
+            return !!token ? (
+              <div
+                className={classes.pseudolink}
+                onClick={async () => await handleLogout(linkData.url)}
+                key={key}
+              >
+                <ListItem button>
+                  <Typography className={classes.other}>
+                    {linkData.name}
+                  </Typography>
+                </ListItem>
+              </div>
+            ) : null;
           }
           return (
-            <Link to={e.url} key={key}>
+            <Link to={linkData.url} key={key}>
               <ListItem button>
-                <Typography className={classes.other}>{e.name}</Typography>
+                <Typography className={classes.other}>
+                  {linkData.name}
+                </Typography>
               </ListItem>
             </Link>
           );
@@ -126,7 +127,7 @@ const Nav2: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Drawer anchor={"right"} open={drawerOpen} onClose={toggleDrawer}>
-        {drawerList()}
+        {drawerList}
       </Drawer>
     </div>
   );

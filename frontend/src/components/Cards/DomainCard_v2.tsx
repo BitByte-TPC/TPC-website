@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) =>
       border: "2px solid white",
       transform: "translateY(-6vh)",
     },
-    icoCon: {
+    iconsContainer: {
       transform: "translateY(-5vh)",
       display: "flex",
       justifyContent: "space-around",
@@ -66,8 +66,8 @@ const useStyles = makeStyles((theme: Theme) =>
 interface DomainCardInterface {
   name: string;
   team: string;
-  github: string;
-  linkedIn: string;
+  githubProfileUrl: string;
+  linkedInProfileUrl: string;
   email: string;
   profileImg: string;
 }
@@ -75,10 +75,10 @@ interface DomainCardInterface {
 const DomainCard2: React.FC<DomainCardInterface> = ({
   name,
   team,
-  github,
+  githubProfileUrl,
   email,
   profileImg,
-  linkedIn,
+  linkedInProfileUrl,
 }) => {
   const classes = useStyles();
   return (
@@ -90,8 +90,8 @@ const DomainCard2: React.FC<DomainCardInterface> = ({
       />
       <Typography className={classes.title}>{name}</Typography>
       <Typography className={classes.subTitle}>{team}</Typography>
-      <div className={classes.icoCon}>
-        <a href={github} target="_blank">
+      <div className={classes.iconsContainer}>
+        <a href={githubProfileUrl} target="_blank">
           <IconButton>
             <GitHub className={classes.icons} />
           </IconButton>
@@ -101,7 +101,7 @@ const DomainCard2: React.FC<DomainCardInterface> = ({
             <Email className={classes.icons} />
           </IconButton>
         </a>
-        <a href={linkedIn} target="_blank">
+        <a href={linkedInProfileUrl} target="_blank">
           <IconButton>
             <LinkedIn className={classes.icons} />
           </IconButton>

@@ -34,13 +34,13 @@ const useStyles = makeStyles(() =>
       fontSize: "1rem",
       fontFamily: "monospace",
     },
-    body: {
+    description: {
       marginTop: "5vh",
       fontSize: "1rem",
       width: "80%",
       fontFamily: "monospace",
     },
-    owner: {
+    createdBy: {
       marginTop: "5vh",
       fontSize: "1rem",
       opacity: 0.5,
@@ -57,7 +57,7 @@ interface ProjectCardv3Props {
   projectName: string;
   lang: string;
   description: string;
-  dev: string;
+  createdBy: string;
   url: string;
   image: string;
 }
@@ -65,29 +65,29 @@ const ProjectCardv3: React.FC<ProjectCardv3Props> = ({
   projectName,
   lang,
   description,
-  dev,
+  createdBy,
   url,
   image,
 }) => {
   const classes = useStyles();
-  const [display, setDisplay] = React.useState<string>("none");
+  const [showInfo, setShowInfo] = React.useState<boolean>(false);
 
   return (
     <Card className={classes.root}>
       <div
-        style={{ display }}
-        onMouseLeave={() => setDisplay("none")}
+        style={{ display: showInfo ? "block" : "none" }}
+        onMouseLeave={() => setShowInfo(false)}
         className={classes.info}
       >
         <a href={url} className={classes.title} target="_blank">
           <Typography className={classes.title}>{projectName}</Typography>
         </a>
         <Typography className={classes.lang}>{lang}</Typography>
-        <Typography className={classes.body}>{description}</Typography>
-        <Typography className={classes.owner}>{dev}</Typography>
+        <Typography className={classes.description}>{description}</Typography>
+        <Typography className={classes.createdBy}>{createdBy}</Typography>
       </div>
       <CardMedia
-        onMouseEnter={() => setDisplay("block")}
+        onMouseEnter={() => setShowInfo(true)}
         image={image}
         className={classes.media}
       />

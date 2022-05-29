@@ -1,7 +1,31 @@
 import { TextField } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { FieldHookConfig, useField } from "formik";
 import React from "react";
-import { useSignupLoginStyles } from "./RegistrationForm/signupLoginStyle";
+
+export const useStyles = makeStyles(() =>
+  createStyles({
+    cssLabel: {
+      color: "#ededed",
+    },
+
+    cssOutlinedInput: {
+      "&$cssFocused $notchedOutline": {
+        borderColor: `#ededed !important`,
+      },
+      color: "#ededed",
+    },
+
+    cssFocused: {
+      color: "#ededed",
+    },
+
+    notchedOutline: {
+      borderWidth: "1px",
+      borderColor: "#ededed !important",
+    },
+  })
+);
 
 type FormikTextFieldProps = {
   className: string;
@@ -17,7 +41,7 @@ const FormikTextField: React.FC<FormikTextFieldProps> = ({
   ...props
 }) => {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  const classes = useSignupLoginStyles();
+  const classes = useStyles();
   const [field, meta] = useField<string>(props);
   const errorText = meta.error && meta.touched ? meta.error : "";
   const obj = {

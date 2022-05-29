@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import Nav2 from "src/components/Navs/Nav_v2";
 import DomainCard2 from "src/components/Cards/DomainCard_v2";
-import { teamlist } from "./teamlist";
+import { teamList } from "./teamList";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -57,53 +57,46 @@ const Domains: React.FC = () => {
           COORDINATOR
         </Typography>
         <div className={classes.flexbox}>
-          {teamlist.map((e, i) => {
-            if (e.team === "coordinator") {
-              return <DomainCard2 key={i} {...{ ...e, team: "Coordinator" }} />;
-            } else {
-              return <></>;
-            }
+          {teamList.map((memberData, i) => {
+            return memberData.team === "coordinator" ? (
+              <DomainCard2
+                key={i}
+                {...{ ...memberData, team: "Coordinator" }}
+              />
+            ) : null;
           })}
         </div>
         <Typography className={classes.title} align="center">
           CO-COORDINATOR
         </Typography>
         <div className={classes.flexbox}>
-          {teamlist.map((e, i) => {
-            if (e.team === "coco") {
-              return <DomainCard2 key={i} {...{ ...e, team: "Coco" }} />;
-            } else {
-              return <></>;
-            }
+          {teamList.map((memberData, i) => {
+            return memberData.team === "coco" ? (
+              <DomainCard2 key={i} {...{ ...memberData, team: "Coco" }} />
+            ) : null;
           })}
         </div>
         <Typography className={classes.title} align="center">
           DEVELOPERS
         </Typography>
         <div className={classes.flexbox}>
-          {teamlist.map((e, i) => {
-            if (e.team === "dev") {
-              return <DomainCard2 key={i} {...{ ...e, team: "Developer" }} />;
-            } else {
-              return <></>;
-            }
+          {teamList.map((memberData, i) => {
+            return memberData.team === "dev" ? (
+              <DomainCard2 key={i} {...{ ...memberData, team: "Developer" }} />
+            ) : null;
           })}
         </div>
         <Typography className={classes.title} align="center">
           COMPETITIVE PROGRAMMERS
         </Typography>
         <div className={classes.flexbox}>
-          {teamlist.map((e, i) => {
-            if (e.team === "cp") {
-              return (
-                <DomainCard2
-                  key={i}
-                  {...{ ...e, team: "Competitive Programmer" }}
-                />
-              );
-            } else {
-              return <></>;
-            }
+          {teamList.map((memberData, i) => {
+            return memberData.team === "cp" ? (
+              <DomainCard2
+                key={i}
+                {...{ ...memberData, team: "Competitive Programmer" }}
+              />
+            ) : null;
           })}
         </div>
       </div>
