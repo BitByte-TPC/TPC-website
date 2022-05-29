@@ -16,13 +16,13 @@
   color: rgba(255, 255, 255, 0.9);
   text-shadow: -4px 4px 4px #10abc2;
   font-family: var(--heading-font);
-  font-size: 5rem;
+  font-size: 4.5rem;
 }
 .heading2 {
   margin: -2vh 0;
   text-transform: uppercase;
   font-family: var(--heading-font);
-  font-size: 5rem;
+  font-size: 4.5rem;
   color: #00050b;
   text-shadow: -4px 4px 4px #10abc2;
   -webkit-text-stroke-width: 1px;
@@ -38,8 +38,8 @@
   color: rgba(255, 255, 255, 0.75);
   font-family: monospace;
   width: 80%;
-  line-height: 26px;
-  font-size: 1.1rem;
+  line-height: 23px;
+  font-size: 1rem;
   margin-left: 1vh;
 }
 

@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     menuIcon: {
-      fontSize: "4rem",
+      fontSize: "2.5rem",
     },
     logo: {
       width: "15vh",

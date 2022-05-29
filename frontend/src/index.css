@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "Monument Extended";
+  src: url("./fonts/MonumentExtended-Regular.otf");
+}
