@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme: Theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
     },
+    menuIcon: {
+      fontSize: "4rem",
+    },
     logo: {
       width: "15vh",
     },
@@ -122,7 +125,7 @@ const Nav: React.FC = () => {
             aria-label="menu"
             onClick={toggleDrawer}
           >
-            <MenuIcon />
+            <MenuIcon className={classes.menuIcon} />
           </IconButton>
         </Toolbar>
       </AppBar>

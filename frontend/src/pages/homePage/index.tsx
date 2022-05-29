@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
         </div>
         <img
           className={styles.brackets}
-          src="/webix.iiitdmj.ac.in/images/home/brackets.png"
+          src="/webix.iiitdmj.ac.in/images/home/brackets.svg"
           alt="{}"
         />
       </div>

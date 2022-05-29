@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 const AboutUs: React.FC = () => {
   return (
     <div id="about" className={styles.container}>
-      <div className={styles.content}>
+      <div className={styles.content + " " + styles.topGap}>
         <h1 className={styles.heading}>About</h1>
         <h1 className={styles.heading2}>About</h1>
         <h1 className={styles.heading + " " + styles.break}>About</h1>
@@ -30,22 +30,22 @@ const AboutUs: React.FC = () => {
       <div className={styles.vectors}>
         <img
           className={styles.aboutImg}
-          src="/webix.iiitdmj.ac.in/images/about/btn_7.png"
+          src="/webix.iiitdmj.ac.in/images/about/design.svg"
           alt="code"
         />
         <img
           className={styles.aboutImg}
-          src="/webix.iiitdmj.ac.in/images/about/btn_8.png"
+          src="/webix.iiitdmj.ac.in/images/about/develop.svg"
           alt="android"
         />
         <img
           className={styles.aboutImg}
-          src="/webix.iiitdmj.ac.in/images/about/btn_9.png"
+          src="/webix.iiitdmj.ac.in/images/about/test.svg"
           alt="gsoc"
         />
         <img
           className={styles.aboutImg}
-          src="/webix.iiitdmj.ac.in/images/about/btn_10.png"
+          src="/webix.iiitdmj.ac.in/images/about/deploy.svg"
           alt="ai-ml"
         />
       </div>

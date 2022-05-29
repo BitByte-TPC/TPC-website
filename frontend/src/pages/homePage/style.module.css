@@ -11,27 +11,25 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-left: 5vw;
-  padding-top: 5vw;
+  padding-top: 8vw;
 }
 .heading {
   font-family: var(--heading-font);
   font-style: normal;
   font-weight: normal;
-  font-size: 3.5rem;
-
+  font-size: 3.8rem;
+  line-height: 72px;
   color: rgba(255, 255, 255, 0.9);
-
   text-shadow: -4px 4px 4px #10abc2;
 }
 .text {
   font-family: monospace;
   font-style: normal;
   font-weight: normal;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 5vh 0;
   width: 30vw;
   line-height: 31px;
-
   color: #bfc0c2;
 }
 
@@ -42,7 +40,7 @@
 .brackets {
   width: 20vw;
   margin-right: 5vw;
-  margin-top: 5vw;
+  margin-top: 8vw;
 }
 
 @media only screen and (max-width: 1180px) {

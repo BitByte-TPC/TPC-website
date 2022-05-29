@@ -16,7 +16,7 @@
   color: rgba(255, 255, 255, 0.9);
   text-shadow: -4px 4px 4px #10abc2;
   font-family: var(--heading-font);
-  font-size: 4rem;
+  font-size: 5.5rem;
 }
 .heading2 {
   margin: 0;
@@ -37,7 +37,8 @@
   color: rgba(255, 255, 255, 0.75);
   font-family: monospace;
   width: 80%;
-  line-height: 20px;
+  font-size: 1.2rem;
+  line-height: 25px;
 }
 
 .vectors {
