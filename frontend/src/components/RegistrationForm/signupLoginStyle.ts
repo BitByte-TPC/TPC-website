@@ -10,16 +10,18 @@ export const useSignupLoginStyles = makeStyles(() =>
     input: {
       marginBottom: "2vh",
       width: "80%",
+      background: "transparent",
     },
     btn: {
-      background: "var(--golden)",
+      background: "var(--my-cyan)",
       margin: "2vh",
       "&:hover": {
-        background: "var(--dark-golden)",
+        background: "var(--my-dcyan)",
       },
     },
     link: {
       cursor: "pointer",
+      color: "#00a6ed",
     },
     footer: {
       marginBottom: "2vh",

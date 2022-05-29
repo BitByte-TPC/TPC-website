@@ -1,10 +1,8 @@
 import React from "react";
-import NavBar from "../../components/Navs/Navbar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import ProjectCardv2 from "src/components/Cards/ProjectCardv2";
-import { projectlist } from "./projectlist";
-import useWindowDimensions from "../../utils/useWindowDimensions";
 import ProjectCard from "src/components/Cards/ProjectCard";
+import { projectlist } from "./projectlist";
+import Nav from "src/components/Nav";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -29,17 +27,12 @@ const useStyles = makeStyles(() =>
 
 const Projects: React.FC = () => {
   const classes = useStyles();
-  const { width } = useWindowDimensions();
   return (
     <div className={classes.root}>
-      <NavBar />
+      <Nav />
       <div className={classes.flexbox}>
         {projectlist.map((project, key) => {
-          if (width > 600) {
-            return <ProjectCardv2 key={key} {...project} />;
-          } else {
-            return <ProjectCard key={key} {...project} />;
-          }
+          return <ProjectCard key={key} {...project} />;
         })}
       </div>
     </div>

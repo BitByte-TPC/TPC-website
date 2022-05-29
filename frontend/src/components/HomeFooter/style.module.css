@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20vw;
+}
+.icon {
+  color: white;
+  font-size: 2rem !important;
+}

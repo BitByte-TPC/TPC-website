@@ -20,10 +20,6 @@ const FormikDateTimeField: React.FC<FormikDateTimeFieldProps> = ({
   const [field, meta] = useField<any>(props);
   const { setFieldValue } = useFormikContext();
   const errorText = meta.error && meta.touched ? meta.error : "";
-  // const obj = {
-  //   label,
-  //   type,
-  // };
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container direction="column" justify="center">

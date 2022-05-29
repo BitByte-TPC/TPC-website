@@ -1,78 +1,46 @@
 .home {
-  min-height: 100vh;
+  min-height: 90vh;
   position: relative;
   display: grid;
   grid-template-columns: 66fr 33fr;
   grid-template-areas: "main nav";
-  background-image: url("../../images/homepagebgv2.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 .container {
   grid-area: main;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 5vw;
+  padding-top: 8vw;
 }
 .heading {
-  margin-top: 11vh;
-  font-size: 2.4rem;
-  font-weight: 900;
-  letter-spacing: 0px;
-  color: var(--heading-color);
-  z-index: 3;
-  animation: headingAnimation 1s forwards 0s ease-out;
+  font-family: var(--heading-font);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3.8rem;
+  line-height: 72px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: -4px 4px 4px #10abc2;
 }
 .text {
-  color: white;
-  font-size: 1.1rem;
-  width: 60%;
-  text-align: center;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin: 5vh 0;
+  width: 30vw;
+  line-height: 31px;
+  color: #bfc0c2;
 }
 
-.primaryBtn {
-  margin-top: 5vh;
-  border: none;
-  border-radius: 20px;
-  color: white;
-  background: var(--primary-btn-color);
-  width: 20vh;
-  height: 5vh;
-  cursor: pointer;
-  font-size: 1.1rem;
-  z-index: 5;
+.learnQ {
+  width: 30vw;
 }
 
-.primaryBtn:focus {
-  border: none;
-  outline: none;
-}
-
-.computer {
-  animation: computerAnimation 1s forwards 0s ease-out;
-}
-
-@keyframes computerAnimation {
-  0% {
-    transform: rotate(0) scale(0.75) translateY(-20%);
-    opacity: 0;
-  }
-  100% {
-    transform: rotate(0) scale(1) translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes headingAnimation {
-  0% {
-    transform: rotate(0) translateY(-35%);
-    opacity: 0;
-  }
-  100% {
-    transform: rotate(0) translateY(0);
-    opacity: 1;
-  }
+.brackets {
+  width: 20vw;
+  margin-right: 5vw;
+  margin-top: 8vw;
 }
 
 @media only screen and (max-width: 1180px) {
@@ -85,26 +53,42 @@
       "footer";
   }
   .container {
-    justify-content: right;
+    justify-content: center;
+    align-items: center;
   }
   .heading {
-    font-size: 1.6rem;
+    font-size: 3rem;
     text-align: center;
     margin-top: 10vh;
     margin-bottom: 5vh;
   }
-  .svgimg {
-    width: 50%;
+  .brackets {
+    display: none;
   }
   .text {
+    text-align: center;
     margin-top: 5vh;
-    margin-bottom: 2vh;
+    width: 50vw;
+    margin-bottom: 5vh;
     font-size: 1rem;
+  }
+  .learnQ {
+    width: 40vw;
   }
 }
 
 @media only screen and (max-width: 650px) {
-  .svgimg {
-    width: 100%;
+  .heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+  }
+  .text {
+    width: 90vw;
+    line-height: normal;
+  }
+  .learnQ {
+    width: 80vw;
   }
 }

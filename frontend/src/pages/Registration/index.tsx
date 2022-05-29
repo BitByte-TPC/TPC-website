@@ -3,11 +3,15 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import RegistrationForm from "../../components/RegistrationForm";
 import useTokenStore from "../../store/tokenStore";
 import { useHistory } from "react-router";
+import Nav from "src/components/Nav";
 
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      height: "100vh",
+      minHeight: "100vh",
+    },
+    flexbox: {
+      marginTop: "5vh",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
@@ -27,7 +31,10 @@ const Registration: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <RegistrationForm />
+      <Nav />
+      <div className={classes.flexbox}>
+        <RegistrationForm />
+      </div>
     </div>
   );
 };
