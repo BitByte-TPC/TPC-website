@@ -23,7 +23,7 @@ export const projectlist = [
       "Feature-rich code editor in your browser. Just upload your file or an image of code and start coding.",
     dev: "Aksh Bansal",
     url: "https://visualwebcode.netlify.app/",
-    image: "/webix.iiitdmj.ac.in/images/projects/visual-web-code.png",
+    image: "/webix.iiitdmj.ac.in/images/projects/visual-web-code.jpeg",
   },
   {
     projectName: "MICP Leaderboard",
@@ -31,7 +31,7 @@ export const projectlist = [
     description: "Most Improved Competitive Programmers Leaderboard",
     dev: "Aksh Bansal",
     url: "https://micp-leaderboard.vercel.app/",
-    image: "/webix.iiitdmj.ac.in/images/projects/micp.png",
+    image: "/webix.iiitdmj.ac.in/images/projects/micp.jpeg",
   },
   {
     projectName: "Jagrati Wep App",
