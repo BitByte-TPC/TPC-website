@@ -1,84 +1,113 @@
 import React from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { IconButton, Typography } from "@material-ui/core";
 import { Email, GitHub, LinkedIn } from "@material-ui/icons";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      margin: "1vh",
-      height: "38vh",
-      width: "30vh",
-      background: "#ffd166",
+      margin: "5vh 2vh",
+      height: "25vh",
+      width: "22vw",
+      [theme.breakpoints.down("sm")]: {
+        height: "30vh",
+        width: "90vw",
+      },
+      background: "transparent",
+      border: "2px solid cyan",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-around",
+      alignItems: "center",
+      borderRadius: "24px",
+      boxShadow: "0px 0px 14px 5px #11BFD7",
     },
     title: {
       fontSize: "1.2rem",
-      opacity: 0.8,
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.5rem",
+      },
+      color: "white",
+      opacity: 1,
+      textAlign: "center",
+      fontFamily: "monospace",
       fontWeight: "bold",
+      transform: "translateY(-5vh)",
     },
-    title2: {
-      fontSize: "1rem",
-      opacity: 0.8,
-      fontWeight: "bold",
+    subTitle: {
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.2rem",
+      },
+      fontFamily: "monospace",
+      textAlign: "center",
+      color: "#BFC7D1",
+      transform: "translateY(-5vh)",
     },
     media: {
-      height: "25vh",
+      width: "15vh",
+      height: "15vh",
+      borderRadius: "100%",
+      border: "2px solid white",
+      transform: "translateY(-6vh)",
+    },
+    iconsContainer: {
+      transform: "translateY(-5vh)",
+      display: "flex",
+      justifyContent: "space-around",
+      alignItems: "center",
+      padding: "0 7vh",
+    },
+    icons: {
+      color: "white",
     },
   })
 );
-interface DomainCardProps {
+
+interface DomainCardInterface {
   name: string;
-  profileImg: string;
+  team: string;
+  githubProfileUrl: string;
+  linkedInProfileUrl: string;
   email: string;
-  linkedIn?: string;
-  github?: string;
+  profileImg: string;
 }
-const DomainCard: React.FC<DomainCardProps> = ({
+
+const DomainCard: React.FC<DomainCardInterface> = ({
   name,
+  team,
+  githubProfileUrl,
   email,
   profileImg,
-  linkedIn,
-  github,
+  linkedInProfileUrl,
 }) => {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardMedia
+    <div className={classes.root}>
+      <img
+        src={"/webix.iiitdmj.ac.in/images/profile/" + profileImg}
+        alt={name}
         className={classes.media}
-        image={`/webix.iiitdmj.ac.in/images/profile/${profileImg}`}
-        title={name}
       />
-      <CardContent>
-        {name.length > 16 ? (
-          <Typography className={classes.title2}>{name}</Typography>
-        ) : (
-          <Typography className={classes.title}>{name}</Typography>
-        )}
-        <a href={linkedIn} target="_blank">
+      <Typography className={classes.title}>{name}</Typography>
+      <Typography className={classes.subTitle}>{team}</Typography>
+      <div className={classes.iconsContainer}>
+        <a href={githubProfileUrl} target="_blank">
           <IconButton>
-            <LinkedIn />
+            <GitHub className={classes.icons} />
           </IconButton>
         </a>
-        {github ? (
-          <a href={github} target="_blank">
-            <IconButton>
-              <GitHub />
-            </IconButton>
-          </a>
-        ) : null}
-        <a href={`mailto:${email}`} target="_blank">
+        <a href={email} target="_blank">
           <IconButton>
-            <Email />
+            <Email className={classes.icons} />
           </IconButton>
         </a>
-      </CardContent>
-    </Card>
+        <a href={linkedInProfileUrl} target="_blank">
+          <IconButton>
+            <LinkedIn className={classes.icons} />
+          </IconButton>
+        </a>
+      </div>
+    </div>
   );
 };
 

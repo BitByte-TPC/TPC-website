@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import useTokenStore from "src/store/tokenStore";
-import Navbar from "../../components/Navs/Navbar";
+// import Navbar from "../../components/Nav/Navbar";
 import MeetingTabs from "../../components/Meeting/MeetingTabs";
 import AuthDialog from "src/components/RegistrationForm/AuthDialog";
 
@@ -26,7 +26,7 @@ const Meeting: React.FC = () => {
   }, [token]);
   return (
     <div className={classes.root}>
-      <Navbar />
+      {/* <Navbar /> */}
       {token === "" ? null : <MeetingTabs />}
 
       <AuthDialog isOpen={authOpen} />

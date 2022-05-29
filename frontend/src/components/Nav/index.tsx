@@ -11,9 +11,9 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import { Link, useHistory } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
-import { linklist } from "../linklist";
-import useTokenStore from "../../../store/tokenStore";
-import { logout } from "../../../utils/auth/logout";
+import { linklist } from "./linklist";
+import useTokenStore from "../../store/tokenStore";
+import { logout } from "../../utils/auth/logout";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
-const Nav2: React.FC = () => {
+const Nav: React.FC = () => {
   const token = useTokenStore((state) => state.token);
   const setToken = useTokenStore((state) => state.setToken);
   const classes = useStyles();
@@ -133,4 +133,4 @@ const Nav2: React.FC = () => {
   );
 };
 
-export default Nav2;
+export default Nav;

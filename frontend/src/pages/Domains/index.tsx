@@ -1,8 +1,8 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import Nav2 from "src/components/Navs/Nav_v2";
-import DomainCard2 from "src/components/Cards/DomainCard_v2";
+import Nav from "src/components/Nav";
+import DomainCard from "src/components/Cards/DomainCard";
 import { teamList } from "./teamList";
 
 const useStyles = makeStyles(() =>
@@ -45,7 +45,7 @@ const Domains: React.FC = () => {
   const classes = useStyles();
   return (
     <div>
-      <Nav2 />
+      <Nav />
       <div className={classes.root}>
         <Typography className={classes.heading} align="center">
           We are everywhere
@@ -59,10 +59,7 @@ const Domains: React.FC = () => {
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
             return memberData.team === "coordinator" ? (
-              <DomainCard2
-                key={i}
-                {...{ ...memberData, team: "Coordinator" }}
-              />
+              <DomainCard key={i} {...{ ...memberData, team: "Coordinator" }} />
             ) : null;
           })}
         </div>
@@ -72,7 +69,7 @@ const Domains: React.FC = () => {
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
             return memberData.team === "coco" ? (
-              <DomainCard2 key={i} {...{ ...memberData, team: "Coco" }} />
+              <DomainCard key={i} {...{ ...memberData, team: "Coco" }} />
             ) : null;
           })}
         </div>
@@ -82,7 +79,7 @@ const Domains: React.FC = () => {
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
             return memberData.team === "dev" ? (
-              <DomainCard2 key={i} {...{ ...memberData, team: "Developer" }} />
+              <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
             ) : null;
           })}
         </div>
@@ -92,7 +89,7 @@ const Domains: React.FC = () => {
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
             return memberData.team === "cp" ? (
-              <DomainCard2
+              <DomainCard
                 key={i}
                 {...{ ...memberData, team: "Competitive Programmer" }}
               />

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.css";
 import AboutUs from "../../components/aboutUs";
-import Nav2 from "../../components/Navs/Nav_v2";
+import Nav from "../../components/Nav";
 import WhyUs from "src/components/WhyUs";
 import Mission from "src/components/Mission_vision/Mission";
 import Vision from "src/components/Mission_vision/Vision";
@@ -10,7 +10,7 @@ import HomeFooter from "src/components/HomeFooter";
 const HomePage: React.FC = () => {
   return (
     <div>
-      <Nav2 />
+      <Nav />
       <div className={styles.home}>
         <div className={styles.container}>
           <span className={styles.heading}>

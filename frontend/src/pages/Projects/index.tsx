@@ -1,8 +1,8 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import ProjectCardv3 from "src/components/Cards/ProjectCardv3";
+import ProjectCard from "src/components/Cards/ProjectCard";
 import { projectlist } from "./projectlist";
-import Nav2 from "src/components/Navs/Nav_v2";
+import Nav from "src/components/Nav";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -29,10 +29,10 @@ const Projects: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Nav2 />
+      <Nav />
       <div className={classes.flexbox}>
         {projectlist.map((project, key) => {
-          return <ProjectCardv3 key={key} {...project} />;
+          return <ProjectCard key={key} {...project} />;
         })}
       </div>
     </div>

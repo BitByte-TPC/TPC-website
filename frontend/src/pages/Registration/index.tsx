@@ -3,7 +3,7 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import RegistrationForm from "../../components/RegistrationForm";
 import useTokenStore from "../../store/tokenStore";
 import { useHistory } from "react-router";
-import Nav2 from "src/components/Navs/Nav_v2";
+import Nav from "src/components/Nav";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -31,7 +31,7 @@ const Registration: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <Nav2 />
+      <Nav />
       <div className={classes.flexbox}>
         <RegistrationForm />
       </div>

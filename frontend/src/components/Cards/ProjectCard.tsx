@@ -1,33 +1,54 @@
 import React from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { Card, CardContent, Typography } from "@material-ui/core";
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { Card, CardMedia, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
+      display: "flex",
       margin: "2vh",
-      minHeight: "20vh",
-      width: "53vh",
-      [theme.breakpoints.down("xs")]: {
-        width: "80vw",
-      },
-      background: "#FFD166",
+      height: "65vh",
+      width: "80vw",
+      position: "relative",
+    },
+    info: {
+      width: "100%",
+      height: "100%",
+      position: "absolute",
+      top: 0,
+      background: "rgba(0, 0, 0, 0.63)",
+      backdropFilter: "blur(10px)",
+      color: "white",
+      padding: "6% 0 0 10%",
     },
     title: {
-      fontSize: "1.2rem",
-      color: "#3650C7",
+      fontSize: "2rem",
+      textDecoration: "none",
       fontWeight: "bold",
-      marginRight: "2vh",
+      color: "white",
+      fontFamily: "monospace",
     },
     lang: {
       opacity: 0.5,
-    },
-    body: {
       marginTop: "1vh",
+      fontSize: "1rem",
+      fontFamily: "monospace",
     },
-    owner: {
-      marginTop: "1vh",
+    description: {
+      marginTop: "5vh",
+      fontSize: "1rem",
+      width: "80%",
+      fontFamily: "monospace",
+    },
+    createdBy: {
+      marginTop: "5vh",
+      fontSize: "1rem",
       opacity: 0.5,
+      fontFamily: "monospace",
+    },
+    media: {
+      width: "100%",
+      height: "100%",
     },
   })
 );
@@ -36,34 +57,40 @@ interface ProjectCardProps {
   projectName: string;
   lang: string;
   description: string;
-  dev: string;
+  createdBy: string;
   url: string;
+  image: string;
 }
-
 const ProjectCard: React.FC<ProjectCardProps> = ({
   projectName,
   lang,
   description,
-  dev,
+  createdBy,
   url,
+  image,
 }) => {
   const classes = useStyles();
+  const [showInfo, setShowInfo] = React.useState<boolean>(false);
+
   return (
     <Card className={classes.root}>
-      <CardContent>
-        <a href={url} target="_blank">
-          <Typography className={classes.title} component="span">
-            {projectName}
-          </Typography>
+      <div
+        style={{ display: showInfo ? "block" : "none" }}
+        onMouseLeave={() => setShowInfo(false)}
+        className={classes.info}
+      >
+        <a href={url} className={classes.title} target="_blank">
+          <Typography className={classes.title}>{projectName}</Typography>
         </a>
-        <Typography className={classes.lang} component="span">
-          {lang}
-        </Typography>
-        <Typography className={classes.body}>{description}</Typography>
-        <Typography className={classes.owner} align="right">
-          {dev}
-        </Typography>
-      </CardContent>
+        <Typography className={classes.lang}>{lang}</Typography>
+        <Typography className={classes.description}>{description}</Typography>
+        <Typography className={classes.createdBy}>{createdBy}</Typography>
+      </div>
+      <CardMedia
+        onMouseEnter={() => setShowInfo(true)}
+        image={image}
+        className={classes.media}
+      />
     </Card>
   );
 };
