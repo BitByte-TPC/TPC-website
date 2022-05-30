@@ -16,7 +16,7 @@
   color: rgba(255, 255, 255, 0.9);
   text-shadow: -4px 4px 4px #10abc2;
   font-family: var(--heading-font);
-  font-size: 5.5rem;
+  font-size: 5rem;
 }
 .heading2 {
   margin: 0;
@@ -37,15 +37,16 @@
   color: rgba(255, 255, 255, 0.75);
   font-family: monospace;
   width: 80%;
-  font-size: 1.2rem;
-  line-height: 25px;
+  font-size: 1.1rem;
+  line-height: 23px;
 }
 
 .vectors {
   grid-area: vectors;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  padding-top: 2vh;
+  justify-content: flex-start;
   align-items: center;
   height: 80%;
 }
