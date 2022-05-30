@@ -42,9 +42,8 @@ commit messages are standardized:
 ### Frontend setup
 
 - Run `cd frontend`
-- Run `yarn install` to install all dependencies.
-- Run `yarn start` to start the server and visit [site](http://localhost:3000).
-  > Note: This app uses `yarn` as the package manager, so do not use `npm` in frontend as it may cause some conflicts.
+- Run `npm install` to install all dependencies.
+- Run `npm start` to start the server and visit [site](http://localhost:3000).
 
 ### Before making PR
 
