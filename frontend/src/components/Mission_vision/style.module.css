@@ -71,11 +71,12 @@
     display: none;
   }
   .heading,
-  .heading2,
-  .para {
+  .heading2{
     text-align: center;
+    font-size: 3rem;
   }
   .para {
+    text-align: center;
     margin: 1vh auto;
     width: 90%;
   }

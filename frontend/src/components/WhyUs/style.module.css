@@ -66,6 +66,7 @@
   .container {
     grid-template-columns: 100% 00%;
     justify-content: center;
+    /* padding-top: 20vh; */
     padding-left: 0;
     align-items: flex-start;
   }
@@ -73,13 +74,20 @@
     display: none;
   }
   .heading,
-  .heading2,
-  .para {
+  .heading2 {
+    font-size: 3rem;
     text-align: center;
   }
   .para {
+    text-align: center;
     margin: 1vh auto;
     width: 90%;
+  }
+}
+
+@media only screen and (max-width: 370px) {
+  .container {
+    padding-top: 20vh;
   }
 }
 
