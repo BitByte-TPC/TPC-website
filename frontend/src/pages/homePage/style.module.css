@@ -54,6 +54,7 @@
   }
   .container {
     justify-content: center;
+    padding-left: 0;
     align-items: center;
   }
   .heading {
@@ -78,6 +79,9 @@
 }
 
 @media only screen and (max-width: 650px) {
+  .container{
+    padding-left: 0;
+  }
   .heading {
     font-size: 2rem;
     text-align: center;

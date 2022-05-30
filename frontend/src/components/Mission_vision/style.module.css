@@ -59,6 +59,9 @@
 }
 
 @media only screen and (max-width: 1180px) {
+  .content{
+    padding-left: 0;
+  }
   .container {
     grid-template-columns: 100% 00%;
     justify-content: center;
@@ -68,11 +71,12 @@
     display: none;
   }
   .heading,
-  .heading2,
-  .para {
+  .heading2{
     text-align: center;
+    font-size: 3rem;
   }
   .para {
+    text-align: center;
     margin: 1vh auto;
     width: 90%;
   }
