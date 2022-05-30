@@ -60,9 +60,13 @@
 }
 
 @media only screen and (max-width: 1180px) {
+  .content{
+    padding-left: 0;
+  }
   .container {
     grid-template-columns: 100% 00%;
     justify-content: center;
+    padding-left: 0;
     align-items: flex-start;
   }
   .vectors {
@@ -78,3 +82,4 @@
     width: 90%;
   }
 }
+
