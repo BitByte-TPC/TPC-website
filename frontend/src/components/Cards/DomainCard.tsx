@@ -96,7 +96,7 @@ const DomainCard: React.FC<DomainCardInterface> = ({
             <GitHub className={classes.icons} />
           </IconButton>
         </a>
-        <a href={email} target="_blank">
+        <a href={"mailto:" + email} target="_blank">
           <IconButton>
             <Email className={classes.icons} />
           </IconButton>
