@@ -60,13 +60,19 @@ const useStyles = makeStyles((theme: Theme) =>
     icons: {
       color: "white",
     },
+    imgIcon: {
+      width: "25px",
+      padding: "12px",
+      marginTop: "10px",
+    },
   })
 );
 
 interface DomainCardInterface {
   name: string;
   team: string;
-  githubProfileUrl: string;
+  codeforcesProfileUrl?: string;
+  githubProfileUrl?: string;
   linkedInProfileUrl: string;
   email: string;
   profileImg: string;
@@ -75,6 +81,7 @@ interface DomainCardInterface {
 const DomainCard: React.FC<DomainCardInterface> = ({
   name,
   team,
+  codeforcesProfileUrl,
   githubProfileUrl,
   email,
   profileImg,
@@ -91,11 +98,25 @@ const DomainCard: React.FC<DomainCardInterface> = ({
       <Typography className={classes.title}>{name}</Typography>
       <Typography className={classes.subTitle}>{team}</Typography>
       <div className={classes.iconsContainer}>
-        <a href={githubProfileUrl} target="_blank">
-          <IconButton>
-            <GitHub className={classes.icons} />
-          </IconButton>
-        </a>
+        {codeforcesProfileUrl ? (
+          <a
+            href={codeforcesProfileUrl}
+            className={classes.imgIcon}
+            target="_blank"
+          >
+            <img
+              src="/webix.iiitdmj.ac.in/images/other/codeforces.svg"
+              alt="codeforces"
+            />
+          </a>
+        ) : null}
+        {githubProfileUrl ? (
+          <a href={githubProfileUrl} target="_blank">
+            <IconButton>
+              <GitHub className={classes.icons} />
+            </IconButton>
+          </a>
+        ) : null}
         <a href={"mailto:" + email} target="_blank">
           <IconButton>
             <Email className={classes.icons} />

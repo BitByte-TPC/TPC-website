@@ -20,6 +20,7 @@ export const teamList = [
     team: "coco",
     profileImg: "taara.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/aatrey07/",
+    codeforcesProfileUrl: "https://codeforces.com/profile/aatrey",
     githubProfileUrl: "https://www.github.com/Taara-Sinh-Aatrey",
     email: "2019348@iiitdmj.ac.in",
   },
@@ -43,8 +44,8 @@ export const teamList = [
     name: "Himanshu Aggarwal",
     team: "cp",
     profileImg: "avatar.png",
+    codeforcesProfileUrl: "https://codeforces.com/profile/HimanShu09",
     linkedInProfileUrl: "https://www.linkedin.com/in/himanshu0923",
-    githubProfileUrl: "https://www.github.com/HimanShu0923",
     email: "20bcs102@iiitdmj.ac.in",
   },
   {
