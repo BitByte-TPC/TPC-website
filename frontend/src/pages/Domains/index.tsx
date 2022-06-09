@@ -1,11 +1,11 @@
 import React from "react";
-import { createStyles, makeStyles } from "@material-ui/core/styles";
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import Nav from "src/components/Nav";
 import DomainCard from "src/components/Cards/DomainCard";
 import { teamList } from "./teamList";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       minHeight: "100vh",
@@ -19,10 +19,18 @@ const useStyles = makeStyles(() =>
       textTransform: "uppercase",
       color: "rgba(255, 255, 255, 0.9)",
       textShadow: "-4px 4px 4px #10ABC2",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "2rem",
+      },
     },
     subHeading: {
       color: "rgba(255, 255, 255, 0.75)",
       fontFamily: "monospace",
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "0.9rem",
+        padding: "0 5vw",
+      },
     },
     title: {
       marginBottom: "5vh",
@@ -32,6 +40,9 @@ const useStyles = makeStyles(() =>
       textTransform: "uppercase",
       color: "rgba(255, 255, 255, 0.9)",
       textShadow: "-4px 4px 4px #10ABC2",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "2rem",
+      },
     },
     flexbox: {
       width: "90vw",
@@ -41,6 +52,7 @@ const useStyles = makeStyles(() =>
     },
   })
 );
+
 const Domains: React.FC = () => {
   const classes = useStyles();
   return (
@@ -54,39 +66,13 @@ const Domains: React.FC = () => {
           {"<p>From web to app, AI to ML, Blockchain to DevOps</p>"}
         </Typography>
         <Typography className={classes.title} align="center">
-          PATRONS
-        </Typography>
-        <div className={classes.flexbox}>
-          {teamList.map((memberData, i) => {
-            return memberData.team === "patrons" ? (
-              memberData.name === "Prof. Pravin N. Kondekar" ? (
-                <DomainCard key={i} {...{ ...memberData, team: "Director" }} />
-              ) : memberData.name === "Prof. Atul Gupta" ? (
-                <DomainCard
-                  key={i}
-                  {...{ ...memberData, team: "Faculty Incharge" }}
-                />
-              ) : null
-            ) : null;
-          })}
-        </div>
-        <Typography className={classes.title} align="center">
           OFFICE BEARERS
         </Typography>
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
-            return memberData.team === "Office Bearers" ? (
-              memberData.name === "Priyansh Garg" ? (
-                <DomainCard
-                  key={i}
-                  {...{ ...memberData, team: "Coordinator" }}
-                />
-              ) : memberData.name === "Taara Sinh Aatrey" ? (
-                <DomainCard
-                  key={i}
-                  {...{ ...memberData, team: "Co-coordinator" }}
-                />
-              ) : null
+            return memberData.team === "Coordinator" ||
+              memberData.team === "Co Coordinator" ? (
+              <DomainCard key={i} {...{ ...memberData }} />
             ) : null;
           })}
         </div>

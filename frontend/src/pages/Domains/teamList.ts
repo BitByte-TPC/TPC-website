@@ -1,23 +1,5 @@
 export const teamList = [
   {
-    name: "Prof. Pravin N. Kondekar",
-    team: "patrons",
-    profileImg: "pnkondekar.jpeg",
-    linkedInProfileUrl: "",
-    githubProfileUrl: "",
-    email: "pnkondekar@iiitdmj.ac.in",
-    facultyProfileUrl: "https://faculty.iiitdmj.ac.in/faculty/pnkondekar",
-  },
-  {
-    name: "Prof. Atul Gupta",
-    team: "patrons",
-    profileImg: "atulgupta.jpeg",
-    linkedInProfileUrl: "",
-    githubProfileUrl: "",
-    email: "atul@iiitdmj.ac.in",
-    facultyProfileUrl: "https://faculty.iiitdmj.ac.in/faculty/atul",
-  },
-  {
     name: "Aksh Bansal",
     team: "dev",
     profileImg: "aksh.jpg",
@@ -27,7 +9,7 @@ export const teamList = [
   },
   {
     name: "Priyansh Garg",
-    team: "Office Bearers",
+    team: "Coordinator",
     profileImg: "priyansh.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/priyansh3133/",
     githubProfileUrl: "https://www.github.com/garg3133",
@@ -35,7 +17,7 @@ export const teamList = [
   },
   {
     name: "Taara Sinh Aatrey",
-    team: "Office Bearers",
+    team: "Co Coordinator",
     profileImg: "taara.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/aatrey07/",
     codeforcesProfileUrl: "https://codeforces.com/profile/aatrey",

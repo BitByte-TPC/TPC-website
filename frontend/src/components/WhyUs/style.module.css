@@ -61,9 +61,17 @@
 
 @media only screen and (max-width: 1180px) {
   .container {
+    margin-top: 15vh;
     grid-template-columns: 100% 00%;
     justify-content: center;
     align-items: flex-start;
+  }
+  .content {
+    padding-left: 0;
+  }
+  .heading,
+  .heading2 {
+    font-size: 3rem;
   }
   .vectors {
     display: none;
@@ -74,7 +82,7 @@
     text-align: center;
   }
   .para {
-    margin: 1vh auto;
+    margin: 3vh auto;
     width: 90%;
   }
 }

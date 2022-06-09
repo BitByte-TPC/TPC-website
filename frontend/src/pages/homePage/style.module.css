@@ -55,6 +55,7 @@
   .container {
     justify-content: center;
     align-items: center;
+    padding-left: 0;
   }
   .heading {
     font-size: 3rem;
