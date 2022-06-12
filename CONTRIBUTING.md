@@ -27,7 +27,7 @@ commit messages are standardized:
 ## Local Setup
 
 - Fork and clone the repository.
-- Add remote upstream `git add upstream https://github.com/BitByte-TPC/TPC-website.git`
+- Add remote upstream `git remote add upstream https://github.com/BitByte-TPC/TPC-website.git`
 - Run `npm i` in the root directory of the repository.
 
 ### Backend setup
