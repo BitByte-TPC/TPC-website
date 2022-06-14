@@ -1,7 +1,7 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { IconButton, Typography } from "@material-ui/core";
-import { Email, GitHub, LinkedIn } from "@material-ui/icons";
+import { Email, GitHub, LinkedIn, Person } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -73,9 +73,10 @@ interface DomainCardInterface {
   team: string;
   codeforcesProfileUrl?: string;
   githubProfileUrl?: string;
-  linkedInProfileUrl: string;
+  linkedInProfileUrl?: string;
   email: string;
   profileImg: string;
+  facultyProfileUrl?: string;
 }
 
 const DomainCard: React.FC<DomainCardInterface> = ({
@@ -86,6 +87,7 @@ const DomainCard: React.FC<DomainCardInterface> = ({
   email,
   profileImg,
   linkedInProfileUrl,
+  facultyProfileUrl,
 }) => {
   const classes = useStyles();
   return (
@@ -122,11 +124,20 @@ const DomainCard: React.FC<DomainCardInterface> = ({
             <Email className={classes.icons} />
           </IconButton>
         </a>
-        <a href={linkedInProfileUrl} target="_blank">
-          <IconButton>
-            <LinkedIn className={classes.icons} />
-          </IconButton>
-        </a>
+        {linkedInProfileUrl ? (
+          <a href={linkedInProfileUrl} target="_blank">
+            <IconButton>
+              <LinkedIn className={classes.icons} />
+            </IconButton>
+          </a>
+        ) : null}
+        {facultyProfileUrl ? (
+          <a href={facultyProfileUrl} target="_blank">
+            <IconButton>
+              <Person className={classes.icons} />
+            </IconButton>
+          </a>
+        ) : null}
       </div>
     </div>
   );
