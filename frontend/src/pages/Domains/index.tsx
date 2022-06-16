@@ -54,22 +54,39 @@ const Domains: React.FC = () => {
           {"<p>From web to app, AI to ML, Blockchain to DevOps</p>"}
         </Typography>
         <Typography className={classes.title} align="center">
-          COORDINATOR
+          PATRONS
         </Typography>
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
-            return memberData.team === "coordinator" ? (
-              <DomainCard key={i} {...{ ...memberData, team: "Coordinator" }} />
+            return memberData.team === "patrons" ? (
+              memberData.name === "Prof. Pravin N. Kondekar" ? (
+                <DomainCard key={i} {...{ ...memberData, team: "Director" }} />
+              ) : memberData.name === "Prof. Atul Gupta" ? (
+                <DomainCard
+                  key={i}
+                  {...{ ...memberData, team: "Faculty Incharge" }}
+                />
+              ) : null
             ) : null;
           })}
         </div>
         <Typography className={classes.title} align="center">
-          CO-COORDINATOR
+          OFFICE BEARERS
         </Typography>
         <div className={classes.flexbox}>
           {teamList.map((memberData, i) => {
-            return memberData.team === "coco" ? (
-              <DomainCard key={i} {...{ ...memberData, team: "Coco" }} />
+            return memberData.team === "Office Bearers" ? (
+              memberData.name === "Priyansh Garg" ? (
+                <DomainCard
+                  key={i}
+                  {...{ ...memberData, team: "Coordinator" }}
+                />
+              ) : memberData.name === "Taara Sinh Aatrey" ? (
+                <DomainCard
+                  key={i}
+                  {...{ ...memberData, team: "Co-coordinator" }}
+                />
+              ) : null
             ) : null;
           })}
         </div>
