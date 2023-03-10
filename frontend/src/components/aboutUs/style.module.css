@@ -76,6 +76,10 @@
     justify-content: center;
     align-items: flex-start;
   }
+  .heading,
+  .heading2 {
+    font-size: 4rem;
+  }
   .vectors {
     display: none;
   }
@@ -85,7 +89,7 @@
     text-align: center;
   }
   .para {
-    margin: 1vh auto;
-    width: 80%;
+    margin: 3vh auto;
+    width: 90%;
   }
 }
