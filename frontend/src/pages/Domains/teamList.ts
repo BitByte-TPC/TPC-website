@@ -19,7 +19,7 @@ export const teamList = [
   {
     name: "Manav Desai",
     team: "dev",
-    profileImg: "manav.png",
+    profileImg: "manav.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/manavdesai27",
     githubProfileUrl: "https://github.com/manavdesai27",
     email: "manav27202@gmail.com",
@@ -44,7 +44,7 @@ export const teamList = [
   {
     name: "Priyansh Mehta",
     team: "Co Coordinator",
-    profileImg: "priyansh.png",
+    profileImg: "priyansh.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/priyansh61/",
     githubProfileUrl: "https://github.com/Priyansh61",
     email: "21bec080@iiitdmj.ac.in",
@@ -119,7 +119,7 @@ export const teamList = [
   {
     name: "Aishwarya Saxena",
     team: "cp",
-    profileImg: "aishwarya.jpeg",
+    profileImg: "aishwarya.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/ASH0705",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/aishwarya-saxena-05713618b/",
@@ -164,7 +164,7 @@ export const teamList = [
   {
     name: "Prabal Pratap Singh",
     team: "cp",
-    profileImg: "prabal.jpeg",
+    profileImg: "prabal.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/prabalpsingh7115",
     linkedInProfileUrl: "https://www.linkedin.com/in/prabapsingh7115/",
     githubProfileUrl: "https://github.com/Prabalpsingh7115",
@@ -198,7 +198,7 @@ export const teamList = [
   {
     name: "Yash Rastogi",
     team: "cp",
-    profileImg: "yash.jpeg",
+    profileImg: "yash.jpg",
     codeforcesProfileUrl:
       "https://codeforces.com/profile/yashrastogi543?mobile=false",
     linkedInProfileUrl: "https://www.linkedin.com/in/yash-rastogi-51ab05229/",
@@ -234,7 +234,7 @@ export const teamList = [
   {
     name: "Aman Srivastava",
     team: "cp",
-    profileImg: "aman.jpg",
+    profileImg: "aman.jpeg",
     codeforcesProfileUrl: "https://codeforces.com/profile/aman_sriv",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/aman-srivastava-16726822a/",
