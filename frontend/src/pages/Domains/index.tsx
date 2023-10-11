@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import Nav from "src/components/Nav";
 import DomainCard from "src/components/Cards/DomainCard";
-import { teamList } from "./teamList";
+import { teamList_22, teamList_21, teamList_20 } from "./teamList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -36,12 +36,23 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: "5vh",
       marginTop: "8vh",
       fontFamily: "var(--heading-font)",
-      fontSize: "2.5rem",
+      fontSize: "2.8rem",
       textTransform: "uppercase",
       color: "rgba(255, 255, 255, 0.9)",
       textShadow: "-4px 4px 4px #10ABC2",
       [theme.breakpoints.down("sm")]: {
         fontSize: "2rem",
+      },
+    },
+    subtitle: {
+      marginBottom: "5vh",
+      marginTop: "5vh",
+      fontFamily: "var(--heading-font)",
+      fontSize: "2rem",
+      color: "rgba(255, 255, 255, 0.9)",
+      textShadow: "-4px 4px 4px #10ABC2",
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1rem",
       },
     },
     flexbox: {
@@ -69,7 +80,7 @@ const Domains: React.FC = () => {
           OFFICE BEARERS
         </Typography>
         <div className={classes.flexbox}>
-          {teamList.map((memberData, i) => {
+          {teamList_21.map((memberData, i) => {
             return memberData.team === "Coordinator" ||
               memberData.team === "Co Coordinator" ? (
               <DomainCard key={i} {...{ ...memberData }} />
@@ -79,8 +90,33 @@ const Domains: React.FC = () => {
         <Typography className={classes.title} align="center">
           DEVELOPERS
         </Typography>
+        <Typography className={classes.subtitle} align="left">
+          2020 Batch
+        </Typography>
         <div className={classes.flexbox}>
-          {teamList.map((memberData, i) => {
+          {teamList_20.map((memberData, i) => {
+            return memberData.team === "dev" ? (
+              <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
+            ) : null;
+          })}
+        </div>
+
+        <Typography className={classes.subtitle} align="left">
+          2021 Batch
+        </Typography>
+        <div className={classes.flexbox}>
+          {teamList_21.map((memberData, i) => {
+            return memberData.team === "dev" ? (
+              <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
+            ) : null;
+          })}
+        </div>
+
+        <Typography className={classes.subtitle} align="left">
+          2022 Batch
+        </Typography>
+        <div className={classes.flexbox}>
+          {teamList_22.map((memberData, i) => {
             return memberData.team === "dev" ? (
               <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
             ) : null;
@@ -89,13 +125,58 @@ const Domains: React.FC = () => {
         <Typography className={classes.title} align="center">
           COMPETITIVE PROGRAMMERS
         </Typography>
+        <Typography className={classes.subtitle} align="left">
+          2020 Batch
+        </Typography>
         <div className={classes.flexbox}>
-          {teamList.map((memberData, i) => {
+          {teamList_20.map((memberData, i) => {
             return memberData.team === "cp" ? (
               <DomainCard
                 key={i}
                 {...{ ...memberData, team: "Competitive Programmer" }}
               />
+            ) : null;
+          })}
+        </div>
+
+        <Typography className={classes.subtitle} align="left">
+          2021 Batch
+        </Typography>
+        <div className={classes.flexbox}>
+          {teamList_21.map((memberData, i) => {
+            return memberData.team === "cp" ? (
+              <DomainCard
+                key={i}
+                {...{ ...memberData, team: "Competitive Programmer" }}
+              />
+            ) : null;
+          })}
+        </div>
+
+        <Typography className={classes.subtitle} align="left">
+          2022 Batch
+        </Typography>
+        <div className={classes.flexbox}>
+          {teamList_22.map((memberData, i) => {
+            return memberData.team === "cp" ? (
+              <DomainCard
+                key={i}
+                {...{ ...memberData, team: "Competitive Programmer" }}
+              />
+            ) : null;
+          })}
+        </div>
+        <Typography className={classes.title} align="center">
+          Designers
+        </Typography>
+
+        <Typography className={classes.subtitle} align="left">
+          2022 Batch
+        </Typography>
+        <div className={classes.flexbox}>
+          {teamList_22.map((memberData, i) => {
+            return memberData.team === "design" ? (
+              <DomainCard key={i} {...{ ...memberData, team: "Designers" }} />
             ) : null;
           })}
         </div>
