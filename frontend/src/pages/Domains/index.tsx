@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import Nav from "src/components/Nav";
 import DomainCard from "src/components/Cards/DomainCard";
-import { teamList_22, teamList_21, teamList_20 } from "./teamList";
+import { teamList } from "./teamList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -80,7 +80,7 @@ const Domains: React.FC = () => {
           OFFICE BEARERS
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_21.map((memberData, i) => {
+          {teamList.map((memberData, i) => {
             return memberData.team === "Coordinator" ||
               memberData.team === "Co Coordinator" ? (
               <DomainCard key={i} {...{ ...memberData }} />
@@ -94,8 +94,8 @@ const Domains: React.FC = () => {
           2020 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_20.map((memberData, i) => {
-            return memberData.team === "dev" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "dev" && memberData.batch === 2020 ? (
               <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
             ) : null;
           })}
@@ -105,8 +105,8 @@ const Domains: React.FC = () => {
           2021 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_21.map((memberData, i) => {
-            return memberData.team === "dev" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "dev" && memberData.batch === 2021 ? (
               <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
             ) : null;
           })}
@@ -116,8 +116,8 @@ const Domains: React.FC = () => {
           2022 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_22.map((memberData, i) => {
-            return memberData.team === "dev" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "dev" && memberData.batch === 2022 ? (
               <DomainCard key={i} {...{ ...memberData, team: "Developer" }} />
             ) : null;
           })}
@@ -129,8 +129,8 @@ const Domains: React.FC = () => {
           2020 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_20.map((memberData, i) => {
-            return memberData.team === "cp" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "cp" && memberData.batch === 2020 ? (
               <DomainCard
                 key={i}
                 {...{ ...memberData, team: "Competitive Programmer" }}
@@ -143,8 +143,8 @@ const Domains: React.FC = () => {
           2021 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_21.map((memberData, i) => {
-            return memberData.team === "cp" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "cp" && memberData.batch === 2021 ? (
               <DomainCard
                 key={i}
                 {...{ ...memberData, team: "Competitive Programmer" }}
@@ -157,8 +157,8 @@ const Domains: React.FC = () => {
           2022 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_22.map((memberData, i) => {
-            return memberData.team === "cp" ? (
+          {teamList.map((memberData, i) => {
+            return memberData.team === "cp" && memberData.batch === 2022 ? (
               <DomainCard
                 key={i}
                 {...{ ...memberData, team: "Competitive Programmer" }}
@@ -174,9 +174,9 @@ const Domains: React.FC = () => {
           2022 Batch
         </Typography>
         <div className={classes.flexbox}>
-          {teamList_22.map((memberData, i) => {
-            return memberData.team === "design" ? (
-              <DomainCard key={i} {...{ ...memberData, team: "Designers" }} />
+          {teamList.map((memberData, i) => {
+            return memberData.team === "design" && memberData.batch === 2022 ? (
+              <DomainCard key={i} {...{ ...memberData, team: "Designer" }} />
             ) : null;
           })}
         </div>

@@ -1,7 +1,8 @@
-export const teamList_20 = [
+export const teamList = [
   {
     name: "Akshat Nema",
     team: "dev",
+    batch: 2020,
     profileImg: "akshat.png",
     linkedInProfileUrl: "https://linkedin.com/in/akshat-nema",
     githubProfileUrl: "https://github.com/akshatnema",
@@ -10,6 +11,7 @@ export const teamList_20 = [
   {
     name: "Manav Desai",
     team: "dev",
+    batch: 2020,
     profileImg: "manav.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/manavdesai27",
     githubProfileUrl: "https://github.com/manavdesai27",
@@ -18,6 +20,7 @@ export const teamList_20 = [
   {
     name: "Aksh Bansal",
     team: "dev",
+    batch: 2020,
     profileImg: "aksh.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/aksh-bansal-0a1073200/",
     codeforcesProfileUrl: "https://codeforces.com/profile/SaberXpro",
@@ -27,6 +30,7 @@ export const teamList_20 = [
   {
     name: "Himanshu Aggarwal",
     team: "cp",
+    batch: 2020,
     profileImg: "himanshu.jpeg",
     codeforcesProfileUrl: "https://codeforces.com/profile/NightSky",
     linkedInProfileUrl: "https://www.linkedin.com/in/himanshu0923",
@@ -35,18 +39,17 @@ export const teamList_20 = [
   {
     name: "Paras Gami",
     team: "cp",
+    batch: 2020,
     profileImg: "paras.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/paras__g3",
     linkedInProfileUrl: "https://www.linkedin.com/in/paras-gami-54719b1b8/",
     githubProfileUrl: "https://github.com/theparasgami",
     email: "20BCS151@iiitdmj.ac.in",
   },
-];
-
-export const teamList_21 = [
   {
     name: "Tushar Jain",
     team: "dev",
+    batch: 2021,
     profileImg: "tushar.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/jain0735",
     linkedInProfileUrl: "https://www.linkedin.com/in/tushar-jain4/",
@@ -56,6 +59,7 @@ export const teamList_21 = [
   {
     name: "Shashwat Gupta",
     team: "Coordinator",
+    batch: 2020,
     profileImg: "shashwat.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/masterchief164",
     githubProfileUrl: "https://www.github.com/masterchief164",
@@ -64,6 +68,7 @@ export const teamList_21 = [
   {
     name: "Priyansh Mehta",
     team: "Co Coordinator",
+    batch: 2021,
     profileImg: "priyansh.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/priyansh61/",
     githubProfileUrl: "https://github.com/Priyansh61",
@@ -72,6 +77,7 @@ export const teamList_21 = [
   {
     name: "Samyak Bhargava",
     team: "dev",
+    batch: 2021,
     profileImg: "samyak.jpeg",
     codeforcesProfileUrl: "https://codeforces.com/profile/Sammybh6",
     linkedInProfileUrl: "https://www.linkedin.com/in/sammybh6/",
@@ -81,6 +87,7 @@ export const teamList_21 = [
   {
     name: "Tushir Sahu",
     team: "dev",
+    batch: 2021,
     profileImg: "tushir.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/tushir-sahu-b95549205/",
     githubProfileUrl: "https://github.com/TushirSahu",
@@ -89,6 +96,7 @@ export const teamList_21 = [
   {
     name: "Armin Patel",
     team: "cp",
+    batch: 2021,
     profileImg: "avatar.png",
     codeforcesProfileUrl: "https://codeforces.com/profile/0xarmin",
     linkedInProfileUrl: "https://www.linkedin.com/in/arminpatel",
@@ -98,6 +106,7 @@ export const teamList_21 = [
   {
     name: "Prajwal Rayal",
     team: "cp",
+    batch: 2021,
     profileImg: "avatar.png",
     codeforcesProfileUrl: "https://codeforces.com/profile/Prajwalrayal",
     linkedInProfileUrl: "https://www.linkedin.com/in/prajwal-rayal-30b323222",
@@ -106,6 +115,7 @@ export const teamList_21 = [
   {
     name: "Varun Singh",
     team: "dev",
+    batch: 2021,
     profileImg: "varun.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/varun-singh-018242224",
     githubProfileUrl: "https://github.com/varun7singh",
@@ -114,6 +124,7 @@ export const teamList_21 = [
   {
     name: "Prajjwal Kapoor",
     team: "dev",
+    batch: 2021,
     profileImg: "prajjwal.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/prajjwal-kapoor/",
     githubProfileUrl: "https://github.com/prajjwalkapoor",
@@ -122,6 +133,7 @@ export const teamList_21 = [
   {
     name: "Aishwarya Saxena",
     team: "cp",
+    batch: 2021,
     profileImg: "aishwarya.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/ASH0705",
     linkedInProfileUrl:
@@ -132,6 +144,7 @@ export const teamList_21 = [
   {
     name: "Deepanshu Singh",
     team: "cp",
+    batch: 2021,
     profileImg: "avatar.png",
     codeforcesProfileUrl: "https://codeforces.com/profile/sdeepanshu17 ",
     linkedInProfileUrl: "https://www.linkedin.com/in/sdeepanshu17",
@@ -140,6 +153,7 @@ export const teamList_21 = [
   {
     name: "Divyansh Tripathi",
     team: "cp",
+    batch: 2021,
     profileImg: "divyansh.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/gtheoden42",
     linkedInProfileUrl: "https://www.linkedin.com/in/tdivyansh058",
@@ -149,6 +163,7 @@ export const teamList_21 = [
   {
     name: "Siddhant Raj",
     team: "cp",
+    batch: 2021,
     profileImg: "siddhant.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/Fury_04",
     linkedInProfileUrl: "https://in.linkedin.com/in/siddhant-raj-93a2101b1",
@@ -158,6 +173,7 @@ export const teamList_21 = [
   {
     name: "Prakash Dwivedi",
     team: "cp",
+    batch: 2021,
     profileImg: "prakash.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/PraKash5",
     linkedInProfileUrl:
@@ -167,6 +183,7 @@ export const teamList_21 = [
   {
     name: "Prabal Pratap Singh",
     team: "cp",
+    batch: 2021,
     profileImg: "prabal.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/prabalpsingh7115",
     linkedInProfileUrl: "https://www.linkedin.com/in/prabapsingh7115/",
@@ -176,6 +193,7 @@ export const teamList_21 = [
   {
     name: "Shreya Singh",
     team: "cp",
+    batch: 2021,
     profileImg: "avatar.png",
     linkedInProfileUrl: "https://www.linkedin.com/in/shreya-singh-2b61b8227/",
     githubProfileUrl: "https://github.com/Shreya0511",
@@ -184,6 +202,7 @@ export const teamList_21 = [
   {
     name: "Pranjal jha",
     team: "dev",
+    batch: 2021,
     profileImg: "pranjal.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/pranjal-jha-85880a229/",
     githubProfileUrl: "https://github.com/PraneGIT",
@@ -192,6 +211,7 @@ export const teamList_21 = [
   {
     name: "Bhavik Agarwal",
     team: "cp",
+    batch: 2021,
     profileImg: "bhavik.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/bhavik_2001",
     linkedInProfileUrl: "https://www.linkedin.com/in/bhavikagarwal2001/",
@@ -201,6 +221,7 @@ export const teamList_21 = [
   {
     name: "Yash Rastogi",
     team: "cp",
+    batch: 2021,
     profileImg: "yash.jpg",
     codeforcesProfileUrl:
       "https://codeforces.com/profile/yashrastogi543?mobile=false",
@@ -210,6 +231,7 @@ export const teamList_21 = [
   {
     name: "Nitya Tiwari",
     team: "cp",
+    batch: 2021,
     profileImg: "nitya.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/Azalea05",
     linkedInProfileUrl: "https://www.linkedin.com/in/nitya-tiwari-960797229/",
@@ -219,6 +241,7 @@ export const teamList_21 = [
   {
     name: "Priyanshu Agarwal",
     team: "dev",
+    batch: 2021,
     profileImg: "priyanshu.jpg",
     linkedInProfileUrl:
       "http://www.linkedin.com/in/priyanshu-agarwal-484151220/",
@@ -228,6 +251,7 @@ export const teamList_21 = [
   {
     name: "Rishabh Gupta",
     team: "dev",
+    batch: 2021,
     profileImg: "rishabh.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/rishabh-g-014020139/",
     codeforcesProfileUrl: "https://codeforces.com/profile/_callmegupta",
@@ -237,6 +261,7 @@ export const teamList_21 = [
   {
     name: "Aman Srivastava",
     team: "cp",
+    batch: 2021,
     profileImg: "aman.jpeg",
     codeforcesProfileUrl: "https://codeforces.com/profile/aman_sriv",
     linkedInProfileUrl:
@@ -244,12 +269,10 @@ export const teamList_21 = [
     githubProfileUrl: "https://github.com/AmanSrivastavaERC",
     email: "21bec014@iiitdmj.ac.in",
   },
-];
-
-export const teamList_22 = [
   {
     name: "Pratik Solanki",
     team: "dev",
+    batch: 2022,
     profileImg: "pratik.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/pratik-solanki-a140a7257/",
     githubProfileUrl: "https://github.com/Pratik2026",
@@ -258,6 +281,7 @@ export const teamList_22 = [
   {
     name: "Vedant Jain",
     team: "dev",
+    batch: 2022,
     profileImg: "vedant.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/vedant-jain-4733a4250/",
     githubProfileUrl: "https://github.com/jainvedant392",
@@ -266,6 +290,7 @@ export const teamList_22 = [
   {
     name: "Eshaan Modi",
     team: "dev",
+    batch: 2022,
     profileImg: "eshaan.jpg",
     linkedInProfileUrl: "www.linkedin.com/in/eshaan-modi-a9a602253",
     githubProfileUrl: "https://github.com/NightFury742",
@@ -274,6 +299,7 @@ export const teamList_22 = [
   {
     name: "Shraman Paul",
     team: "dev",
+    batch: 2022,
     profileImg: "ShramanPaul.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/shraman-paul-15ba04257/",
     githubProfileUrl: "https://github.com/shramanpaul",
@@ -282,6 +308,7 @@ export const teamList_22 = [
   {
     name: "Neyati",
     team: "dev",
+    batch: 2022,
     profileImg: "neyati.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/neyati-iiit/",
     githubProfileUrl: "https://github.com/Doraemon012",
@@ -290,6 +317,7 @@ export const teamList_22 = [
   {
     name: "Aditya Ghai",
     team: "dev",
+    batch: 2022,
     profileImg: "Aditya.jpg",
     linkedInProfileUrl: " www.linkedin.com/in/aditya-ghai-71326124a",
     githubProfileUrl: "https://github.com/adityaghai07 ",
@@ -298,6 +326,7 @@ export const teamList_22 = [
   {
     name: "Shreyans Kataria",
     team: "dev",
+    batch: 2022,
     profileImg: "shreyans.jpg",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/shreyans-katariya-501489260/ ",
@@ -307,6 +336,7 @@ export const teamList_22 = [
   {
     name: "Joyee Biswas",
     team: "dev",
+    batch: 2022,
     profileImg: "joyee.jpg",
     linkedInProfileUrl: " https://www.linkedin.com/in/joyee-biswas-807b53258",
     githubProfileUrl: "https://github.com/Joyee2004 ",
@@ -315,6 +345,7 @@ export const teamList_22 = [
   {
     name: "Dhruv Parmar",
     team: "dev",
+    batch: 2022,
     profileImg: "dhruv.jpg",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/dhruv-parmar-61b31226b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
@@ -324,6 +355,7 @@ export const teamList_22 = [
   {
     name: "Shivansh Fulper",
     team: "dev",
+    batch: 2022,
     profileImg: "Shivansh.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/shivansh-fulper-463968223",
     githubProfileUrl: " https://github.com/Pin4sf ",
@@ -332,6 +364,7 @@ export const teamList_22 = [
   {
     name: "Agrim Gupta",
     team: "dev",
+    batch: 2022,
     profileImg: "agrim.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/agrim-gupta-203570265",
     githubProfileUrl: " https://github.com/Agrim2112",
@@ -340,6 +373,7 @@ export const teamList_22 = [
   {
     name: "Aditya kumar Gupta",
     team: "dev",
+    batch: 2022,
     profileImg: "Aditya_Gupta.jpg",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/aditya-kumar-gupta-b52a9426b",
@@ -349,6 +383,7 @@ export const teamList_22 = [
   {
     name: "Akshay Bhel",
     team: "dev",
+    batch: 2022,
     profileImg: "akshay.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/akshay-behl-450661258/",
     githubProfileUrl: "https://github.com/Captain-T2004",
@@ -357,6 +392,7 @@ export const teamList_22 = [
   {
     name: "Prince Bhujethia",
     team: "dev",
+    batch: 2022,
     profileImg: "prince.jpg",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/prince-bujethia-60850a1a0/",
@@ -366,6 +402,7 @@ export const teamList_22 = [
   {
     name: "Divyansh Bisht",
     team: "cp",
+    batch: 2022,
     profileImg: "divyansh_bisht.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/DCODER_13",
     linkedInProfileUrl:
@@ -376,6 +413,7 @@ export const teamList_22 = [
   {
     name: "Himanshu Kamble",
     team: "cp",
+    batch: 2022,
     profileImg: "Himanshu_kamble.jpeg",
     codeforcesProfileUrl: "https://codeforces.com/profile/d0tniiko",
     linkedInProfileUrl:
@@ -386,6 +424,7 @@ export const teamList_22 = [
   {
     name: "Rajavamshi",
     team: "cp",
+    batch: 2022,
     profileImg: "Rajavamshi.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/vamshi_75",
     linkedInProfileUrl:
@@ -396,6 +435,7 @@ export const teamList_22 = [
   {
     name: "Uttara Kamat",
     team: "cp",
+    batch: 2022,
     profileImg: "uttara.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/idlidosa_1206",
     linkedInProfileUrl: "https://www.linkedin.com/in/uttara-kamat/",
@@ -405,6 +445,7 @@ export const teamList_22 = [
   {
     name: "Rishi Godre",
     team: "cp",
+    batch: 2022,
     profileImg: "Rishi.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/rishigodre14",
     linkedInProfileUrl: "www.linkedin.com/in/rishi-godre-31323624b",
@@ -413,6 +454,7 @@ export const teamList_22 = [
   {
     name: "Akash Kumar Shah",
     team: "cp",
+    batch: 2022,
     profileImg: "AkashSah.png",
     codeforcesProfileUrl: "https://codeforces.com/profile/akashsah2003",
     linkedInProfileUrl: "https://www.linkedin.com/in/akashsah2003/",
@@ -422,6 +464,7 @@ export const teamList_22 = [
   {
     name: "Keyur Joshi",
     team: "cp",
+    batch: 2022,
     profileImg: "keyur.jpg",
     codeforcesProfileUrl: "https://codeforces.com/profile/keyur03",
     linkedInProfileUrl: "https://www.linkedin.com/in/keyur-doshi-990485250/",
@@ -431,6 +474,7 @@ export const teamList_22 = [
   {
     name: "Aishwarya Ghatole",
     team: "design",
+    batch: 2022,
     profileImg: "Aishwarya.jpeg",
     linkedInProfileUrl:
       "https://www.linkedin.com/in/aishwarya-ghatole-506745231",
@@ -439,6 +483,7 @@ export const teamList_22 = [
   {
     name: "Aman Raj",
     team: "design",
+    batch: 2022,
     profileImg: "aman_raj.jpg",
     linkedInProfileUrl: "https://www.linkedin.com/in/aman-r-1676751b6",
     email: "22bcs027@gmail.com",
