@@ -1,10 +1,7 @@
-import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import Nav from "src/components/Nav";
 import DomainCard from "src/components/Cards/DomainCard";
-import { teamList } from "./teamList";
-import TeamCard from "../../components/Cards/TeamsCard";
+import { teamList } from "../../pages/Domains/teamList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -65,50 +62,38 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Domains: React.FC = () => {
+interface TeamcardProps {
+  domain: string;
+  batch: number;
+}
+
+const TeamCard: React.FC<TeamcardProps> = ({ domain, batch }) => {
   const classes = useStyles();
   return (
     <div>
-      <Nav />
-      <div className={classes.root}>
-        <Typography className={classes.heading} align="center">
-          We are everywhere
-        </Typography>
-        <Typography className={classes.subHeading} align="center">
-          {"<p>From web to app, AI to ML, Blockchain to DevOps</p>"}
-        </Typography>
-        <Typography className={classes.title} align="center">
-          OFFICE BEARERS
-        </Typography>
-        <div className={classes.flexbox}>
-          {teamList.map((memberData, i) => {
-            return memberData.team === "Coordinator" ||
-              memberData.team === "Co Coordinator" ? (
-              <DomainCard key={i} {...{ ...memberData }} />
-            ) : null;
-          })}
-        </div>
-        <Typography className={classes.title} align="center">
-          DEVELOPERS
-        </Typography>
-        <TeamCard batch={2020} domain="dev" />
-        <TeamCard batch={2021} domain="dev" />
-        <TeamCard batch={2022} domain="dev" />
-
-        <Typography className={classes.title} align="center">
-          COMPETITIVE PROGRAMMERS
-        </Typography>
-        <TeamCard batch={2020} domain="cp" />
-        <TeamCard batch={2021} domain="cp" />
-        <TeamCard batch={2022} domain="cp" />
-      </div>
-
-      <Typography className={classes.title} align="center">
-        Designers
+      <Typography className={classes.subtitle} align="center">
+        {batch} Batch
       </Typography>
-      <TeamCard batch={2022} domain="design" />
+      <div className={classes.flexbox}>
+        {teamList.map((memberData, i) => {
+          return memberData.team === domain && memberData.batch === batch ? (
+            <DomainCard
+              key={i}
+              {...{
+                ...memberData,
+                team:
+                  domain === "cp"
+                    ? "Competitive Programmer"
+                    : domain === "dev"
+                    ? "Developer"
+                    : "Designer",
+              }}
+            />
+          ) : null;
+        })}
+      </div>
     </div>
   );
 };
 
-export default Domains;
+export default TeamCard;
