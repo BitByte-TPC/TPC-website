@@ -63,6 +63,10 @@
 }
 .aboutImg {
   width: 28vw;
+  transition: transform 0.5s ease-in-out;
+}
+.aboutImg:hover {
+  transform: scale(1.1);
 }
 
 .break {

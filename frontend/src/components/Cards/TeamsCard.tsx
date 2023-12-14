@@ -2,6 +2,7 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
 import DomainCard from "src/components/Cards/DomainCard";
 import { teamList } from "../../pages/Domains/teamList";
+import AnimateOnScroll from "src/utils/animateonscroll";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -77,18 +78,22 @@ const TeamCard: React.FC<TeamcardProps> = ({ domain, batch }) => {
       <div className={classes.flexbox}>
         {teamList.map((memberData, i) => {
           return memberData.team === domain && memberData.batch === batch ? (
-            <DomainCard
-              key={i}
-              {...{
-                ...memberData,
-                team:
-                  domain === "cp"
-                    ? "Competitive Programmer"
-                    : domain === "dev"
-                    ? "Developer"
-                    : "Designer",
-              }}
-            />
+            <>
+              <AnimateOnScroll>
+                <DomainCard
+                  key={i}
+                  {...{
+                    ...memberData,
+                    team:
+                      domain === "cp"
+                        ? "Competitive Programmer"
+                        : domain === "dev"
+                        ? "Developer"
+                        : "Designer",
+                  }}
+                />
+              </AnimateOnScroll>
+            </>
           ) : null;
         })}
       </div>

@@ -24,9 +24,18 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "rgba(255, 255, 255, 0.75)",
       fontFamily: "monospace",
       marginBottom: "5vh",
+      animation: "$fadeIn 2s ease-in-out",
       [theme.breakpoints.down("sm")]: {
         fontSize: "0.9rem",
         padding: "0 5vw",
+      },
+    },
+    "@keyframes fadeIn": {
+      "0%": {
+        opacity: 0,
+      },
+      "100%": {
+        opacity: 1,
       },
     },
     title: {

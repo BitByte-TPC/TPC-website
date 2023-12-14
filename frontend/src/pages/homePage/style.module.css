@@ -21,6 +21,9 @@
   line-height: 72px;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: -4px 4px 4px #10abc2;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideFromBottom 1s ease-in-out forwards;
 }
 .text {
   font-family: monospace;
@@ -28,19 +31,36 @@
   font-weight: normal;
   font-size: 1.4rem;
   margin: 5vh 0;
-  width: 30vw;
+  width: 45vw;
   line-height: 31px;
   color: #bfc0c2;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideFromBottom 1s ease-in-out forwards;
 }
 
 .learnQ {
   width: 30vw;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideFromBottom 1s ease-in-out forwards;
 }
 
 .brackets {
   width: 20vw;
   margin-right: 5vw;
   margin-top: 8vw;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideFromBottom 1s ease-in-out forwards;
+}
+
+@keyframes slideFromBottom {
+  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media only screen and (max-width: 1180px) {

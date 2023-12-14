@@ -4,6 +4,7 @@ import { Typography } from "@material-ui/core";
 import Nav from "../../components/Nav";
 import AlumniCard from "src/components/Cards/AlumniCard";
 import { alumniList } from "./alumniList";
+import AnimateOnScroll from "src/utils/animateonscroll";
 
 const Alumni: React.FC = () => {
   const useStyles = makeStyles((theme: Theme) =>
@@ -28,10 +29,18 @@ const Alumni: React.FC = () => {
         color: "rgba(255, 255, 255, 0.75)",
         fontFamily: "monospace",
         marginTop: "2vh",
-
+        animation: "$fadeIn 2s ease-in-out",
         [theme.breakpoints.down("sm")]: {
           fontSize: "0.9rem",
           padding: "0 5vw",
+        },
+      },
+      "@keyframes fadeIn": {
+        "0%": {
+          opacity: 0,
+        },
+        "100%": {
+          opacity: 1,
         },
       },
       title: {
@@ -87,7 +96,13 @@ const Alumni: React.FC = () => {
 
         <div className={classes.flexbox}>
           {alumniList.map((memberData, i) => {
-            return <AlumniCard key={i} {...{ ...memberData }} />;
+            return (
+              <>
+                <AnimateOnScroll>
+                  <AlumniCard key={i} {...{ ...memberData }} />;
+                </AnimateOnScroll>
+              </>
+            );
           })}
         </div>
       </div>

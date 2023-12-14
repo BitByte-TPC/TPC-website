@@ -5,6 +5,7 @@ import Nav from "src/components/Nav";
 import DomainCard from "src/components/Cards/DomainCard";
 import { teamList } from "./teamList";
 import TeamCard from "../../components/Cards/TeamsCard";
+import AnimateOnScroll from "src/utils/animateonscroll";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,10 +28,19 @@ const useStyles = makeStyles((theme: Theme) =>
     subHeading: {
       color: "rgba(255, 255, 255, 0.75)",
       fontFamily: "monospace",
+      animation: "$fadeIn 2s ease-in-out",
 
       [theme.breakpoints.down("sm")]: {
         fontSize: "0.9rem",
         padding: "0 5vw",
+      },
+    },
+    "@keyframes fadeIn": {
+      "0%": {
+        opacity: 0,
+      },
+      "100%": {
+        opacity: 1,
       },
     },
     title: {
@@ -84,7 +94,11 @@ const Domains: React.FC = () => {
           {teamList.map((memberData, i) => {
             return memberData.team === "Coordinator" ||
               memberData.team === "Co Coordinator" ? (
-              <DomainCard key={i} {...{ ...memberData }} />
+              <>
+                <AnimateOnScroll>
+                  <DomainCard key={i} {...{ ...memberData }} />
+                </AnimateOnScroll>
+              </>
             ) : null;
           })}
         </div>

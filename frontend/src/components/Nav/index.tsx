@@ -50,6 +50,35 @@ const useStyles = makeStyles((theme: Theme) =>
     pseudolink: {
       cursor: "pointer",
     },
+    topNav: {
+      textAlign: "center",
+      paddingTop: 20,
+      paddingBottom: 20,
+      background: "#171717",
+      color: "white",
+    },
+    divider: {
+      height: 3,
+      width: "100%",
+      background: "#1d1d1d",
+    },
+    list: {
+      marginTop: 10,
+      display: "flex",
+      flexDirection: "column",
+      gap: 8,
+    },
+    link: {
+      textDecoration: "none",
+    },
+    btn: {
+      display: "flex",
+      gap: 20,
+      borderRadius: 5,
+      "&:hover": {
+        background: "#1d1d1d",
+      },
+    },
   })
 );
 const Nav: React.FC = () => {
@@ -76,7 +105,7 @@ const Nav: React.FC = () => {
       role="presentation"
       onClick={toggleDrawer}
     >
-      <List>
+      <List className={classes.list}>
         {linklist.map((linkData, key) => {
           if (linkData.loginReq) {
             return !!token ? (
@@ -85,7 +114,7 @@ const Nav: React.FC = () => {
                 onClick={async () => await handleLogout(linkData.url)}
                 key={key}
               >
-                <ListItem button>
+                <ListItem button className={classes.btn}>
                   <Typography className={classes.other}>
                     {linkData.name}
                   </Typography>
@@ -94,8 +123,9 @@ const Nav: React.FC = () => {
             ) : null;
           }
           return (
-            <Link to={linkData.url} key={key}>
-              <ListItem button>
+            <Link className={classes.link} to={linkData.url} key={key}>
+              <ListItem button className={classes.btn}>
+                <img width={20} height={20} src={linkData.icon} />
                 <Typography className={classes.other}>
                   {linkData.name}
                 </Typography>
@@ -130,6 +160,10 @@ const Nav: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Drawer anchor={"right"} open={drawerOpen} onClose={toggleDrawer}>
+        <div className={classes.topNav}>
+          <Typography>MENU</Typography>
+        </div>
+        <div className={classes.divider}></div>
         {drawerList}
       </Drawer>
     </div>
