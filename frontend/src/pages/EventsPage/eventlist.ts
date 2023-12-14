@@ -24,6 +24,7 @@ export const eventList = [
     subtitle: "IIIT Jabalpur's flagship team programming contest!",
     thumb: "crlogo.jpg",
     date: "9th September 2023",
+    web: "https://coderumble.vercel.app/",
     images: ["crimage2.jpg", "crimage3.jpg", "crimage4.jpg", "crlogo.jpg"],
     description:
       "A 5-hour coding contest and speaker session to create awareness about Competitive Programming Competitions while teaming up with their peers.",
