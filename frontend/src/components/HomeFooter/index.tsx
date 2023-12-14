@@ -1,10 +1,19 @@
-import { Email, GitHub, Instagram, LinkedIn } from "@material-ui/icons";
+import {
+  Email,
+  GitHub,
+  Instagram,
+  LinkedIn,
+  Timeline,
+} from "@material-ui/icons";
+// import TimelineIcon from '@material-ui/icons/Timeline';
+
 import React from "react";
 import {
   bitbyteEmail,
   bitbyteGithubUrl,
   bitbyteInstaUrl,
   bitbyteLinkedInUrl,
+  bitbyteLinktree,
 } from "src/store/global";
 import styles from "./style.module.css";
 
@@ -22,6 +31,9 @@ const HomeFooter: React.FC = () => {
       </a>
       <a href={bitbyteGithubUrl} target="_blank">
         <GitHub className={styles.icon} />
+      </a>
+      <a href={bitbyteLinktree} target="_blank">
+        <Timeline className={styles.icon} />
       </a>
     </div>
   );
