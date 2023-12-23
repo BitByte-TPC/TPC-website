@@ -1,4 +1,3 @@
-// EventCard.tsx:
 import React, { useState } from "react";
 import Carousel from "../eventsPage/Carousel";
 import { Launch, PhotoLibrary } from "@material-ui/icons";
@@ -30,13 +29,12 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     linkContainer: {
       "&:hover": {
-        background: "#03d7e03b",
-        color: "cyan",
+        background: "var(--my-dcyan)",
       },
       marginTop: ".8rem",
       width: "5rem",
       paddingInline: ".6rem",
-      background: "#afdbdd3b",
+      background: "var(--translucent-backgound)",
       borderRadius: "10px",
     },
     eventLink: {
@@ -52,13 +50,11 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: "8px",
     },
     cardContainer: {
-      boxShadow: "0px 0px 14px 5px #11bfd7c9",
+      boxShadow: "0px 0px 14px 5px var(--my-dcyan)",
       borderRadius: 20,
       background: "transparent",
       height: "100%",
-
       color: "white",
-
       border: "2px solid #00ffffde",
       display: "flex",
       flexDirection: "column",
@@ -68,8 +64,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     cardContent: {
       width: "95%",
-
-      borderTop: "2px solid cyan",
+      borderTop: "2px solid var(--my-lcyan)",
       flexGrow: 1,
       marginBottom: 2,
     },
@@ -81,13 +76,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     galleryButton: {
       position: "absolute",
-      left: "86%",
+      left: "calc(100% - 4rem)",
       color: "white",
       transition: theme.transitions.create(["transform", "opacity"], {
         duration: theme.transitions.duration.short,
       }),
       "&:hover": {
-        background: "#03d7e03b",
+        background: "var(--my-dcyan)",
       },
     },
     buttonHidden: {
@@ -96,14 +91,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     date: {
       fontFamily: "monospace",
-      color: "cyan",
+      color: "var(--my-lcyan)",
       marginTop: "1rem",
       marginBottom: ".5rem",
     },
     description: {
       marginTop: ".5rem",
       fontFamily: "monospace",
-      borderLeft: "3px solid #00ffffab",
+      borderLeft: "3px solid var(--my-dcyan)",
       paddingLeft: ".4rem",
     },
   })

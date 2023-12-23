@@ -19,8 +19,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
   },
   imageContainer: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: "20px 20px 0 0",
     position: "relative",
     width: "100%",
     aspectRatio: "16/10",
@@ -28,8 +27,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     overflow: "hidden",
   },
   image: {
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: "20px 20px 0 0",
     width: "100%",
     height: "100%",
     objectFit: "cover",
@@ -37,8 +35,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   paginationContainer: {
     zIndex: 1,
     display: "flex",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius: "20px 20px 0 0",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
@@ -46,13 +43,13 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: 0,
     width: "fit-content",
     backdropFilter: "blur(5px)",
-    backgroundColor: "#afdbdd3b",
+    backgroundColor: "var(--translucent-backgound)",
   },
   dot: {
     width: theme.spacing(1),
     height: theme.spacing(1),
     borderRadius: "50%",
-    background: "#ffffff9e",
+    background: "var(--nav-btn-background)",
     margin: theme.spacing(0, 0.5),
     transition: "background 0.3s ease",
     "&:hover": {
@@ -60,7 +57,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   activeDot: {
-    background: "cyan",
+    background: "var(--my-lcyan)",
   },
   iconButton: {
     width: theme.spacing(0.1),
@@ -71,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     transition: "background 0.3s ease",
     color: "white",
     "&:hover": {
-      color: "cyan",
+      color: "var(--my-lcyan)",
     },
   },
   title: {
@@ -103,7 +100,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: 10,
     color: "white",
     zIndex: 100,
-    background: "#afdbdd3b",
+    background: "var(--translucent-backgound)",
     backdropFilter: "blur(3px)",
   },
 }));
