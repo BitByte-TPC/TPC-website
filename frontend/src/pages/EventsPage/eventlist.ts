@@ -33,7 +33,7 @@ export const eventList = [
   {
     title: "BSOC",
     subtitle: "The annual open-source program",
-    thumb: "bsoclogo.png",
+    thumb: "bsoclogo.jpg",
     web: "https://bitbytesummerofcode.netlify.app/",
     date: "May to July 2023",
     description:
@@ -47,7 +47,7 @@ export const eventList = [
   },
   {
     title: "Blind code FrontEnd",
-    thumb: "blindcodefrontendlogo.png",
+    thumb: "blindcodefrontendlogo.jpg",
     priority: false,
   },
   {
