@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     galleryButton: {
       position: "absolute",
-      left: "calc(100% - 4rem)",
+      left: "calc(100% - 3rem)",
       color: "white",
       transition: theme.transitions.create(["transform", "opacity"], {
         duration: theme.transitions.duration.short,
@@ -100,6 +100,16 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "monospace",
       borderLeft: "3px solid var(--my-dcyan)",
       paddingLeft: ".4rem",
+    },
+    title: {
+      fontSize: "1.7rem",
+      fontWeight: "bolder",
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "1.5rem",
+      },
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "1.6rem",
+      },
     },
   })
 );
@@ -146,11 +156,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </Zoom>
         )}
 
-        <Typography
-          variant="h4"
-          component="div"
-          style={{ fontWeight: "bolder" }}
-        >
+        <Typography component="div" className={classes.title}>
           {title}
         </Typography>
         {subtitle && <Typography variant="subtitle1">{subtitle}</Typography>}

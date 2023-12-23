@@ -55,6 +55,17 @@ const useStyles = makeStyles((theme: Theme) =>
         fontSize: "1rem",
       },
     },
+    grid: {
+      width: "90vw",
+      marginBottom: "6rem",
+      marginTop: "1rem",
+      [theme.breakpoints.up("sm")]: {
+        justifyContent: "center",
+      },
+      [theme.breakpoints.down("md")]: {
+        justifyContent: "flex-start",
+      },
+    },
   })
 );
 
@@ -80,11 +91,7 @@ const Events: React.FC = () => {
           Main Events
         </Typography>
 
-        <Grid
-          container
-          spacing={7}
-          style={{ width: "90vw", marginBottom: "6rem", marginTop: "1rem" }}
-        >
+        <Grid container spacing={7} className={classes.grid}>
           {eventList.map((event, i) => {
             return event.priority === true ? (
               <Grid item xs={12} sm={12} md={6} lg={4} xl={3}>
@@ -102,11 +109,7 @@ const Events: React.FC = () => {
           Other Events
         </Typography>
 
-        <Grid
-          container
-          spacing={7}
-          style={{ width: "90vw", marginBottom: "6rem", marginTop: "1rem" }}
-        >
+        <Grid container spacing={7} className={classes.grid}>
           {eventList.map((event, i) => {
             return event.priority === false ? (
               <Grid item xs={12} sm={12} md={6} lg={4} xl={3}>
