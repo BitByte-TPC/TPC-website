@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "transparent",
       border: "2px solid cyan",
       borderRadius: "24px",
-      boxShadow: "0px 0px 14px 5px #11BFD7",
+      boxShadow: "0px 0px 14px 5px var(--my-dcyan)",
     },
     title: {
       fontSize: "1.2rem",
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       fontFamily: "monospace",
       textAlign: "center",
-      color: "#BFC7D1",
+      color: "var(--subtitle-color)",
     },
     media: {
       aspectRatio: "4/3",
