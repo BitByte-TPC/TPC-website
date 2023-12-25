@@ -5,6 +5,7 @@ import Domains from "./pages/Domains";
 import Events from "./pages/EventsPage";
 import { Route, Switch } from "react-router-dom";
 import Projects from "./pages/Projects";
+import Alumni from "./pages/Alumni";
 // import Registration from "./pages/Registration";
 // import GoogleRedirect from "./pages/GoogleRedirect";
 // import Meeting from "./pages/Meeting";
@@ -33,6 +34,7 @@ const Routes: React.FC = () => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/team" component={Domains} />
         <Route exact path="/projects" component={Projects} />
+        <Route exact path="/alumni" component={Alumni} />
         <Route exact path="/events" component={Events} />
         <Route path="/" component={NotFound} />
         {/* <Route exact path="/registration" component={Registration} />

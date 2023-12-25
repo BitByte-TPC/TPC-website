@@ -10,6 +10,11 @@ export const linklist = [
     loginReq: false,
   },
   {
+    name: "Alumni",
+    url: "/alumni",
+    loginReq: false,
+  },
+  {
     name: "Events",
     url: "/events",
     loginReq: true,
