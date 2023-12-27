@@ -4,3 +4,4 @@ export const bitbyteLinkedInUrl =
   "https://www.linkedin.com/company/bitbyte-tpc/about/";
 export const bitbyteEmail = "theprogclub@iiitdmj.ac.in";
 export const bitbyteGithubUrl = "https://github.com/BitByte-TPC";
+export const bitbyteLinktree = "https://linktr.ee/theprogclub";
