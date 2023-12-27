@@ -5,7 +5,6 @@ import {
   LinkedIn,
   Timeline,
 } from "@material-ui/icons";
-// import TimelineIcon from '@material-ui/icons/Timeline';
 
 import React from "react";
 import {
