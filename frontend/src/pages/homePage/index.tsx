@@ -6,6 +6,7 @@ import WhyUs from "src/components/WhyUs";
 import Mission from "src/components/Mission_vision/Mission";
 import Vision from "src/components/Mission_vision/Vision";
 import HomeFooter from "src/components/HomeFooter";
+import AnimateOnScroll from "src/utils/animateonscroll";
 
 const HomePage: React.FC = () => {
   return (
@@ -19,7 +20,7 @@ const HomePage: React.FC = () => {
           </span>
           <span className={styles.text}>
             {
-              "<p>An Open Coding Community to explore and do a lot more with your friends and members.</p>"
+              "<p>An open coding community where you can explore, collaborate, and engage with friends on various coding activities and projects.</p>"
             }
           </span>
           <img
@@ -34,10 +35,21 @@ const HomePage: React.FC = () => {
           alt="{}"
         />
       </div>
-      <AboutUs />
-      <WhyUs />
-      <Mission />
-      <Vision />
+      <AnimateOnScroll>
+        <AboutUs />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        <WhyUs />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        <Mission />
+      </AnimateOnScroll>
+
+      <AnimateOnScroll>
+        <Vision />
+      </AnimateOnScroll>
       <HomeFooter />
     </div>
   );

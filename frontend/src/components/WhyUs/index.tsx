@@ -24,11 +24,74 @@ const WhyUs: React.FC = () => {
         </p>
       </div>
       <div className={styles.vectors}>
-        <img
-          className={styles.aboutImg}
-          src="/webix.iiitdmj.ac.in/images/other/why_us.png"
-          alt="tech"
-        />
+        <div className={styles.circlecontainer}>
+          <div className={styles.outercircle}>
+            <div className={styles.circle}>
+              <img
+                width="80px"
+                height="80px"
+                className={styles.github}
+                src="/webix.iiitdmj.ac.in/images/icons/github.png"
+                alt=""
+              />
+              <img
+                width="80px"
+                height="80px"
+                className={styles.react}
+                src="/webix.iiitdmj.ac.in/images/icons/react.png"
+                alt=""
+              />
+              <img
+                width="80px"
+                height="80px"
+                className={styles.angular}
+                src="/webix.iiitdmj.ac.in/images/icons/angular.png"
+                alt=""
+              />
+              <img
+                width="80px"
+                height="80px"
+                className={styles.vue}
+                src="/webix.iiitdmj.ac.in/images/icons/vue.png"
+                alt=""
+              />
+            </div>
+            <div className={styles.middlewrapper}>
+              <div className={styles.middlecircle}>
+                <div className={styles.circle}>
+                  <img
+                    width="80px"
+                    height="80px"
+                    className={styles.c}
+                    src="/webix.iiitdmj.ac.in/images/icons/c.png"
+                    alt=""
+                  />
+                  <img
+                    width="80px"
+                    height="80px"
+                    className={styles.java}
+                    src="/webix.iiitdmj.ac.in/images/icons/java.png"
+                    alt=""
+                  />
+                  <img
+                    width="80px"
+                    height="80px"
+                    className={styles.python}
+                    src="/webix.iiitdmj.ac.in/images/icons/python.png"
+                    alt=""
+                  />
+                  <img
+                    width="80px"
+                    height="80px"
+                    className={styles.go}
+                    src="/webix.iiitdmj.ac.in/images/icons/go.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

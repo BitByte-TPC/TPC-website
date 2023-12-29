@@ -50,13 +50,154 @@
   justify-content: space-around;
   align-items: center;
   height: 80%;
-}
-.vectors > img {
-  width: 40vw;
+  margin-right: 5vw;
 }
 
 .break {
   margin-bottom: 5vh;
+}
+
+.circlecontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outercircle {
+  width: 400px;
+  height: 400px;
+  background-color: #00050b;
+  border-radius: 50%;
+  margin: 50px auto;
+  position: relative;
+  animation: rotate 30s linear infinite;
+  padding: 80px;
+}
+
+.middlewrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00050b;
+  border-radius: 50%;
+}
+
+.middlecircle {
+  width: 250px;
+  height: 250px;
+  background-color: #00050b;
+  border-radius: 50%;
+  animation: rotate-reverse 15s linear infinite;
+}
+
+.github {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: red;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 15px #08ffea;
+}
+
+.react {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.angular {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.vue {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.c {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.java {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.go {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+.python {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(50%, -50%);
+  font-size: 40px;
+  color: red;
+  box-shadow: 0 0 30px 15px #08ffea;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-reverse {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(-360deg);
+  }
 }
 
 @media only screen and (max-width: 1180px) {
