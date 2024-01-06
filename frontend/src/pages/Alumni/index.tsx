@@ -6,7 +6,6 @@ import AlumniCard from "src/components/Cards/AlumniCard";
 import { alumniList } from "./alumniList";
 import AnimateOnScroll from "src/utils/animateonscroll";
 
-
 const Alumni: React.FC = () => {
   const useStyles = makeStyles((theme: Theme) =>
     createStyles({
