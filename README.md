@@ -9,4 +9,6 @@ This is the official website of the Programming Club at IIITDM Jabalpur
 
 ## Want to contribute?
 
+> Clone the repo using SSH, cloning over https is fail-prone.
+
 Check out [CONTRIBUTING.md](CONTRIBUTING.md).
