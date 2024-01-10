@@ -249,16 +249,6 @@ export const teamList = [
     email: "agpriyanshu18@gmail.com",
   },
   {
-    name: "Rishabh Gupta",
-    team: "dev",
-    batch: 2021,
-    profileImg: "rishabh.jpg",
-    linkedInProfileUrl: "https://www.linkedin.com/in/rishabh-g-014020139/",
-    codeforcesProfileUrl: "https://codeforces.com/profile/_callmegupta",
-    githubProfileUrl: "https://github.com/IamRishabhGupta",
-    email: "rishabh9aug@gmail.com",
-  },
-  {
     name: "Aman Srivastava",
     team: "cp",
     batch: 2021,
