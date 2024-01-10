@@ -18,14 +18,9 @@ export const linklist = [
     icon: "/webix.iiitdmj.ac.in/images/icons/alumni.png",
   },
   {
-    name: "Alumni",
-    url: "/alumni",
-    loginReq: false,
-  },
-  {
     name: "Events",
     url: "/events",
-    loginReq: true,
+    loginReq: false,
     icon: "/webix.iiitdmj.ac.in/images/icons/event.png",
   },
   {
