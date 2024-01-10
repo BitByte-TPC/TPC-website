@@ -28,8 +28,8 @@ export const alumniList = [
     description: "Co-Coordinator(2018-19)",
     profileImg: "Anuraag.jpeg",
     linkedInProfileUrl: "https://www.linkedin.com/in/anuraag-singh-231661113",
-    githubProfileUrl: "",
-    email: "",
+    githubProfileUrl: "https://www.github.com/anuraagheisenberg",
+    email: "dbaanurag@gmail.com",
   },
   {
     name: "Shivansh Dhiman",
