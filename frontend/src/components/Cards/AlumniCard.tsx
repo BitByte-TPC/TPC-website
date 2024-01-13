@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
 interface AlumniCardProps {
   name: string;
   description: string;
+  description2?: string;
   codeforcesProfileUrl?: string;
   githubProfileUrl?: string;
   linkedInProfileUrl?: string;
@@ -65,6 +66,7 @@ interface AlumniCardProps {
 const AlumniCard: React.FC<AlumniCardProps> = ({
   name,
   description,
+  description2 = "",
   githubProfileUrl,
   profileImg,
   email,
@@ -81,6 +83,7 @@ const AlumniCard: React.FC<AlumniCardProps> = ({
       <CardContent>
         <Typography className={classes.title}>{name}</Typography>
         <Typography className={classes.subTitle}>{description}</Typography>
+        <Typography className={classes.subTitle}>{description2}</Typography>
 
         <div className={classes.iconsContainer}>
           {githubProfileUrl ? (
@@ -92,7 +95,7 @@ const AlumniCard: React.FC<AlumniCardProps> = ({
           ) : null}
 
           {email ? (
-            <a href={email} target="_blank">
+            <a href={"mailto:" + email} target="_blank">
               <IconButton>
                 <Email className={classes.icons} />
               </IconButton>
