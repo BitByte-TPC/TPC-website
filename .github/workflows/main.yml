@@ -1,0 +1,32 @@
+name: Services
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16.14.2
+      - name: Installing Dependencies
+        run: npm install
+      - name: Building
+        run: npm run build
+      - name: upload
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: "frontend/build/"
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
