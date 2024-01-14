@@ -18,8 +18,8 @@ jobs:
       - name: Installing Dependencies
         run: npm install
       - name: Building
-        run: npm run build
-      - name: upload
+        run: npm ci
+      - name: Deploying
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
