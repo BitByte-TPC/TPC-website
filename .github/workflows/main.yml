@@ -16,9 +16,9 @@ jobs:
         with:
           node-version: 16.14.2
       - name: Installing Dependencies
-        run: npm install
-      - name: Building
         run: npm ci
+      - name: Building
+        run: npm run build
       - name: Deploying
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -26,7 +26,3 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: "frontend/build/"
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
