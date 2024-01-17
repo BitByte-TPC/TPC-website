@@ -88,8 +88,8 @@ const TeamCard: React.FC<TeamcardProps> = ({ domain, batch }) => {
                       domain === "cp"
                         ? "Competitive Programmer"
                         : domain === "dev"
-                        ? "Developer"
-                        : "Designer",
+                          ? "Developer"
+                          : "Designer",
                   }}
                 />
               </AnimateOnScroll>

@@ -42,7 +42,7 @@ commit messages are standardized:
 ### Frontend setup
 
 - Run `cd frontend`
-- Run `npm install` to install all dependencies.
+- Run `npm ci --legacy-peer-deps` to install all dependencies.
 - Run `npm start` to start the server and visit [site](http://localhost:3000).
 
 ### Before making PR
