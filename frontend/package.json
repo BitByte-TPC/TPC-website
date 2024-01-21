@@ -1,8 +1,8 @@
 {
   "name": "frontend",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
-  "homepage": "http://localhost:3000/webix.iiitdmj.ac.in/",
   "dependencies": {
     "@date-io/date-fns": "1.x",
     "@material-ui/core": "^4.11.4",
@@ -19,18 +19,16 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
-    "react-swipeable-views": "^0.13.9",
+    "react-swipeable-views": "^0.14.0",
     "swr": "^0.5.6",
     "web-vitals": "^0.2.4",
     "yup": "^0.32.9",
     "zustand": "^3.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "format": "prettier --write src"
@@ -54,19 +52,23 @@
     ]
   },
   "devDependencies": {
-    "@types/jwt-decode": "^3.1.0",
-    "@types/node": "^15.0.2",
+    "@types/node": "^20.11.5",
     "@types/react": "^17.0.5",
     "@types/react-dom": "^17.0.3",
     "@types/react-router-dom": "^5.1.7",
     "@types/react-swipeable-views": "^0.13.0",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "browserslist": "^4.22.2",
+    "browserslist-to-esbuild": "^2.1.1",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "prettier": "^2.3.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "vite": "^5.0.12",
+    "vite-tsconfig-paths": "^4.3.1"
   }
 }
