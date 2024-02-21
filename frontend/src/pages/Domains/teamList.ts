@@ -436,7 +436,7 @@ export const teamList = [
     email: "22bcs012@iiitdmj.ac.in",
   },
   {
-    name: "Akshay Bhel",
+    name: "Akshay Behl",
     team: "dev",
     batch: 2022,
     profileImg: "akshay.jpg",
@@ -517,7 +517,7 @@ export const teamList = [
     email: "akashsah2003@gmail.com",
   },
   {
-    name: "Keyur Joshi",
+    name: "Keyur Doshi",
     team: "cp",
     batch: 2022,
     profileImg: "keyur.jpg",
