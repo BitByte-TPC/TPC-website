@@ -16,6 +16,14 @@ export const alumniList = [
     email: "",
   },
   {
+    name: "Sachin Kukreja",
+    description: "Co-Coordinator (2015-16)",
+    profileImg: "Sachin.jpeg",
+    linkedInProfileUrl: "https://www.linkedin.com/in/sachin-kukreja-12b318106/",
+    githubProfileUrl: "",
+    email: "",
+  },
+  {
     name: "Saurabh Joshi",
     description: "Coordinator (2016-17)",
     profileImg: "Saurabh.jpeg",
