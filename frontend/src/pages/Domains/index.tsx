@@ -108,6 +108,8 @@ const Domains: React.FC = () => {
         <TeamCard batch={2020} domain="dev" />
         <TeamCard batch={2021} domain="dev" />
         <TeamCard batch={2022} domain="dev" />
+        <TeamCard batch={2023} domain="dev" />
+        
 
         <Typography className={classes.title} align="center">
           COMPETITIVE PROGRAMMERS
@@ -115,12 +117,17 @@ const Domains: React.FC = () => {
         <TeamCard batch={2020} domain="cp" />
         <TeamCard batch={2021} domain="cp" />
         <TeamCard batch={2022} domain="cp" />
+        <TeamCard batch={2023} domain="cp" />
+
       </div>
 
       <Typography className={classes.title} align="center">
         Designers
       </Typography>
       <TeamCard batch={2022} domain="design" />
+      <TeamCard batch={2023} domain="design" />
+
+
     </div>
   );
 };
